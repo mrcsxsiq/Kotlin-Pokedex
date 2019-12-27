@@ -19,8 +19,6 @@ Pokedex app built with Kotlin
     <img src="https://img.shields.io/badge/Say%20Thanks-👍-1EAEDB.svg" alt="Say thanks">
   </a>
 </p>
- 
-
 
 ## Download
 
@@ -62,7 +60,7 @@ Also avaible in play store
 - [ ] Pokemon Info - Base Stats
 - [ ] Pokemon Info - Evolution
 - [ ] Pokemon Info - Moves (no design)
-- [ ] News Detail
+- [X] News Detail
 
 ## Thanks
 
