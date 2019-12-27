@@ -6,12 +6,20 @@
 Pokedex app built with Kotlin
 </h1>
 
-
 <p align="center">
-[![Awesome Kotlin Badge](https://kotlin.link/awesome-kotlin.svg)](https://github.com/KotlinBy/awesome-kotlin)
-[![License](https://img.shields.io/badge/License-MIT-red.svg)](LICENSE)
-[![Say thanks](https://img.shields.io/badge/Say%20Thanks-👍-1EAEDB.svg)](https://github.com/mrcsxsiq/Kotlin-Pokedex/stargazers)
- </p>
+  <a href="https://github.com/KotlinBy/awesome-kotlin">
+    <img src="https://kotlin.link/awesome-kotlin.svg" alt="Awesome Kotlin">
+  </a>
+  
+  <a href="https://opensource.org/licenses/MIT">
+    <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License MIT">
+  </a>
+  
+  <a href="https://github.com/mrcsxsiq/Kotlin-Pokedex/stargazers">
+    <img src="https://img.shields.io/badge/Say%20Thanks-👍-1EAEDB.svg" alt="Say thanks">
+  </a>
+</p>
+ 
 
 
 ## Download
