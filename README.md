@@ -52,9 +52,9 @@ Also avaible in play store
 
 - [x] Home
 - [x] Pokedex
-- [ ] Pokedex - FAB
-- [ ] Pokedex - Search
-- [ ] Pokedex - Generation
+- [x] Pokedex - FAB
+- [x] Pokedex - Search
+- [x] Pokedex - Generation
 - [ ] Pokemon Info
 - [ ] Pokemon Info - About
 - [ ] Pokemon Info - Base Stats
