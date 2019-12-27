@@ -38,7 +38,6 @@ Also avaible in play store
 ![Pokemon Info - About](screenshots/pokemon-info-about.png "Pokemon Info - About")
 ![Pokemon Info - Base Stats](screenshots/pokemon-info-base-stats.png "Pokemon Info - Base Stats")
 ![Pokemon Info - Evolution](screenshots/pokemon-info-evolution.png "Pokemon Info - Evolution")
-![Pokemon Info - About (Expanded)](screenshots/pokemon-info-about-expanded.png "Pokemon Info - About (Expanded)")
 ![News Detail](screenshots/news-detail.png "News Detail")
 
 ## Features
