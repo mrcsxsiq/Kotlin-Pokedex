@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_top_border"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <View
+            android:layout_width="32dp"
+            android:layout_height="2dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/background" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/generation"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:background="@color/backgroundLight"
+        app:layoutManager="GridLayoutManager"
+        tools:itemCount="8"
+        tools:listitem="@layout/item_generation"
+        tools:spanCount="2" />
+</LinearLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayoutBackground"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:layout_margin="8dp"
+    android:background="@drawable/background_item_pokemon"
+    android:clickable="true"
+    android:clipToPadding="false"
+    android:elevation="8dp"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/circularstd_medium"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/circularstd_medium"
+        tools:text="Titulo" />
+
+
+    <ImageView
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="-16dp"
+        android:layout_marginBottom="-24dp"
+        android:adjustViewBounds="true"
+        android:alpha="0.95"
+        android:src="@drawable/pokeball"
+        android:tint="@color/white" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewTitle"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:adjustViewBounds="true"
+        android:src="@drawable/gen1" />
+
+
+</RelativeLayout>

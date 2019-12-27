@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Pokedex</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="in_progress">In progress...</string>
+    <string name="menu_item_1">Pokedex</string>
+    <string name="menu_item_2">Moves</string>
+    <string name="menu_item_3">Abilities</string>
+    <string name="menu_item_4">Items</string>
+    <string name="menu_item_5">Locations</string>
+    <string name="menu_item_6">Type Charts</string>
+    <string name="generation">Generation</string>
+    <string name="generation_item_1">Generation I</string>
+    <string name="generation_item_2">Generation II</string>
+    <string name="generation_item_3">Generation III</string>
+    <string name="generation_item_4">Generation IV</string>
+    <string name="generation_item_5">Generation V</string>
+    <string name="generation_item_6">Generation VI</string>
+    <string name="generation_item_7">Generation VII</string>
+    <string name="generation_item_8">Generation VIII</string>
+    <string name="pokemon_news">Pokémon News</string>
+    <string name="view_all">View All</string>
+    <string name="main_title">What Pokémon\nare you looking for?</string>
+    <string name="main_search">Search Pokemon, Move, Ability, etc</string>
+    <string name="news_title">Pokémon Rumble Rush Arrives Soon</string>
+    <string name="news_date">15 May 2019</string>
+    <string name="lorem_small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in nisi at turpis.</string>
+    <string name="lorem_large">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="dashboard_tab_1">About</string>
+    <string name="dashboard_tab_2">Base Stats</string>
+    <string name="dashboard_tab_3">Evolution</string>
+    <string name="dashboard_tab_4">Moves</string>
+</resources>

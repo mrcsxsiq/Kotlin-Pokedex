@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="dev.marcosfarias.pokedex.ui.home.HomeFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_pokedex"
+            app:destination="@id/navigation_pokedex"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_news_detail"
+            app:destination="@id/navigation_news_detail"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_pokedex"
+        android:name="dev.marcosfarias.pokedex.ui.pokedex.PokedexFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_pokedex" >
+        <action
+            android:id="@+id/action_navigation_pokedex_to_navigation_dashboard"
+            app:destination="@id/navigation_dashboard" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_news_detail"
+        android:name="dev.marcosfarias.pokedex.ui.newsdetail.NewsDetailFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_news_detail" />
+
+    <fragment
+        android:id="@+id/navigation_generation"
+        android:name="dev.marcosfarias.pokedex.ui.generation.GenerationFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_generation" />
+
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="dev.marcosfarias.pokedex.ui.search.SearchFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_search" />
+
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="dev.marcosfarias.pokedex.ui.dashboard.DashboardFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_dashboard" />
+
+
+</navigation>
