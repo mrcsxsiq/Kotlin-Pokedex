@@ -1,10 +1,17 @@
-# Pokedex app built with Kotlin
+<h1 align="center">
+<br>
+  <img src="https://user-images.githubusercontent.com/1295961/45949308-cbb2f680-bffb-11e8-8054-28c35ed6d132.png" alt="Kotlin Pokedex">
+<br>
+<br>
+Pokedex app built with Kotlin
+</h1>
 
-[<img src="https://user-images.githubusercontent.com/1295961/45949308-cbb2f680-bffb-11e8-8054-28c35ed6d132.png" align="center" width="850">](https://flutter.dev/)
 
+<p align="center">
 [![Awesome Kotlin Badge](https://kotlin.link/awesome-kotlin.svg)](https://github.com/KotlinBy/awesome-kotlin)
 [![License](https://img.shields.io/badge/License-MIT-red.svg)](LICENSE)
 [![Say thanks](https://img.shields.io/badge/Say%20Thanks-👍-1EAEDB.svg)](https://github.com/mrcsxsiq/Kotlin-Pokedex/stargazers)
+ </p>
 
 
 ## Download
