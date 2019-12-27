@@ -43,12 +43,12 @@ Also avaible in play store
 ## Features
 
 - :white_check_mark: Kotlin 
-- :white_check_mark: MVVM
-- :white_check_mark: Rest
 - :white_check_mark: Live data
-- :white_check_mark: Room Persistence
 - :white_check_mark: Navigation
-- :x: Unit Test
+- :white_check_mark: MVVM Design Partner
+- :white_check_mark: Rest with retrofit
+- :white_check_mark: Offline Persistence with Room
+- :x: Unit Test with {choose}
 
 ## Todo
 
