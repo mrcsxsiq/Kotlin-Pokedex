@@ -12,7 +12,7 @@ Pokedex app built with Kotlin
   </a>
   
   <a href="https://opensource.org/licenses/MIT">
-    <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License MIT">
+    <img src="https://img.shields.io/badge/License-MIT-red.svg" alt="License MIT">
   </a>
   
   <a href="https://github.com/mrcsxsiq/Kotlin-Pokedex/stargazers">
