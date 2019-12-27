@@ -51,6 +51,7 @@ Also available in Play Store
 - :white_check_mark: Rest with retrofit
 - :white_check_mark: Offline Persistence with Room
 - :x: Unit Test with {choose}
+- :x: Instrumentation Test with {choose}
 
 ## Todo
 
