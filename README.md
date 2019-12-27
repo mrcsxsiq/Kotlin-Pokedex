@@ -1,6 +1,6 @@
 <h1 align="center">
 <br>
-  <img src="https://user-images.githubusercontent.com/1295961/45949308-cbb2f680-bffb-11e8-8054-28c35ed6d132.png" alt="Kotlin Pokedex">
+  <img src="screenshots/kotlin.png" width="300" alt="Kotlin Pokedex">
 <br>
 <br>
 Pokedex app built with Kotlin
