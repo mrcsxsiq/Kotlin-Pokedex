@@ -59,12 +59,11 @@ Also available in Play Store
 - [x] Pokedex - FAB
 - [x] Pokedex - Search
 - [x] Pokedex - Generation
-- [ ] Pokemon Info
+- [x] Pokemon Info
 - [ ] Pokemon Info - About
 - [ ] Pokemon Info - Base Stats
 - [ ] Pokemon Info - Evolution
-- [ ] Pokemon Info - Moves (no design)
-- [X] News Detail
+- [x] News Detail
 
 ## Thanks
 
