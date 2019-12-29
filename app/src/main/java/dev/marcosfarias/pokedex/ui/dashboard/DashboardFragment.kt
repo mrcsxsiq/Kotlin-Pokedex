@@ -11,15 +11,13 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
 import dev.marcosfarias.pokedex.R
+import dev.marcosfarias.pokedex.adapter.ViewPagerAdapter
+import dev.marcosfarias.pokedex.ui.dashboard.about.AboutFragment
+import dev.marcosfarias.pokedex.ui.dashboard.evolution.EvolutionFragment
+import dev.marcosfarias.pokedex.ui.dashboard.moves.MovesFragment
+import dev.marcosfarias.pokedex.ui.dashboard.stats.StatsFragment
 import dev.marcosfarias.pokedex.utils.PokemonColorUtil
 import kotlinx.android.synthetic.main.fragment_dashboard.view.*
-import kotlinx.android.synthetic.main.fragment_dashboard.view.imageView
-import kotlinx.android.synthetic.main.fragment_dashboard.view.textViewID
-import kotlinx.android.synthetic.main.fragment_dashboard.view.textViewName
-import kotlinx.android.synthetic.main.fragment_dashboard.view.textViewType1
-import kotlinx.android.synthetic.main.fragment_dashboard.view.textViewType2
-import kotlinx.android.synthetic.main.fragment_dashboard.view.textViewType3
-import kotlinx.android.synthetic.main.item_pokemon.view.*
 
 class DashboardFragment : Fragment() {
 
@@ -68,6 +66,19 @@ class DashboardFragment : Fragment() {
                         .placeholder(android.R.color.transparent)
                         .into(root.imageView)
 
+                    val pager = root.viewPager
+                    val tabs = root.tabs
+
+
+                    val adapter = ViewPagerAdapter(fragmentManager!!)
+                    adapter.addFragment(AboutFragment.newInstance(pokemon?.id), getString(R.string.dashboard_tab_1))
+                    adapter.addFragment(StatsFragment.newInstance(pokemon?.id), getString(R.string.dashboard_tab_2))
+                    adapter.addFragment(EvolutionFragment(), getString(R.string.dashboard_tab_3))
+                    adapter.addFragment(MovesFragment(), getString(R.string.dashboard_tab_4))
+
+                    pager.adapter = adapter
+
+                    tabs.setupWithViewPager(pager)
                 }
 
 
@@ -79,7 +90,6 @@ class DashboardFragment : Fragment() {
 
         return root
     }
-
 
 
 

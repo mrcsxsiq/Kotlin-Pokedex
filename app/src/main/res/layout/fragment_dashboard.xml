@@ -30,8 +30,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
-                android:layout_gravity="center"
-                android:src="@drawable/poke001" />
+                android:layout_gravity="center" />
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -59,11 +58,11 @@
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:fontFamily="@font/circularstd_medium"
-                        android:text="Titulo"
                         android:textColor="@color/white"
                         android:textSize="28sp"
                         android:textStyle="bold"
-                        app:fontFamily="@font/circularstd_medium" />
+                        app:fontFamily="@font/circularstd_medium"
+                        tools:text="Titulo" />
 
                     <TextView
                         android:id="@+id/textViewID"
@@ -73,7 +72,6 @@
                         android:layout_alignParentEnd="true"
                         android:alpha="0.5"
                         android:gravity="top"
-                        android:text="#001"
                         android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -90,9 +88,9 @@
                         android:background="@drawable/background_item_pokemon_span"
                         android:paddingStart="8dp"
                         android:paddingEnd="8dp"
-                        android:text="Grass"
                         android:textColor="@color/white"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        tools:text="Grass" />
 
                     <TextView
                         android:id="@+id/textViewType2"
@@ -104,9 +102,9 @@
                         android:background="@drawable/background_item_pokemon_span"
                         android:paddingStart="8dp"
                         android:paddingEnd="8dp"
-                        android:text="Grass"
                         android:textColor="@color/white"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        tools:text="Grass" />
 
                     <TextView
                         android:id="@+id/textViewType3"
@@ -117,9 +115,9 @@
                         android:background="@drawable/background_item_pokemon_span"
                         android:paddingStart="8dp"
                         android:paddingEnd="8dp"
-                        android:text="Grass"
                         android:textColor="@color/white"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        tools:text="Grass" />
 
                 </RelativeLayout>
 
@@ -174,19 +172,14 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fillViewport="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <LinearLayout
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/lorem_large" />
-        </LinearLayout>
+            android:background="@color/backgroundLight" />
     </androidx.core.widget.NestedScrollView>
 
 

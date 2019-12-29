@@ -10,6 +10,7 @@
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
+        <item name="android:textViewStyle" >@style/RobotoTextViewStyle </item>
     </style>
 
     <style name="AppTheme.Title.Collapsed" parent="android:TextAppearance">
@@ -26,6 +27,10 @@
 
     <style name="BottomSheetModal" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name= "RobotoTextViewStyle" parent= "android:Widget.TextView" >
+        <item name= "android:fontFamily" > @font/circularstd_book </item>
     </style>
 
     <style name="AppTheme.NoActionBar">

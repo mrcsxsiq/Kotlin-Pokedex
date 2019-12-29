@@ -50,12 +50,35 @@
         android:label="@string/app_name"
         tools:layout="@layout/fragment_search" />
 
-
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="dev.marcosfarias.pokedex.ui.dashboard.DashboardFragment"
         android:label="@string/app_name"
         tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_about"
+        android:name="dev.marcosfarias.pokedex.ui.dashboard.about.AboutFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_about" />
+
+    <fragment
+        android:id="@+id/navigation_moves"
+        android:name="dev.marcosfarias.pokedex.ui.dashboard.moves.MovesFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_moves" />
+
+    <fragment
+        android:id="@+id/navigation_evolution"
+        android:name="dev.marcosfarias.pokedex.ui.dashboard.evolution.EvolutionFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_evolution" />
+
+    <fragment
+        android:id="@+id/navigation_stats"
+        android:name="dev.marcosfarias.pokedex.ui.dashboard.stats.StatsFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_stats" />
 
 
 </navigation>
