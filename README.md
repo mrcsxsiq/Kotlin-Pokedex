@@ -55,7 +55,7 @@ Also available in Play Store
 - :white_check_mark: Kotlin
 - :white_check_mark: Live data
 - :white_check_mark: Navigation
-- :white_check_mark: MVVM Design Partner
+- :white_check_mark: ViewModel
 - :white_check_mark: Rest with retrofit
 - :white_check_mark: Offline Persistence with Room
 - :x: Unit Test with {choose}
