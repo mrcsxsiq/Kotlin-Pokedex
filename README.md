@@ -24,11 +24,13 @@ Pokedex app built with Kotlin
 
 Go to the [releases page](https://github.com/mrcsxsiq/Kotlin-Pokedex/releases) to download the latest available apk.
 
+<!--
 Also available in Play Store
 
 <a href="https://github.com/mrcsxsiq/Kotlin-Pokedex/">
   <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" width="200" alt="Play Store">
 </a>
+-->
 
 ## Screenshots
 
