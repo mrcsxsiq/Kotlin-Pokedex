@@ -6,12 +6,12 @@ import android.graphics.PorterDuffColorFilter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import dev.marcosfarias.pokedex.R
 import dev.marcosfarias.pokedex.model.Pokemon
+import dev.marcosfarias.pokedex.ui.pokedex.PokedexFragmentDirections
 import dev.marcosfarias.pokedex.utils.PokemonColorUtil
 import kotlinx.android.synthetic.main.item_pokemon.view.*
 
@@ -26,7 +26,7 @@ class PokemonAdapter(
             itemView.textViewID.text = item.id
 
             val color = PokemonColorUtil(itemView.context).getPokemonColor(item.typeofpokemon)
-            itemView.relativeLayoutBackground.background.colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP )
+            itemView.relativeLayoutBackground.background.colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
 
             item.typeofpokemon?.elementAtOrNull(0).let {
                 itemView.textViewType3.text = it
@@ -55,8 +55,7 @@ class PokemonAdapter(
                 .into(itemView.imageView)
 
             itemView.setOnClickListener {
-                var bundle = bundleOf("id" to item.id)
-                it.findNavController().navigate(R.id.action_navigation_pokedex_to_navigation_dashboard, bundle)
+                it.findNavController().navigate(PokedexFragmentDirections.actionNavigationPokedexToNavigationDashboard(item.id!!))
             }
 
         }

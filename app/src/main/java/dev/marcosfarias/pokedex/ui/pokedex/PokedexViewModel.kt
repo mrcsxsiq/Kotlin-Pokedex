@@ -46,6 +46,5 @@ class PokedexViewModel : ViewModel() {
         return pokemonDAO.all()
     }
 
-
 }
 

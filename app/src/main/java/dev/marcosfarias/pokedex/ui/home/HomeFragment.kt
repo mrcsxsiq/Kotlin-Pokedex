@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import dev.marcosfarias.pokedex.App
 import dev.marcosfarias.pokedex.R
 import dev.marcosfarias.pokedex.adapter.MenuAdapter
@@ -39,17 +40,15 @@ class HomeFragment : Fragment() {
 
         recyclerViewMenu.layoutManager = GridLayoutManager(context, 2)
 
-        recyclerViewNews.layoutManager = GridLayoutManager(context, 1)
+        recyclerViewNews.layoutManager = LinearLayoutManager(context)
         recyclerViewNews.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
 
         homeViewModel.getListMenu().observe(this, Observer {
-            val items: List<Menu> = it
-            recyclerViewMenu.adapter = MenuAdapter(items, root.context)
+            recyclerViewMenu.adapter = MenuAdapter(it, root.context)
         })
 
         homeViewModel.getListNews().observe(this, Observer {
-            val items: List<News> = it
-            recyclerViewNews.adapter = NewsAdapter(items, root.context)
+            recyclerViewNews.adapter = NewsAdapter(it, root.context)
         })
         return root
     }
