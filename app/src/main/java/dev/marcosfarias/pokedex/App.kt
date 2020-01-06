@@ -8,7 +8,7 @@ import dev.marcosfarias.pokedex.database.AppDatabase
 class App : Application() {
     companion object {
         var context: Context? = null
-        var database: AppDatabase? = null
+        lateinit var database: AppDatabase
     }
 
     override fun onCreate() {

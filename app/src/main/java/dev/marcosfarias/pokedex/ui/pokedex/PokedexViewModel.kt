@@ -14,7 +14,7 @@ import retrofit2.Response
 class PokedexViewModel : ViewModel() {
 
     private var listPokemon = MutableLiveData<List<Pokemon>>()
-    private val pokemonDAO : PokemonDAO = App.database!!.pokemonDAO()
+    private val pokemonDAO: PokemonDAO = App.database.pokemonDAO()
 
     init {
         initNetworkRequest()
@@ -26,11 +26,11 @@ class PokedexViewModel : ViewModel() {
             override fun onResponse(call: Call<List<Pokemon>?>?, response: Response<List<Pokemon>?>?) {
                 response?.body()?.let {
                     val pokemons: List<Pokemon> = it
-                    Thread(Runnable {
-                        for (pokemon in pokemons){
-                            pokemonDAO.add(pokemon)
+                    App.database.apply {
+                        queryExecutor.execute {
+                            runInTransaction { pokemonDAO.add(*pokemons.toTypedArray()) }
                         }
-                    }).start()
+                    }
                     listPokemon.value = pokemons
                 }
             }
