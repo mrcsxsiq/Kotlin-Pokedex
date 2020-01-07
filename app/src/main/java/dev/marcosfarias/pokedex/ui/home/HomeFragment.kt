@@ -35,7 +35,12 @@ class HomeFragment : Fragment() {
         recyclerViewMenu.layoutManager = GridLayoutManager(context, 2)
 
         recyclerViewNews.layoutManager = GridLayoutManager(context, 1)
-        recyclerViewNews.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+        recyclerViewNews.addItemDecoration(
+            DividerItemDecoration(
+                context,
+                DividerItemDecoration.VERTICAL
+            )
+        )
 
         homeViewModel.getListMenu().observe(this, Observer {
             val items: List<Menu> = it
@@ -48,7 +53,6 @@ class HomeFragment : Fragment() {
         })
         return root
     }
-
 
 
 }

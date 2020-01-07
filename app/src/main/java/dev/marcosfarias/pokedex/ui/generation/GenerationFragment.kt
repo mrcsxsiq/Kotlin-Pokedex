@@ -16,7 +16,11 @@ class GenerationFragment : BottomSheetDialogFragment() {
 
     private lateinit var generationViewModel: GenerationViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ) : View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         generationViewModel = ViewModelProviders.of(this).get(GenerationViewModel::class.java)
 
         val root = inflater.inflate(R.layout.fragment_generation, container, false)
@@ -24,8 +28,8 @@ class GenerationFragment : BottomSheetDialogFragment() {
         val layoutManager = GridLayoutManager(context, 2)
         recyclerView.layoutManager = layoutManager
 
-        generationViewModel.getListGeneration().observe(this, Observer  {
-            val pokemons : List<Generation> = it
+        generationViewModel.getListGeneration().observe(this, Observer {
+            val pokemons: List<Generation> = it
             recyclerView.adapter = GenerationAdapter(pokemons, root.context)
         })
         return root

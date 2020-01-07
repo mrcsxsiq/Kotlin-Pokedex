@@ -23,7 +23,8 @@ class MenuAdapter(
             itemView.textViewName.text = item.name
 
             val color = PokemonColorUtil(itemView.context).covertColor(item.color)
-            itemView.relativeLayoutBackground.background.colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP )
+            itemView.relativeLayoutBackground.background.colorFilter =
+                PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
 
             itemView.setOnClickListener {
                 it.findNavController().navigate(R.id.action_navigation_home_to_navigation_pokedex)

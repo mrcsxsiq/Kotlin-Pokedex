@@ -26,7 +26,8 @@ class PokemonAdapter(
             itemView.textViewID.text = item.id
 
             val color = PokemonColorUtil(itemView.context).getPokemonColor(item.typeofpokemon)
-            itemView.relativeLayoutBackground.background.colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP )
+            itemView.relativeLayoutBackground.background.colorFilter =
+                PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
 
             item.typeofpokemon?.elementAtOrNull(0).let {
                 itemView.textViewType3.text = it
@@ -56,7 +57,8 @@ class PokemonAdapter(
 
             itemView.setOnClickListener {
                 var bundle = bundleOf("id" to item.id)
-                it.findNavController().navigate(R.id.action_navigation_pokedex_to_navigation_dashboard, bundle)
+                it.findNavController()
+                    .navigate(R.id.action_navigation_pokedex_to_navigation_dashboard, bundle)
             }
 
         }

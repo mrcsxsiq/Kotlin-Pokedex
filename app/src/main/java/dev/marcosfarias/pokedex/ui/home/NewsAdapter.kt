@@ -18,7 +18,8 @@ class NewsAdapter(
         fun bindView(item: News) {
 //            itemView.textViewName.text = item.title
             itemView.setOnClickListener {
-                it.findNavController().navigate(R.id.action_navigation_home_to_navigation_news_detail)
+                it.findNavController()
+                    .navigate(R.id.action_navigation_home_to_navigation_news_detail)
             }
         }
 

@@ -9,7 +9,11 @@ import dev.marcosfarias.pokedex.R
 
 class SearchFragment : BottomSheetDialogFragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ) : View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
         val root = inflater.inflate(R.layout.fragment_search, container, false)
 

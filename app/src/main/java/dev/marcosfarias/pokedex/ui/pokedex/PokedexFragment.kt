@@ -20,20 +20,25 @@ class PokedexFragment : Fragment() {
 
     private lateinit var pokedexViewModel: PokedexViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ) : View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         pokedexViewModel = ViewModelProviders.of(this).get(PokedexViewModel::class.java)
 
         val root = inflater.inflate(R.layout.fragment_pokedex, container, false)
 
-        activity?.window?.statusBarColor = PokemonColorUtil(root.context).covertColor(R.color.background)
+        activity?.window?.statusBarColor =
+            PokemonColorUtil(root.context).covertColor(R.color.background)
 
         val progressBar = root.progressBar
         val recyclerView = root.recyclerView
         val layoutManager = GridLayoutManager(context, 2)
         recyclerView.layoutManager = layoutManager
 
-        pokedexViewModel.getListPokemon().observe(this, Observer  {
-            val pokemons : List<Pokemon> = it
+        pokedexViewModel.getListPokemon().observe(this, Observer {
+            val pokemons: List<Pokemon> = it
             recyclerView.adapter = PokemonAdapter(pokemons, root.context)
             if (pokemons.isNotEmpty())
                 progressBar.visibility = View.GONE

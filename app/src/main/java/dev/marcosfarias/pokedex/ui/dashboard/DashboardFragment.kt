@@ -22,7 +22,11 @@ class DashboardFragment : Fragment() {
 
     private lateinit var dashboardViewModel: DashboardViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ) : View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         dashboardViewModel = ViewModelProviders.of(this).get(DashboardViewModel::class.java)
 
         val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
@@ -34,10 +38,14 @@ class DashboardFragment : Fragment() {
                     root.textViewID.text = pokemon?.id
                     root.textViewName.text = pokemon?.name
 
-                    val color = PokemonColorUtil(root.context).getPokemonColor(pokemon?.typeofpokemon)
-                    root.app_bar.background.colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP )
-                    root.toolbar_layout.contentScrim?.colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP )
-                    activity?.window?.statusBarColor = PokemonColorUtil(root.context).getPokemonColor(pokemon?.typeofpokemon)
+                    val color =
+                        PokemonColorUtil(root.context).getPokemonColor(pokemon?.typeofpokemon)
+                    root.app_bar.background.colorFilter =
+                        PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
+                    root.toolbar_layout.contentScrim?.colorFilter =
+                        PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
+                    activity?.window?.statusBarColor =
+                        PokemonColorUtil(root.context).getPokemonColor(pokemon?.typeofpokemon)
 
                     pokemon?.typeofpokemon?.elementAtOrNull(0).let {
                         root.textViewType3.text = it
@@ -70,8 +78,14 @@ class DashboardFragment : Fragment() {
 
 
                     val adapter = ViewPagerAdapter(fragmentManager!!)
-                    adapter.addFragment(AboutFragment.newInstance(pokemon?.id), getString(R.string.dashboard_tab_1))
-                    adapter.addFragment(StatsFragment.newInstance(pokemon?.id), getString(R.string.dashboard_tab_2))
+                    adapter.addFragment(
+                        AboutFragment.newInstance(pokemon?.id),
+                        getString(R.string.dashboard_tab_1)
+                    )
+                    adapter.addFragment(
+                        StatsFragment.newInstance(pokemon?.id),
+                        getString(R.string.dashboard_tab_2)
+                    )
                     adapter.addFragment(EvolutionFragment(), getString(R.string.dashboard_tab_3))
                     adapter.addFragment(MovesFragment(), getString(R.string.dashboard_tab_4))
 
@@ -89,7 +103,6 @@ class DashboardFragment : Fragment() {
 
         return root
     }
-
 
 
 }

@@ -17,9 +17,9 @@ class App : Application() {
 
         database = Room.databaseBuilder(
             this,
-                AppDatabase::class.java,
-                getString(R.string.app_name)
-            )
+            AppDatabase::class.java,
+            getString(R.string.app_name)
+        )
             .fallbackToDestructiveMigration()
             .build()
 

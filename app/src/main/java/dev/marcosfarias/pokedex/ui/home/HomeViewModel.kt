@@ -20,7 +20,7 @@ class HomeViewModel : ViewModel() {
             Menu(1, App.context!!.resources.getString(R.string.menu_item_3), R.color.lightBlue),
             Menu(1, App.context!!.resources.getString(R.string.menu_item_4), R.color.lightYellow),
             Menu(1, App.context!!.resources.getString(R.string.menu_item_5), R.color.lightPurple),
-            Menu(1, App.context!!.resources.getString(R.string.menu_item_6) ,R.color.lightBrown)
+            Menu(1, App.context!!.resources.getString(R.string.menu_item_6), R.color.lightBrown)
         )
         return listMenu
     }
