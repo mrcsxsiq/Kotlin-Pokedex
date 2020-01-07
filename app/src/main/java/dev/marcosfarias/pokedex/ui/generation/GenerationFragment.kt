@@ -16,13 +16,16 @@ class GenerationFragment : BottomSheetDialogFragment() {
 
     private lateinit var generationViewModel: GenerationViewModel
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        generationViewModel = ViewModelProviders.of(this).get(GenerationViewModel::class.java)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        generationViewModel = ViewModelProviders.of(this).get(GenerationViewModel::class.java)
-
         val root = inflater.inflate(R.layout.fragment_generation, container, false)
         val recyclerView = root.recyclerView
         val layoutManager = GridLayoutManager(context, 2)

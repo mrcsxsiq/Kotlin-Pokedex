@@ -20,13 +20,16 @@ class PokedexFragment : Fragment() {
 
     private lateinit var pokedexViewModel: PokedexViewModel
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        pokedexViewModel = ViewModelProviders.of(this).get(PokedexViewModel::class.java)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        pokedexViewModel = ViewModelProviders.of(this).get(PokedexViewModel::class.java)
-
         val root = inflater.inflate(R.layout.fragment_pokedex, container, false)
 
         activity?.window?.statusBarColor =

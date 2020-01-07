@@ -19,6 +19,11 @@ class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        homeViewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -26,7 +31,6 @@ class HomeFragment : Fragment() {
     ): View? {
 
         val root = inflater.inflate(R.layout.fragment_home, container, false)
-        homeViewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
         activity?.window?.statusBarColor = PokemonColorUtil(root.context).covertColor(R.color.red)
 
         val recyclerViewMenu = root.recyclerViewMenu
