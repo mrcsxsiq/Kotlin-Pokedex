@@ -9,9 +9,12 @@ import dev.marcosfarias.pokedex.R
 
 class MovesFragment : Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ) : View? {
-        val root = inflater.inflate(R.layout.fragment_moves, container, false)
-        return root
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_moves, container, false)
     }
 
 }

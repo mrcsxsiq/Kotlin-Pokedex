@@ -1,6 +1,6 @@
 package dev.marcosfarias.pokedex.model
 
-class Generation (
+class Generation(
     val id: Int,
     val title: String,
     val image: Int

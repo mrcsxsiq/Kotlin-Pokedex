@@ -8,13 +8,13 @@ import dev.marcosfarias.pokedex.model.Pokemon
 interface PokemonDAO {
 
     @Query("SELECT * FROM pokemon WHERE id = :id")
-    fun getById(id: String?): LiveData<List<Pokemon?>?>
+    fun getById(id: String?): LiveData<Pokemon>
 
     @Query("SELECT * FROM pokemon")
     fun all(): LiveData<List<Pokemon>>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun add(vararg pokemon: Pokemon)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun add(pokemon: List<Pokemon>)
 
     @Query("DELETE FROM pokemon")
     fun deleteAll()
