@@ -41,8 +41,8 @@ class StatsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val id = checkNotNull(arguments?.getString("id"))
-        dashboardViewModel.getPokemonById(id).observe(viewLifecycleOwner, Observer { list ->
-            list?.get(0).let { pokemon ->
+        dashboardViewModel.getPokemonById(id).observe(viewLifecycleOwner, Observer { pokemonValue ->
+            pokemonValue.let { pokemon ->
                 textViewTypeDefenses.text = pokemon?.ydescription
 
                 textViewHP.text = pokemon?.hp.toString()

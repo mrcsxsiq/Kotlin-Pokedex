@@ -35,8 +35,8 @@ class DashboardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val id = checkNotNull(arguments?.getString("id"))
-        dashboardViewModel.getPokemonById(id).observe(viewLifecycleOwner, Observer { list ->
-            list?.get(0).let { pokemon ->
+        dashboardViewModel.getPokemonById(id).observe(viewLifecycleOwner, Observer { pokemonValue ->
+            pokemonValue.let { pokemon ->
                 textViewID.text = pokemon?.id
                 textViewName.text = pokemon?.name
 
