@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dev.marcosfarias.pokedex.R
 import dev.marcosfarias.pokedex.model.Generation
-import kotlinx.android.synthetic.main.fragment_generation.view.*
+import kotlinx.android.synthetic.main.fragment_generation.*
 
 class GenerationFragment : BottomSheetDialogFragment() {
 
@@ -26,16 +26,20 @@ class GenerationFragment : BottomSheetDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_generation, container, false)
-        val recyclerView = root.recyclerView
+        return inflater.inflate(R.layout.fragment_generation, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val recyclerView = recyclerView
         val layoutManager = GridLayoutManager(context, 2)
         recyclerView.layoutManager = layoutManager
 
         generationViewModel.getListGeneration().observe(viewLifecycleOwner, Observer {
             val pokemons: List<Generation> = it
-            recyclerView.adapter = GenerationAdapter(pokemons, root.context)
+            recyclerView.adapter = GenerationAdapter(pokemons, view.context)
         })
-        return root
     }
 
 }

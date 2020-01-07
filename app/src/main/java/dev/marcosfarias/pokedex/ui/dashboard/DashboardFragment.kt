@@ -16,7 +16,7 @@ import dev.marcosfarias.pokedex.ui.dashboard.evolution.EvolutionFragment
 import dev.marcosfarias.pokedex.ui.dashboard.moves.MovesFragment
 import dev.marcosfarias.pokedex.ui.dashboard.stats.StatsFragment
 import dev.marcosfarias.pokedex.utils.PokemonColorUtil
-import kotlinx.android.synthetic.main.fragment_dashboard.view.*
+import kotlinx.android.synthetic.main.fragment_dashboard.*
 
 class DashboardFragment : Fragment() {
 
@@ -32,51 +32,54 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
+        return inflater.inflate(R.layout.fragment_dashboard, container, false)
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         arguments?.getString("id").let {
             dashboardViewModel.getPokemonById(it).observe(viewLifecycleOwner, Observer { list ->
                 list?.get(0).let { pokemon ->
-                    root.textViewID.text = pokemon?.id
-                    root.textViewName.text = pokemon?.name
+                    textViewID.text = pokemon?.id
+                    textViewName.text = pokemon?.name
 
                     val color =
-                        PokemonColorUtil(root.context).getPokemonColor(pokemon?.typeofpokemon)
-                    root.app_bar.background.colorFilter =
+                        PokemonColorUtil(view.context).getPokemonColor(pokemon?.typeofpokemon)
+                    app_bar.background.colorFilter =
                         PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
-                    root.toolbar_layout.contentScrim?.colorFilter =
+                    toolbar_layout.contentScrim?.colorFilter =
                         PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
                     activity?.window?.statusBarColor =
-                        PokemonColorUtil(root.context).getPokemonColor(pokemon?.typeofpokemon)
+                        PokemonColorUtil(view.context).getPokemonColor(pokemon?.typeofpokemon)
 
                     pokemon?.typeofpokemon?.elementAtOrNull(0).let {
-                        root.textViewType3.text = it
+                        textViewType3.text = it
                         if (it == null) {
-                            root.textViewType3.visibility = View.GONE
+                            textViewType3.visibility = View.GONE
                         }
                     }
 
                     pokemon?.typeofpokemon?.elementAtOrNull(1).let {
-                        root.textViewType2.text = it
+                        textViewType2.text = it
                         if (it == null) {
-                            root.textViewType2.visibility = View.GONE
+                            textViewType2.visibility = View.GONE
                         }
                     }
 
                     pokemon?.typeofpokemon?.elementAtOrNull(2).let {
-                        root.textViewType1.text = it
+                        textViewType1.text = it
                         if (it == null) {
-                            root.textViewType1.visibility = View.GONE
+                            textViewType1.visibility = View.GONE
                         }
                     }
 
-                    Glide.with(root.context)
+                    Glide.with(view.context)
                         .load(pokemon?.imageurl)
                         .placeholder(android.R.color.transparent)
-                        .into(root.imageView)
+                        .into(imageView)
 
-                    val pager = root.viewPager
-                    val tabs = root.tabs
+                    val pager = viewPager
+                    val tabs = tabs
 
 
                     val adapter = ViewPagerAdapter(fragmentManager!!)
@@ -101,10 +104,6 @@ class DashboardFragment : Fragment() {
 
 
         }
-
-
-        return root
     }
-
 
 }

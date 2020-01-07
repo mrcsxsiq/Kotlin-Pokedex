@@ -23,10 +23,7 @@ class EvolutionFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_evolution, container, false)
-
-
-        return root
+        return inflater.inflate(R.layout.fragment_evolution, container, false)
     }
 
 

@@ -14,7 +14,7 @@ import dev.marcosfarias.pokedex.model.Pokemon
 import dev.marcosfarias.pokedex.ui.generation.GenerationFragment
 import dev.marcosfarias.pokedex.ui.search.SearchFragment
 import dev.marcosfarias.pokedex.utils.PokemonColorUtil
-import kotlinx.android.synthetic.main.fragment_pokedex.view.*
+import kotlinx.android.synthetic.main.fragment_pokedex.*
 
 class PokedexFragment : Fragment() {
 
@@ -30,24 +30,27 @@ class PokedexFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_pokedex, container, false)
+        return inflater.inflate(R.layout.fragment_pokedex, container, false)
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         activity?.window?.statusBarColor =
-            PokemonColorUtil(root.context).covertColor(R.color.background)
+            PokemonColorUtil(view.context).covertColor(R.color.background)
 
-        val progressBar = root.progressBar
-        val recyclerView = root.recyclerView
+        val progressBar = progressBar
+        val recyclerView = recyclerView
         val layoutManager = GridLayoutManager(context, 2)
         recyclerView.layoutManager = layoutManager
 
         pokedexViewModel.getListPokemon().observe(viewLifecycleOwner, Observer {
             val pokemons: List<Pokemon> = it
-            recyclerView.adapter = PokemonAdapter(pokemons, root.context)
+            recyclerView.adapter = PokemonAdapter(pokemons, view.context)
             if (pokemons.isNotEmpty())
                 progressBar.visibility = View.GONE
         })
 
-        val speedDialView = root.speedDial
+        val speedDialView = speedDial
         speedDialView.inflate(R.menu.menu_pokedex)
         speedDialView.setOnActionSelectedListener(SpeedDialView.OnActionSelectedListener { actionItem ->
             when (actionItem.id) {
@@ -67,8 +70,6 @@ class PokedexFragment : Fragment() {
                 }
             }
         })
-
-        return root
     }
 
     private fun showAllGen() {

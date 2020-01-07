@@ -13,7 +13,7 @@ import dev.marcosfarias.pokedex.R
 import dev.marcosfarias.pokedex.model.Menu
 import dev.marcosfarias.pokedex.model.News
 import dev.marcosfarias.pokedex.utils.PokemonColorUtil
-import kotlinx.android.synthetic.main.fragment_home.view.*
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
 
@@ -29,12 +29,15 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        return inflater.inflate(R.layout.fragment_home, container, false)
+    }
 
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
-        activity?.window?.statusBarColor = PokemonColorUtil(root.context).covertColor(R.color.red)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        activity?.window?.statusBarColor = PokemonColorUtil(view.context).covertColor(R.color.red)
 
-        val recyclerViewMenu = root.recyclerViewMenu
-        val recyclerViewNews = root.recyclerViewNews
+        val recyclerViewMenu = recyclerViewMenu
+        val recyclerViewNews = recyclerViewNews
 
         recyclerViewMenu.layoutManager = GridLayoutManager(context, 2)
 
@@ -48,15 +51,13 @@ class HomeFragment : Fragment() {
 
         homeViewModel.getListMenu().observe(viewLifecycleOwner, Observer {
             val items: List<Menu> = it
-            recyclerViewMenu.adapter = MenuAdapter(items, root.context)
+            recyclerViewMenu.adapter = MenuAdapter(items, view.context)
         })
 
         homeViewModel.getListNews().observe(viewLifecycleOwner, Observer {
             val items: List<News> = it
-            recyclerViewNews.adapter = NewsAdapter(items, root.context)
+            recyclerViewNews.adapter = NewsAdapter(items, view.context)
         })
-        return root
     }
-
 
 }

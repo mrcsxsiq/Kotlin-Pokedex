@@ -16,12 +16,12 @@ class NewsDetailFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        return inflater.inflate(R.layout.fragment_news_detail, container, false)
+    }
 
-        val root = inflater.inflate(R.layout.fragment_news_detail, container, false)
-
-        activity?.window?.statusBarColor = PokemonColorUtil(root.context).covertColor(R.color.white)
-
-        return root
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        activity?.window?.statusBarColor = PokemonColorUtil(view.context).covertColor(R.color.white)
     }
 
 }

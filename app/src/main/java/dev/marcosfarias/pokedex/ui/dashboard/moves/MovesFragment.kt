@@ -14,8 +14,7 @@ class MovesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_moves, container, false)
-        return root
+        return inflater.inflate(R.layout.fragment_moves, container, false)
     }
 
 }
