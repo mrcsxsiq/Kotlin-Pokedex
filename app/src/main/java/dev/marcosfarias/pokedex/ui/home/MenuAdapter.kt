@@ -29,7 +29,6 @@ class MenuAdapter(
             itemView.setOnClickListener {
                 it.findNavController().navigate(R.id.action_navigation_home_to_navigation_pokedex)
             }
-
         }
     }
 

@@ -6,6 +6,7 @@ import androidx.room.Room
 import dev.marcosfarias.pokedex.database.AppDatabase
 
 class App : Application() {
+
     companion object {
         lateinit var context: Context
         lateinit var database: AppDatabase
@@ -24,4 +25,5 @@ class App : Application() {
             .build()
 
     }
+
 }

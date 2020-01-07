@@ -55,9 +55,7 @@ class PokemonAdapter(
                 it.findNavController()
                     .navigate(R.id.action_navigation_pokedex_to_navigation_dashboard, bundle)
             }
-
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

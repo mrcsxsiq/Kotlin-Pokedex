@@ -56,4 +56,5 @@ class GenerationViewModel : ViewModel() {
         )
         return listGeneration
     }
+
 }

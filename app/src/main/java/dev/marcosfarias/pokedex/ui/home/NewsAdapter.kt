@@ -22,7 +22,6 @@ class NewsAdapter(
                     .navigate(R.id.action_navigation_home_to_navigation_news_detail)
             }
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

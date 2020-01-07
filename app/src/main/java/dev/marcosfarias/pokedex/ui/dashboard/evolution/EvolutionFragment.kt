@@ -26,5 +26,4 @@ class EvolutionFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_evolution, container, false)
     }
 
-
 }
