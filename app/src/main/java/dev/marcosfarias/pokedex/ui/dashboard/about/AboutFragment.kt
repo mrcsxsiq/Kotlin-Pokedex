@@ -41,13 +41,13 @@ class AboutFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val id = checkNotNull(arguments?.getString("id"))
         dashboardViewModel.getPokemonById(id).observe(viewLifecycleOwner, Observer { pokemonValue ->
-            pokemonValue.let { pokemon ->
-                textViewDescription.text = pokemon?.xdescription
-                textViewHeight.text = pokemon?.height
-                textViewWeight.text = pokemon?.weight
-                textViewEggCycle.text = pokemon?.cycles
-                textViewEggGroups.text = pokemon?.egg_groups
-                textViewBaseEXP.text = pokemon?.base_exp
+            pokemonValue?.let { pokemon ->
+                textViewDescription.text = pokemon.xdescription
+                textViewHeight.text = pokemon.height
+                textViewWeight.text = pokemon.weight
+                textViewEggCycle.text = pokemon.cycles
+                textViewEggGroups.text = pokemon.egg_groups
+                textViewBaseEXP.text = pokemon.base_exp
             }
         })
     }

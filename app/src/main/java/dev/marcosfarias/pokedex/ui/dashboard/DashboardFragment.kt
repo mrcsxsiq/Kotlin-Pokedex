@@ -36,42 +36,42 @@ class DashboardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val id = checkNotNull(arguments?.getString("id"))
         dashboardViewModel.getPokemonById(id).observe(viewLifecycleOwner, Observer { pokemonValue ->
-            pokemonValue.let { pokemon ->
-                textViewID.text = pokemon?.id
-                textViewName.text = pokemon?.name
+            pokemonValue?.let { pokemon ->
+                textViewID.text = pokemon.id
+                textViewName.text = pokemon.name
 
                 val color =
-                    PokemonColorUtil(view.context).getPokemonColor(pokemon?.typeofpokemon)
+                    PokemonColorUtil(view.context).getPokemonColor(pokemon.typeofpokemon)
                 app_bar.background.colorFilter =
                     PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
                 toolbar_layout.contentScrim?.colorFilter =
                     PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
                 activity?.window?.statusBarColor =
-                    PokemonColorUtil(view.context).getPokemonColor(pokemon?.typeofpokemon)
+                    PokemonColorUtil(view.context).getPokemonColor(pokemon.typeofpokemon)
 
-                pokemon?.typeofpokemon?.getOrNull(0).let { firstType ->
+                pokemon.typeofpokemon?.getOrNull(0).let { firstType ->
                     textViewType3.text = firstType
                     textViewType3.isVisible = firstType != null
                 }
 
-                pokemon?.typeofpokemon?.getOrNull(1).let { secondType ->
+                pokemon.typeofpokemon?.getOrNull(1).let { secondType ->
                     textViewType2.text = secondType
                     textViewType2.isVisible = secondType != null
                 }
 
-                pokemon?.typeofpokemon?.getOrNull(2).let { thirdType ->
+                pokemon.typeofpokemon?.getOrNull(2).let { thirdType ->
                     textViewType1.text = thirdType
                     textViewType1.isVisible = thirdType != null
                 }
 
                 Glide.with(view.context)
-                    .load(pokemon?.imageurl)
+                    .load(pokemon.imageurl)
                     .placeholder(android.R.color.transparent)
                     .into(imageView)
 
                 val pager = viewPager
                 val tabs = tabs
-                pager.adapter = ViewPagerAdapter(fragmentManager!!, context!!, pokemon?.id!!)
+                pager.adapter = ViewPagerAdapter(fragmentManager!!, context!!, pokemon.id!!)
                 tabs.setupWithViewPager(pager)
             }
         })
