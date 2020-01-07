@@ -9,6 +9,7 @@ import dev.marcosfarias.pokedex.repository.APIService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlin.concurrent.thread
 
 class PokedexViewModel : ViewModel() {
 
@@ -25,13 +26,10 @@ class PokedexViewModel : ViewModel() {
                 call: Call<List<Pokemon>?>?,
                 response: Response<List<Pokemon>?>?
             ) {
-                response?.body()?.let {
-                    val pokemons: List<Pokemon> = it
-                    Thread(Runnable {
-                        for (pokemon in pokemons) {
-                            pokemonDAO.add(pokemon)
-                        }
-                    }).start()
+                response?.body()?.let { pokemons: List<Pokemon> ->
+                    thread {
+                        pokemonDAO.add(pokemons)
+                    }
                 }
             }
 
