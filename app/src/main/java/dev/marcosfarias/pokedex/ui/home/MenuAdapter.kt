@@ -22,7 +22,7 @@ class MenuAdapter(
         fun bindView(item: Menu) {
             itemView.textViewName.text = item.name
 
-            val color = PokemonColorUtil(itemView.context).covertColor(item.color)
+            val color = PokemonColorUtil(itemView.context).convertColor(item.color)
             itemView.relativeLayoutBackground.background.colorFilter =
                 PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
 

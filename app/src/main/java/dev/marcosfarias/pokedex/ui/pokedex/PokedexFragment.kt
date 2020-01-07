@@ -36,7 +36,7 @@ class PokedexFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         activity?.window?.statusBarColor =
-            PokemonColorUtil(view.context).covertColor(R.color.background)
+            PokemonColorUtil(view.context).convertColor(R.color.background)
 
         val progressBar = progressBar
         val recyclerView = recyclerView

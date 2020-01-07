@@ -21,7 +21,8 @@ class NewsDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        activity?.window?.statusBarColor = PokemonColorUtil(view.context).covertColor(R.color.white)
+        activity?.window?.statusBarColor =
+            PokemonColorUtil(view.context).convertColor(R.color.white)
     }
 
 }

@@ -1,7 +1,8 @@
 package dev.marcosfarias.pokedex.utils
 
 import android.content.Context
-import android.graphics.Color
+import androidx.annotation.ColorInt
+import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
 import dev.marcosfarias.pokedex.R
 
@@ -19,11 +20,12 @@ class PokemonColorUtil(var context: Context) {
             "dark" -> R.color.black
             else -> return R.color.lightBlue
         }
-        return covertColor(color)
+        return convertColor(color)
     }
 
-    fun covertColor(color: Int): Int {
-        return Color.parseColor("#" + Integer.toHexString(ContextCompat.getColor(context, color)))
+    @ColorInt
+    fun convertColor(@ColorRes color: Int): Int {
+        return ContextCompat.getColor(context, color)
     }
 
 }
