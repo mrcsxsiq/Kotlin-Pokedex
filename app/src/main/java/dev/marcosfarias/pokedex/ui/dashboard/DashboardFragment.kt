@@ -11,10 +11,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
 import dev.marcosfarias.pokedex.R
-import dev.marcosfarias.pokedex.ui.dashboard.about.AboutFragment
-import dev.marcosfarias.pokedex.ui.dashboard.evolution.EvolutionFragment
-import dev.marcosfarias.pokedex.ui.dashboard.moves.MovesFragment
-import dev.marcosfarias.pokedex.ui.dashboard.stats.StatsFragment
 import dev.marcosfarias.pokedex.utils.PokemonColorUtil
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 
@@ -80,22 +76,7 @@ class DashboardFragment : Fragment() {
 
                     val pager = viewPager
                     val tabs = tabs
-
-
-                    val adapter = ViewPagerAdapter(fragmentManager!!)
-                    adapter.addFragment(
-                        AboutFragment.newInstance(pokemon?.id),
-                        getString(R.string.dashboard_tab_1)
-                    )
-                    adapter.addFragment(
-                        StatsFragment.newInstance(pokemon?.id),
-                        getString(R.string.dashboard_tab_2)
-                    )
-                    adapter.addFragment(EvolutionFragment(), getString(R.string.dashboard_tab_3))
-                    adapter.addFragment(MovesFragment(), getString(R.string.dashboard_tab_4))
-
-                    pager.adapter = adapter
-
+                    pager.adapter = ViewPagerAdapter(fragmentManager!!, context!!, pokemon?.id!!)
                     tabs.setupWithViewPager(pager)
                 }
 
