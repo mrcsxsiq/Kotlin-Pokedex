@@ -12,7 +12,7 @@ import retrofit2.Response
 
 class PokedexViewModel : ViewModel() {
 
-    private val pokemonDAO: PokemonDAO = App.database!!.pokemonDAO()
+    private val pokemonDAO: PokemonDAO = App.database.pokemonDAO()
 
     init {
         initNetworkRequest()

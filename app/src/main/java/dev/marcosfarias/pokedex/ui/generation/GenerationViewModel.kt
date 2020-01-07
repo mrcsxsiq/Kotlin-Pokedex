@@ -15,42 +15,42 @@ class GenerationViewModel : ViewModel() {
         listGeneration.value = listOf(
             Generation(
                 1,
-                App.context!!.resources.getString(R.string.generation_item_1),
+                App.context.resources.getString(R.string.generation_item_1),
                 R.drawable.gen1
             ),
             Generation(
                 1,
-                App.context!!.resources.getString(R.string.generation_item_2),
+                App.context.resources.getString(R.string.generation_item_2),
                 R.drawable.gen2
             ),
             Generation(
                 1,
-                App.context!!.resources.getString(R.string.generation_item_3),
+                App.context.resources.getString(R.string.generation_item_3),
                 R.drawable.gen3
             ),
             Generation(
                 1,
-                App.context!!.resources.getString(R.string.generation_item_4),
+                App.context.resources.getString(R.string.generation_item_4),
                 R.drawable.gen4
             ),
             Generation(
                 1,
-                App.context!!.resources.getString(R.string.generation_item_5),
+                App.context.resources.getString(R.string.generation_item_5),
                 R.drawable.gen5
             ),
             Generation(
                 1,
-                App.context!!.resources.getString(R.string.generation_item_6),
+                App.context.resources.getString(R.string.generation_item_6),
                 R.drawable.gen6
             ),
             Generation(
                 1,
-                App.context!!.resources.getString(R.string.generation_item_7),
+                App.context.resources.getString(R.string.generation_item_7),
                 R.drawable.gen7
             ),
             Generation(
                 1,
-                App.context!!.resources.getString(R.string.generation_item_8),
+                App.context.resources.getString(R.string.generation_item_8),
                 R.drawable.gen8
             )
         )
