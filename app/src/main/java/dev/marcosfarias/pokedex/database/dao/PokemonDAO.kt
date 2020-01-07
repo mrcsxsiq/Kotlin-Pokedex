@@ -13,7 +13,7 @@ interface PokemonDAO {
     @Query("SELECT * FROM pokemon")
     fun all(): LiveData<List<Pokemon>>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun add(vararg pokemon: Pokemon)
 
     @Query("DELETE FROM pokemon")
