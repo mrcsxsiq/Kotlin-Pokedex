@@ -4,17 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.Window
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
-import dev.marcosfarias.pokedex.App
 import dev.marcosfarias.pokedex.R
-import dev.marcosfarias.pokedex.adapter.MenuAdapter
-import dev.marcosfarias.pokedex.adapter.NewsAdapter
 import dev.marcosfarias.pokedex.model.Menu
 import dev.marcosfarias.pokedex.model.News
 import dev.marcosfarias.pokedex.utils.PokemonColorUtil

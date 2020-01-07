@@ -1,4 +1,4 @@
-package dev.marcosfarias.pokedex.adapter
+package dev.marcosfarias.pokedex.ui.pokedex
 
 import android.content.Context
 import android.graphics.PorterDuff

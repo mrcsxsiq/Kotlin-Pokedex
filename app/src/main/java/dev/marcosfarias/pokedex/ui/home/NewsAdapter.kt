@@ -1,29 +1,31 @@
-package dev.marcosfarias.pokedex.adapter
+package dev.marcosfarias.pokedex.ui.home
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import dev.marcosfarias.pokedex.R
-import dev.marcosfarias.pokedex.model.Generation
-import kotlinx.android.synthetic.main.item_generation.view.*
+import dev.marcosfarias.pokedex.model.News
 
-class GenerationAdapter(
-    private val list: List<Generation>,
+class NewsAdapter(
+    private val list: List<News>,
     private val context: Context
-) : RecyclerView.Adapter<GenerationAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bindView(item: Generation) {
-            itemView.textViewTitle.text = item.title
-            itemView.imageView.setImageResource(item.image)
+        fun bindView(item: News) {
+//            itemView.textViewName.text = item.title
+            itemView.setOnClickListener {
+                it.findNavController().navigate(R.id.action_navigation_home_to_navigation_news_detail)
+            }
         }
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.item_generation, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.item_news, parent, false)
         return ViewHolder(view)
     }
 

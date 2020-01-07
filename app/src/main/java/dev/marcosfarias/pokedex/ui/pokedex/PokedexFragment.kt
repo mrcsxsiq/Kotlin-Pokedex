@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import com.leinardi.android.speeddial.SpeedDialView
 import dev.marcosfarias.pokedex.R
-import dev.marcosfarias.pokedex.adapter.PokemonAdapter
 import dev.marcosfarias.pokedex.model.Pokemon
 import dev.marcosfarias.pokedex.ui.generation.GenerationFragment
 import dev.marcosfarias.pokedex.ui.search.SearchFragment

@@ -11,7 +11,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
 import dev.marcosfarias.pokedex.R
-import dev.marcosfarias.pokedex.adapter.ViewPagerAdapter
 import dev.marcosfarias.pokedex.ui.dashboard.about.AboutFragment
 import dev.marcosfarias.pokedex.ui.dashboard.evolution.EvolutionFragment
 import dev.marcosfarias.pokedex.ui.dashboard.moves.MovesFragment

@@ -1,4 +1,4 @@
-package dev.marcosfarias.pokedex.adapter
+package dev.marcosfarias.pokedex.ui.dashboard
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
