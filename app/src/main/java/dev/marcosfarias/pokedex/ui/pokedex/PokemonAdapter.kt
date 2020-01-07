@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -31,23 +32,17 @@ class PokemonAdapter(
 
             item.typeofpokemon?.getOrNull(0).let { firstType ->
                 itemView.textViewType3.text = firstType
-                if (firstType == null) {
-                    itemView.textViewType3.visibility = View.GONE
-                }
+                itemView.textViewType3.isVisible = firstType != null
             }
 
             item.typeofpokemon?.getOrNull(1).let { secondType ->
                 itemView.textViewType2.text = secondType
-                if (secondType == null) {
-                    itemView.textViewType2.visibility = View.GONE
-                }
+                itemView.textViewType2.isVisible = secondType != null
             }
 
             item.typeofpokemon?.getOrNull(2).let { thirdType ->
                 itemView.textViewType1.text = thirdType
-                if (thirdType == null) {
-                    itemView.textViewType1.visibility = View.GONE
-                }
+                itemView.textViewType1.isVisible = thirdType != null
             }
 
             Glide.with(itemView.context)

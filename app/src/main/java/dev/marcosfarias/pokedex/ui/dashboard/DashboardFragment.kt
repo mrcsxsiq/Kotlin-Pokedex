@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -50,23 +51,17 @@ class DashboardFragment : Fragment() {
 
                     pokemon?.typeofpokemon?.getOrNull(0).let { firstType ->
                         textViewType3.text = firstType
-                        if (firstType == null) {
-                            textViewType3.visibility = View.GONE
-                        }
+                        textViewType3.isVisible = firstType != null
                     }
 
                     pokemon?.typeofpokemon?.getOrNull(1).let { secondType ->
                         textViewType2.text = secondType
-                        if (secondType == null) {
-                            textViewType2.visibility = View.GONE
-                        }
+                        textViewType2.isVisible = secondType != null
                     }
 
                     pokemon?.typeofpokemon?.getOrNull(2).let { thirdType ->
                         textViewType1.text = thirdType
-                        if (thirdType == null) {
-                            textViewType1.visibility = View.GONE
-                        }
+                        textViewType1.isVisible = thirdType != null
                     }
 
                     Glide.with(view.context)
