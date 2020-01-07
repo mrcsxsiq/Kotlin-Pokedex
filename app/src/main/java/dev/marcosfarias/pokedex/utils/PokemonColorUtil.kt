@@ -8,6 +8,7 @@ import dev.marcosfarias.pokedex.R
 
 class PokemonColorUtil(var context: Context) {
 
+    @ColorInt
     fun getPokemonColor(typeOfPokemon: List<String>?): Int {
         val type = typeOfPokemon?.elementAtOrNull(0)
         val color = when (type?.toLowerCase()) {
@@ -18,7 +19,7 @@ class PokemonColorUtil(var context: Context) {
             "poison", "ghost" -> R.color.lightPurple
             "ground", "rock" -> R.color.lightBrown
             "dark" -> R.color.black
-            else -> return R.color.lightBlue
+            else -> R.color.lightBlue
         }
         return convertColor(color)
     }
