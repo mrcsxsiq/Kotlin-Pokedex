@@ -31,7 +31,7 @@ class GenerationFragment : BottomSheetDialogFragment() {
         val layoutManager = GridLayoutManager(context, 2)
         recyclerView.layoutManager = layoutManager
 
-        generationViewModel.getListGeneration().observe(this, Observer {
+        generationViewModel.getListGeneration().observe(viewLifecycleOwner, Observer {
             val pokemons: List<Generation> = it
             recyclerView.adapter = GenerationAdapter(pokemons, root.context)
         })

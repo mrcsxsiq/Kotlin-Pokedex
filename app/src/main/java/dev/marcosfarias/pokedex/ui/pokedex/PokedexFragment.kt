@@ -40,7 +40,7 @@ class PokedexFragment : Fragment() {
         val layoutManager = GridLayoutManager(context, 2)
         recyclerView.layoutManager = layoutManager
 
-        pokedexViewModel.getListPokemon().observe(this, Observer {
+        pokedexViewModel.getListPokemon().observe(viewLifecycleOwner, Observer {
             val pokemons: List<Pokemon> = it
             recyclerView.adapter = PokemonAdapter(pokemons, root.context)
             if (pokemons.isNotEmpty())

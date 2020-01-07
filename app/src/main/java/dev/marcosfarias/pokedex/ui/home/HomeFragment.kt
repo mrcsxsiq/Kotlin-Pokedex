@@ -46,12 +46,12 @@ class HomeFragment : Fragment() {
             )
         )
 
-        homeViewModel.getListMenu().observe(this, Observer {
+        homeViewModel.getListMenu().observe(viewLifecycleOwner, Observer {
             val items: List<Menu> = it
             recyclerViewMenu.adapter = MenuAdapter(items, root.context)
         })
 
-        homeViewModel.getListNews().observe(this, Observer {
+        homeViewModel.getListNews().observe(viewLifecycleOwner, Observer {
             val items: List<News> = it
             recyclerViewNews.adapter = NewsAdapter(items, root.context)
         })

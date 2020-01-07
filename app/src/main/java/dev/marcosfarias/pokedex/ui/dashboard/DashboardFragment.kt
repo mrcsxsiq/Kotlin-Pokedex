@@ -35,8 +35,7 @@ class DashboardFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
 
         arguments?.getString("id").let {
-
-            dashboardViewModel.getPokemonById(it).observe(this, Observer { list ->
+            dashboardViewModel.getPokemonById(it).observe(viewLifecycleOwner, Observer { list ->
                 list?.get(0).let { pokemon ->
                     root.textViewID.text = pokemon?.id
                     root.textViewName.text = pokemon?.name

@@ -38,7 +38,7 @@ class StatsFragment : Fragment() {
 
         arguments?.getString("id").let {
 
-            dashboardViewModel.getPokemonById(it).observe(this, Observer { list ->
+            dashboardViewModel.getPokemonById(it).observe(viewLifecycleOwner, Observer { list ->
                 list?.get(0).let { pokemon ->
 
                     root.textViewTypeDefenses.text = pokemon?.ydescription
