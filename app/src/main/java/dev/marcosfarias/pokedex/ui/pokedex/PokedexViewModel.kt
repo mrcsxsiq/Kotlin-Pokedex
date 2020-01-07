@@ -1,7 +1,6 @@
 package dev.marcosfarias.pokedex.ui.pokedex
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dev.marcosfarias.pokedex.App
 import dev.marcosfarias.pokedex.database.dao.PokemonDAO
@@ -13,7 +12,6 @@ import retrofit2.Response
 
 class PokedexViewModel : ViewModel() {
 
-    private var listPokemon = MutableLiveData<List<Pokemon>>()
     private val pokemonDAO: PokemonDAO = App.database!!.pokemonDAO()
 
     init {
@@ -34,12 +32,11 @@ class PokedexViewModel : ViewModel() {
                             pokemonDAO.add(pokemon)
                         }
                     }).start()
-                    listPokemon.value = pokemons
                 }
             }
 
             override fun onFailure(call: Call<List<Pokemon>?>?, t: Throwable?) {
-                listPokemon.value = pokemonDAO.all().value
+                // TODO handle failure
             }
         })
 
