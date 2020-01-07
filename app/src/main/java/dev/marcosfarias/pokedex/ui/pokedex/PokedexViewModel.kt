@@ -19,7 +19,7 @@ class PokedexViewModel : ViewModel() {
     }
 
     private fun initNetworkRequest() {
-        val call = APIService().pokemonService().get()
+        val call = APIService.pokemonService.get()
         call.enqueue(object : Callback<List<Pokemon>?> {
             override fun onResponse(
                 call: Call<List<Pokemon>?>?,
