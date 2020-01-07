@@ -29,21 +29,21 @@ class PokemonAdapter(
             itemView.relativeLayoutBackground.background.colorFilter =
                 PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
 
-            item.typeofpokemon?.elementAtOrNull(0).let { firstType ->
+            item.typeofpokemon?.getOrNull(0).let { firstType ->
                 itemView.textViewType3.text = firstType
                 if (firstType == null) {
                     itemView.textViewType3.visibility = View.GONE
                 }
             }
 
-            item.typeofpokemon?.elementAtOrNull(1).let { secondType ->
+            item.typeofpokemon?.getOrNull(1).let { secondType ->
                 itemView.textViewType2.text = secondType
                 if (secondType == null) {
                     itemView.textViewType2.visibility = View.GONE
                 }
             }
 
-            item.typeofpokemon?.elementAtOrNull(2).let { thirdType ->
+            item.typeofpokemon?.getOrNull(2).let { thirdType ->
                 itemView.textViewType1.text = thirdType
                 if (thirdType == null) {
                     itemView.textViewType1.visibility = View.GONE

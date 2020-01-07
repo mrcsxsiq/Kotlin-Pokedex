@@ -10,7 +10,7 @@ class PokemonColorUtil(var context: Context) {
 
     @ColorInt
     fun getPokemonColor(typeOfPokemon: List<String>?): Int {
-        val type = typeOfPokemon?.elementAtOrNull(0)
+        val type = typeOfPokemon?.getOrNull(0)
         val color = when (type?.toLowerCase()) {
             "grass", "bug" -> R.color.lightTeal
             "fire" -> R.color.lightRed

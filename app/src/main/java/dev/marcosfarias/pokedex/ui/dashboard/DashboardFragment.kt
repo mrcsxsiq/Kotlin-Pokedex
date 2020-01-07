@@ -48,21 +48,21 @@ class DashboardFragment : Fragment() {
                     activity?.window?.statusBarColor =
                         PokemonColorUtil(view.context).getPokemonColor(pokemon?.typeofpokemon)
 
-                    pokemon?.typeofpokemon?.elementAtOrNull(0).let { firstType ->
+                    pokemon?.typeofpokemon?.getOrNull(0).let { firstType ->
                         textViewType3.text = firstType
                         if (firstType == null) {
                             textViewType3.visibility = View.GONE
                         }
                     }
 
-                    pokemon?.typeofpokemon?.elementAtOrNull(1).let { secondType ->
+                    pokemon?.typeofpokemon?.getOrNull(1).let { secondType ->
                         textViewType2.text = secondType
                         if (secondType == null) {
                             textViewType2.visibility = View.GONE
                         }
                     }
 
-                    pokemon?.typeofpokemon?.elementAtOrNull(2).let { thirdType ->
+                    pokemon?.typeofpokemon?.getOrNull(2).let { thirdType ->
                         textViewType1.text = thirdType
                         if (thirdType == null) {
                             textViewType1.visibility = View.GONE
