@@ -10,37 +10,47 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import com.leinardi.android.speeddial.SpeedDialView
 import dev.marcosfarias.pokedex.R
-import dev.marcosfarias.pokedex.adapter.PokemonAdapter
 import dev.marcosfarias.pokedex.model.Pokemon
 import dev.marcosfarias.pokedex.ui.generation.GenerationFragment
 import dev.marcosfarias.pokedex.ui.search.SearchFragment
 import dev.marcosfarias.pokedex.utils.PokemonColorUtil
-import kotlinx.android.synthetic.main.fragment_pokedex.view.*
+import kotlinx.android.synthetic.main.fragment_pokedex.*
 
 class PokedexFragment : Fragment() {
 
     private lateinit var pokedexViewModel: PokedexViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ) : View? {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         pokedexViewModel = ViewModelProviders.of(this).get(PokedexViewModel::class.java)
+    }
 
-        val root = inflater.inflate(R.layout.fragment_pokedex, container, false)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_pokedex, container, false)
+    }
 
-        activity?.window?.statusBarColor = PokemonColorUtil(root.context).covertColor(R.color.background)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        activity?.window?.statusBarColor =
+            PokemonColorUtil(view.context).convertColor(R.color.background)
 
-        val progressBar = root.progressBar
-        val recyclerView = root.recyclerView
+        val progressBar = progressBar
+        val recyclerView = recyclerView
         val layoutManager = GridLayoutManager(context, 2)
         recyclerView.layoutManager = layoutManager
 
-        pokedexViewModel.getListPokemon().observe(this, Observer  {
-            val pokemons : List<Pokemon> = it
-            recyclerView.adapter = PokemonAdapter(pokemons, root.context)
+        pokedexViewModel.getListPokemon().observe(viewLifecycleOwner, Observer {
+            val pokemons: List<Pokemon> = it
+            recyclerView.adapter = PokemonAdapter(pokemons, view.context)
             if (pokemons.isNotEmpty())
                 progressBar.visibility = View.GONE
         })
 
-        val speedDialView = root.speedDial
+        val speedDialView = speedDial
         speedDialView.inflate(R.menu.menu_pokedex)
         speedDialView.setOnActionSelectedListener(SpeedDialView.OnActionSelectedListener { actionItem ->
             when (actionItem.id) {
@@ -60,19 +70,17 @@ class PokedexFragment : Fragment() {
                 }
             }
         })
-
-        return root
     }
 
     private fun showAllGen() {
         val dialog = GenerationFragment()
-        dialog.show(fragmentManager!!, "")
+        dialog.show(requireFragmentManager(), "")
 
     }
 
     private fun showSearch() {
         val dialog = SearchFragment()
-        dialog.show(fragmentManager!!, "")
+        dialog.show(requireFragmentManager(), "")
     }
 
 }

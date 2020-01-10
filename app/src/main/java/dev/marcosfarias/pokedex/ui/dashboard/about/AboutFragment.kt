@@ -9,7 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import dev.marcosfarias.pokedex.R
 import dev.marcosfarias.pokedex.ui.dashboard.DashboardViewModel
-import kotlinx.android.synthetic.main.fragment_about.view.*
+import kotlinx.android.synthetic.main.fragment_about.*
 
 class AboutFragment : Fragment() {
 
@@ -24,33 +24,31 @@ class AboutFragment : Fragment() {
 
     private lateinit var dashboardViewModel: DashboardViewModel
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        dashboardViewModel = ViewModelProviders.of(this).get(DashboardViewModel::class.java)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel = ViewModelProviders.of(this).get(DashboardViewModel::class.java)
-
-        val root = inflater.inflate(R.layout.fragment_about, container, false)
-
-        arguments?.getString("id").let {
-
-            dashboardViewModel.getPokemonById(it).observe(this, Observer { list ->
-                list?.get(0).let { pokemon ->
-
-                    root.textViewDescription.text = pokemon?.xdescription
-                    root.textViewHeight.text = pokemon?.height
-                    root.textViewWeight.text = pokemon?.weight
-                    root.textViewEggCycle.text = pokemon?.cycles
-                    root.textViewEggGroups.text = pokemon?.egg_groups
-                    root.textViewBaseEXP.text = pokemon?.base_exp
-                }
-            })
-        }
-
-
-        return root
+        return inflater.inflate(R.layout.fragment_about, container, false)
     }
 
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val id = checkNotNull(arguments?.getString("id"))
+        dashboardViewModel.getPokemonById(id).observe(viewLifecycleOwner, Observer { pokemonValue ->
+            pokemonValue?.let { pokemon ->
+                textViewDescription.text = pokemon.xdescription
+                textViewHeight.text = pokemon.height
+                textViewWeight.text = pokemon.weight
+                textViewEggCycle.text = pokemon.cycles
+                textViewEggGroups.text = pokemon.egg_groups
+                textViewBaseEXP.text = pokemon.base_exp
+            }
+        })
+    }
 }

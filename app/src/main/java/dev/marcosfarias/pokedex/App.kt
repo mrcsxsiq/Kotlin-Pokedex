@@ -6,9 +6,10 @@ import androidx.room.Room
 import dev.marcosfarias.pokedex.database.AppDatabase
 
 class App : Application() {
+
     companion object {
-        var context: Context? = null
-        var database: AppDatabase? = null
+        lateinit var context: Context
+        lateinit var database: AppDatabase
     }
 
     override fun onCreate() {
@@ -17,11 +18,12 @@ class App : Application() {
 
         database = Room.databaseBuilder(
             this,
-                AppDatabase::class.java,
-                getString(R.string.app_name)
-            )
+            AppDatabase::class.java,
+            getString(R.string.app_name)
+        )
             .fallbackToDestructiveMigration()
             .build()
 
     }
+
 }
