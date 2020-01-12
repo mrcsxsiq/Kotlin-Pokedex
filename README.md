@@ -52,16 +52,25 @@ Also available in Play Store
   <img src="screenshots/news-detail.png" width="270" alt="News Detail">
 </p>
 
-## Features
+## Development Roadmap
 
-- :white_check_mark: Kotlin
-- :white_check_mark: Live data
-- :white_check_mark: Navigation
-- :white_check_mark: ViewModel
-- :white_check_mark: Rest with retrofit
-- :white_check_mark: Offline Persistence with Room
+- [x] Kotlin
+- [x] Live data
+- [x] Navigation
+- [x] ViewModel
+- [x] Rest with retrofit
+- [x] Offline Persistence with Room
+- [x] Databinding
+- [ ] [Jetpack Compose](https://github.com/mrcsxsiq/Kotlin-Pokedex/issues/4) 
+- [ ] Coroutines
+- [ ] Koin
+- [ ] JUnit
+- [ ] MotionLayout
+- [ ] Transition Animations
+- [ ] DayNight
+- [ ] PokeAPI
 
-## Todo
+  ## Features
 
 - [x] Home
 - [x] Pokedex
@@ -77,7 +86,22 @@ Also available in Play Store
 ## Thanks
 
 - [Saepul Nahwan](https://dribbble.com/saepulnahwan23) for his [Pokedex App design](https://dribbble.com/shots/6545819-Pokedex-App)
+- [Márton Braun](https://github.com/zsmb13) for his [article](https://zsmb.co/lets-review-pokedex/) and [code review](https://github.com/mrcsxsiq/Kotlin-Pokedex/pull/3)
 - [Pham Sy Hung](https://github.com/scitbiz/flutter_pokedex/) for the Flutter version
+
+
+## Contributors
+
+| [<img src="https://avatars3.githubusercontent.com/u/12054216?s=115&v=4" width="48"><br><sub>@zsmb13</sub>](https://github.com/zsmb13) |
+[<img src="https://avatars0.githubusercontent.com/u/8435541?s=115&v=4" width="48"><br><sub>@aesean</sub>](https://github.com/aesean) |
+[<img src="https://avatars1.githubusercontent.com/u/988405?s=115&v=4" width="48"><br><sub>@STFBEE</sub>](https://github.com/STFBEE) | 
+[<img src="https://user-images.githubusercontent.com/95717/60592969-5da81680-9d67-11e9-92a3-8664ee0e2eda.png" width="48"><br><sub>You</sub>](https://github.com/mrcsxsiq/Kotlin-Pokedex/pulls) | 
+| :---: | :---: | :---: | :---: |
+
+## Author
+
+| [<img src="https://avatars3.githubusercontent.com/u/993608?s=115&v=4" width="48"><br><sub>@mrcsxsiq</sub>](https://github.com/mrcxsiq) |
+| :---: |
 
 ## License
 
