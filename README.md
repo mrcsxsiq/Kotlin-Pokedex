@@ -70,7 +70,7 @@ Also available in Play Store
 - [ ] DayNight
 - [ ] PokeAPI
 
-  ## Features
+## Features
 
 - [x] Home
 - [x] Pokedex
