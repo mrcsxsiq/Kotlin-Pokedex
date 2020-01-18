@@ -61,7 +61,7 @@ Also available in Play Store
 - [x] Rest with retrofit
 - [x] Offline Persistence with Room
 - [x] Databinding
-- [ ] [Jetpack Compose](https://github.com/mrcsxsiq/Kotlin-Pokedex/issues/4) 
+- [ ] ~[Jetpack Compose](https://github.com/mrcsxsiq/Kotlin-Pokedex/issues/4)~ - See [compose-pokedex](https://github.com/zsoltk/compose-pokedex)
 - [ ] Coroutines
 - [ ] Koin
 - [ ] JUnit
@@ -85,9 +85,16 @@ Also available in Play Store
 
 ## Thanks
 
-- [Saepul Nahwan](https://dribbble.com/saepulnahwan23) for his [Pokedex App design](https://dribbble.com/shots/6545819-Pokedex-App)
 - [Márton Braun](https://github.com/zsmb13) for his [article](https://zsmb.co/lets-review-pokedex/) and [code review](https://github.com/mrcsxsiq/Kotlin-Pokedex/pull/3)
-- [Pham Sy Hung](https://github.com/scitbiz/flutter_pokedex/) for the Flutter version
+
+## Design
+
+- [Saepul Nahwan](https://dribbble.com/saepulnahwan23) for his [Pokedex App design](https://dribbble.com/shots/6545819-Pokedex-App)
+
+## Other Pokedex Projects
+
+- [Zsolt Kocsi](https://github.com/zsoltk/compose-pokedex) - Android on Jetpack Compose
+- [Pham Sy Hung](https://github.com/scitbiz/flutter_pokedex/) - Flutter
 
 
 ## Contributors
