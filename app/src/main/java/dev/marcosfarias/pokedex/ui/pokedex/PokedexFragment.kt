@@ -15,15 +15,12 @@ import dev.marcosfarias.pokedex.ui.generation.GenerationFragment
 import dev.marcosfarias.pokedex.ui.search.SearchFragment
 import dev.marcosfarias.pokedex.utils.PokemonColorUtil
 import kotlinx.android.synthetic.main.fragment_pokedex.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class PokedexFragment : Fragment() {
 
-    private lateinit var pokedexViewModel: PokedexViewModel
+    private val pokedexViewModel: PokedexViewModel by viewModel()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        pokedexViewModel = ViewModelProviders.of(this).get(PokedexViewModel::class.java)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
