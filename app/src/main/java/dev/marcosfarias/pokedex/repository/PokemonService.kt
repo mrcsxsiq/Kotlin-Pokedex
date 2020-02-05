@@ -1,4 +1,4 @@
-package dev.marcosfarias.pokedex.remote
+package dev.marcosfarias.pokedex.repository
 
 import dev.marcosfarias.pokedex.model.Pokemon
 import retrofit2.Call

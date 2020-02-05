@@ -1,10 +1,9 @@
 package dev.marcosfarias.pokedex.di
 
-import dev.marcosfarias.pokedex.remote.PokemonService
+import dev.marcosfarias.pokedex.repository.PokemonService
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 val networkModule = module {
     single<Retrofit> {
@@ -14,7 +13,9 @@ val networkModule = module {
             .build()
     }
 
-    single {
-        get<Retrofit>().create<PokemonService>()
+    factory<PokemonService> {
+        get<Retrofit>().create(
+            PokemonService::class.java
+        )
     }
 }
