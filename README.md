@@ -63,7 +63,7 @@ Also available in Play Store
 - [x] Databinding
 - [ ] ~[Jetpack Compose](https://github.com/mrcsxsiq/Kotlin-Pokedex/issues/4)~ - See [compose-pokedex](https://github.com/zsoltk/compose-pokedex)
 - [ ] Coroutines
-- [ ] Koin
+- [x] Koin
 - [ ] JUnit
 - [ ] MotionLayout
 - [ ] Transition Animations
@@ -102,8 +102,9 @@ Also available in Play Store
 | [<img src="https://avatars3.githubusercontent.com/u/12054216?s=115&v=4" width="48"><br><sub>@zsmb13</sub>](https://github.com/zsmb13) |
 [<img src="https://avatars0.githubusercontent.com/u/8435541?s=115&v=4" width="48"><br><sub>@aesean</sub>](https://github.com/aesean) |
 [<img src="https://avatars1.githubusercontent.com/u/988405?s=115&v=4" width="48"><br><sub>@STFBEE</sub>](https://github.com/STFBEE) | 
+[<img src="https://avatars1.githubusercontent.com/u/25616312?s=115&v=4" width="48"><br><sub>@CorneilleEdi</sub>](https://github.com/CorneilleEdi) | 
 [<img src="https://user-images.githubusercontent.com/95717/60592969-5da81680-9d67-11e9-92a3-8664ee0e2eda.png" width="48"><br><sub>You</sub>](https://github.com/mrcsxsiq/Kotlin-Pokedex/pulls) | 
-| :---: | :---: | :---: | :---: |
+| :---: | :---: | :---: | :---: | :---: |
 
 ## Author
 

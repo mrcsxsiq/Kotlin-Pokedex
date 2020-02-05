@@ -6,9 +6,7 @@ import dev.marcosfarias.pokedex.App
 import dev.marcosfarias.pokedex.database.dao.PokemonDAO
 import dev.marcosfarias.pokedex.model.Pokemon
 
-class DashboardViewModel : ViewModel() {
-
-    private val pokemonDAO: PokemonDAO = App.database.pokemonDAO()
+class DashboardViewModel(private val pokemonDAO: PokemonDAO) : ViewModel() {
 
     fun getPokemonById(id: String?): LiveData<Pokemon> {
         return pokemonDAO.getById(id)

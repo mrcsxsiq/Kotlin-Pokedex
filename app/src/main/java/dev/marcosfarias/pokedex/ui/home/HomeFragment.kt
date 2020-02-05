@@ -14,15 +14,12 @@ import dev.marcosfarias.pokedex.model.Menu
 import dev.marcosfarias.pokedex.model.News
 import dev.marcosfarias.pokedex.utils.PokemonColorUtil
 import kotlinx.android.synthetic.main.fragment_home.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private val homeViewModel: HomeViewModel by viewModel()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        homeViewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
