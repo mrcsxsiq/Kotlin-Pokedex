@@ -2,17 +2,15 @@ package dev.marcosfarias.pokedex.ui.pokedex
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import dev.marcosfarias.pokedex.App
 import dev.marcosfarias.pokedex.database.dao.PokemonDAO
 import dev.marcosfarias.pokedex.model.Pokemon
-import dev.marcosfarias.pokedex.repository.APIService
-import dev.marcosfarias.pokedex.repository.PokemonService
+import dev.marcosfarias.pokedex.remote.PokemonService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import kotlin.concurrent.thread
 
-class PokedexViewModel(private val pokemonDAO: PokemonDAO, private val pokemonService: PokemonService ) : ViewModel() {
+class PokedexViewModel(private val pokemonDAO: PokemonDAO, private val pokemonService: PokemonService) : ViewModel() {
 
 
 

@@ -62,8 +62,8 @@ Also available in Play Store
 - [x] Offline Persistence with Room
 - [x] Databinding
 - [ ] ~[Jetpack Compose](https://github.com/mrcsxsiq/Kotlin-Pokedex/issues/4)~ - See [compose-pokedex](https://github.com/zsoltk/compose-pokedex)
-- [x] Coroutines
-- [ ] Koin
+- [ ] Coroutines
+- [x] Koin
 - [ ] JUnit
 - [ ] MotionLayout
 - [ ] Transition Animations

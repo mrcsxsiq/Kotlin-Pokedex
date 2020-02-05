@@ -1,4 +1,4 @@
-package dev.marcosfarias.pokedex.repository
+package dev.marcosfarias.pokedex.remote
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
