@@ -10,7 +10,7 @@ val databaseModule = module {
         Room.databaseBuilder(
             androidApplication(),
             AppDatabase::class.java,
-            "rapidsend.db"
+            getString(R.string.app_name)
         ).build()
     }
 
