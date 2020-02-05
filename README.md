@@ -54,21 +54,22 @@ Also available in Play Store
 
 ## Development Roadmap
 
-- [x] Kotlin
-- [x] Live data
-- [x] Navigation
-- [x] ViewModel
-- [x] Rest with retrofit
-- [x] Offline Persistence with Room
-- [x] Databinding
-- [ ] ~[Jetpack Compose](https://github.com/mrcsxsiq/Kotlin-Pokedex/issues/4)~ - See [compose-pokedex](https://github.com/zsoltk/compose-pokedex)
-- [ ] Coroutines
-- [x] Koin
+- [x] [Kotlin](https://kotlinlang.org/)
+- [x] [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)
+- [x] [Navigation](https://developer.android.com/topic/libraries/architecture/navigation)
+- [x] [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
+- [x] [Room](https://developer.android.com/topic/libraries/architecture/room)
+- [x] [Retrofit](https://square.github.io/retrofit/)
+- [x] [Databinding](https://developer.android.com/topic/libraries/data-binding)
+- [ ] [Coroutines](https://developer.android.com/topic/libraries/architecture/coroutines)
+- [x] [Koin](https://insert-koin.io/)
+- [ ] [Ktlint](https://ktlint.github.io/)
 - [ ] JUnit
 - [ ] MotionLayout
 - [ ] Transition Animations
 - [ ] DayNight
 - [ ] PokeAPI
+- [ ] ~[Jetpack Compose](https://developer.android.com/jetpack/compose)~ - See [compose-pokedex](https://github.com/zsoltk/compose-pokedex)
 
 ## Features
 
