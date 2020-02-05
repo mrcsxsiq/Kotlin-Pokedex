@@ -4,26 +4,23 @@ import android.app.Application
 import android.content.Context
 import androidx.room.Room
 import dev.marcosfarias.pokedex.database.AppDatabase
+import dev.marcosfarias.pokedex.di.appComponent
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.startKoin
 
 class App : Application() {
 
-    companion object {
-        lateinit var context: Context
-        lateinit var database: AppDatabase
-    }
 
     override fun onCreate() {
         super.onCreate()
-        context = this
-
-        database = Room.databaseBuilder(
-            this,
-            AppDatabase::class.java,
-            getString(R.string.app_name)
-        )
-            .fallbackToDestructiveMigration()
-            .build()
+        configureDI()
 
     }
+
+    private fun configureDI() = startKoin {
+        androidContext(this@App)
+        modules(appComponent)
+    }
+
 
 }

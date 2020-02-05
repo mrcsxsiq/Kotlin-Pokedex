@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import dev.marcosfarias.pokedex.R
 import dev.marcosfarias.pokedex.ui.dashboard.DashboardViewModel
 import kotlinx.android.synthetic.main.fragment_stats.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class StatsFragment : Fragment() {
 
@@ -22,12 +23,8 @@ class StatsFragment : Fragment() {
         }
     }
 
-    private lateinit var dashboardViewModel: DashboardViewModel
+    private val  dashboardViewModel: DashboardViewModel by viewModel()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        dashboardViewModel = ViewModelProviders.of(this).get(DashboardViewModel::class.java)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

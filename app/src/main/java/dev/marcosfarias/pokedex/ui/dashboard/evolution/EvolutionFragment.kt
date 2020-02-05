@@ -8,15 +8,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import dev.marcosfarias.pokedex.R
 import dev.marcosfarias.pokedex.ui.dashboard.DashboardViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class EvolutionFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
+    private val dashboardViewModel: DashboardViewModel  by viewModel()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        dashboardViewModel = ViewModelProviders.of(this).get(DashboardViewModel::class.java)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

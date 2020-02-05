@@ -6,21 +6,22 @@ import dev.marcosfarias.pokedex.App
 import dev.marcosfarias.pokedex.database.dao.PokemonDAO
 import dev.marcosfarias.pokedex.model.Pokemon
 import dev.marcosfarias.pokedex.repository.APIService
+import dev.marcosfarias.pokedex.repository.PokemonService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import kotlin.concurrent.thread
 
-class PokedexViewModel : ViewModel() {
+class PokedexViewModel(private val pokemonDAO: PokemonDAO, private val pokemonService: PokemonService ) : ViewModel() {
 
-    private val pokemonDAO: PokemonDAO = App.database.pokemonDAO()
+
 
     init {
         initNetworkRequest()
     }
 
     private fun initNetworkRequest() {
-        val call = APIService.pokemonService.get()
+        val call = pokemonService.get()
         call.enqueue(object : Callback<List<Pokemon>?> {
             override fun onResponse(
                 call: Call<List<Pokemon>?>?,

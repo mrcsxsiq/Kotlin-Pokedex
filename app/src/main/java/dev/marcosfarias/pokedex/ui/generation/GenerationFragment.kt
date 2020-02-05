@@ -11,15 +11,12 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dev.marcosfarias.pokedex.R
 import dev.marcosfarias.pokedex.model.Generation
 import kotlinx.android.synthetic.main.fragment_generation.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class GenerationFragment : BottomSheetDialogFragment() {
 
-    private lateinit var generationViewModel: GenerationViewModel
+    private val generationViewModel: GenerationViewModel by viewModel()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        generationViewModel = ViewModelProviders.of(this).get(GenerationViewModel::class.java)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
