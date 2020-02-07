@@ -63,7 +63,7 @@ Also available in Play Store
 - [x] [Databinding](https://developer.android.com/topic/libraries/data-binding)
 - [x] [Retrofit](https://square.github.io/retrofit/)
 - [x] [Koin](https://insert-koin.io/)
-- [ ] [Ktlint](https://ktlint.github.io/)
+- [x] [Ktlint](https://ktlint.github.io/)
 - [ ] JUnit
 - [ ] MotionLayout
 - [ ] Transition Animations
