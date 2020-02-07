@@ -38,6 +38,4 @@ class Pokemon {
     var weight: String? = null
     var xdescription: String? = null
     var ydescription: String? = null
-
-
 }

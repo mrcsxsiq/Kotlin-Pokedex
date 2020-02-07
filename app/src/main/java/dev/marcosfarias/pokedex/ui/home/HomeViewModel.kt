@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import dev.marcosfarias.pokedex.App
 import dev.marcosfarias.pokedex.R
 import dev.marcosfarias.pokedex.model.Menu
 import dev.marcosfarias.pokedex.model.News
@@ -39,5 +38,4 @@ class HomeViewModel(private val context: Context) : ViewModel() {
         )
         return listNews
     }
-
 }

@@ -16,5 +16,4 @@ class SearchFragment : BottomSheetDialogFragment() {
     ): View? {
         return inflater.inflate(R.layout.fragment_search, container, false)
     }
-
 }

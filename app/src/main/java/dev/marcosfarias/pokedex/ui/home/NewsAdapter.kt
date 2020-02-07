@@ -37,5 +37,4 @@ class NewsAdapter(
     override fun getItemCount(): Int {
         return list.size
     }
-
 }

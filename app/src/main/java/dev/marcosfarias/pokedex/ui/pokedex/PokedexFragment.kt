@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import com.leinardi.android.speeddial.SpeedDialView
 import dev.marcosfarias.pokedex.R
@@ -20,7 +19,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class PokedexFragment : Fragment() {
 
     private val pokedexViewModel: PokedexViewModel by viewModel()
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -72,12 +70,10 @@ class PokedexFragment : Fragment() {
     private fun showAllGen() {
         val dialog = GenerationFragment()
         dialog.show(requireFragmentManager(), "")
-
     }
 
     private fun showSearch() {
         val dialog = SearchFragment()
         dialog.show(requireFragmentManager(), "")
     }
-
 }

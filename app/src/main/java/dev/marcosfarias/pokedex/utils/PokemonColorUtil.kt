@@ -28,5 +28,4 @@ class PokemonColorUtil(var context: Context) {
     fun convertColor(@ColorRes color: Int): Int {
         return ContextCompat.getColor(context, color)
     }
-
 }

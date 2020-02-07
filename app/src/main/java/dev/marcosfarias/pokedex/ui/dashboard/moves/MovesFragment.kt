@@ -16,5 +16,4 @@ class MovesFragment : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.fragment_moves, container, false)
     }
-
 }

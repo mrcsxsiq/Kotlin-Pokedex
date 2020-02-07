@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import dev.marcosfarias.pokedex.R
 import dev.marcosfarias.pokedex.ui.dashboard.DashboardViewModel
 import kotlinx.android.synthetic.main.fragment_about.*
@@ -24,7 +23,6 @@ class AboutFragment : Fragment() {
     }
 
     private val dashboardViewModel: DashboardViewModel by viewModel()
-
 
     override fun onCreateView(
         inflater: LayoutInflater,

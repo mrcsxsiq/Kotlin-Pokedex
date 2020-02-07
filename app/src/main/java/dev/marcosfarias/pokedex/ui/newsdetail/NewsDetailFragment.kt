@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import dev.marcosfarias.pokedex.R
 import dev.marcosfarias.pokedex.utils.PokemonColorUtil
 
-
 class NewsDetailFragment : Fragment() {
 
     override fun onCreateView(
@@ -24,5 +23,4 @@ class NewsDetailFragment : Fragment() {
         activity?.window?.statusBarColor =
             PokemonColorUtil(view.context).convertColor(R.color.white)
     }
-
 }

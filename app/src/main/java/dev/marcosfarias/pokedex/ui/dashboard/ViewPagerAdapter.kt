@@ -49,5 +49,4 @@ class ViewPagerAdapter(
     override fun getPageTitle(position: Int): CharSequence? {
         return pages[position].title
     }
-
 }

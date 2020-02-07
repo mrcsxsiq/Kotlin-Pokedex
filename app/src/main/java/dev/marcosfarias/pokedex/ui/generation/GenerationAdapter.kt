@@ -19,7 +19,6 @@ class GenerationAdapter(
             itemView.textViewTitle.text = item.title
             itemView.imageView.setImageResource(item.image)
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -35,5 +34,4 @@ class GenerationAdapter(
     override fun getItemCount(): Int {
         return list.size
     }
-
 }

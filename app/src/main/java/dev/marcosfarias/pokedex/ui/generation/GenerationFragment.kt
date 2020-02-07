@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dev.marcosfarias.pokedex.R
@@ -16,7 +15,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class GenerationFragment : BottomSheetDialogFragment() {
 
     private val generationViewModel: GenerationViewModel by viewModel()
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,5 +36,4 @@ class GenerationFragment : BottomSheetDialogFragment() {
             recyclerView.adapter = GenerationAdapter(pokemons, view.context)
         })
     }
-
 }
