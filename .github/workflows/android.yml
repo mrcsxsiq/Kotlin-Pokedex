@@ -13,5 +13,15 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+    - name: Make Gradle executable
+      run: chmod +x ./gradlew
     - name: Build with Gradle
       run: ./gradlew build
+    - name: Build Debug APK
+      run: ./gradlew assembleDebug
+    - name: Releasing using Hub
+      uses: ShaunLWM/action-release-debugapk@master
+      env:
+       GITHUB_TOKEN: ${{ secrets.TOKEN }}
+       APP_FOLDER: app
+       RELEASE_TITLE: New Build
