@@ -11,6 +11,10 @@ Pokedex app built with Kotlin
     <img src="https://kotlin.link/awesome-kotlin.svg" alt="Awesome Kotlin">
   </a>
   
+  <a href="https://github.com/mrcsxsiq/Kotlin-Pokedex/actions">
+    <img src="https://github.com/mrcsxsiq/Kotlin-Pokedex/workflows/Android%20CI/badge.svg" alt="Android CI">
+  </a>
+  
   <a href="https://opensource.org/licenses/MIT">
     <img src="https://img.shields.io/badge/License-MIT-red.svg" alt="License MIT">
   </a>
