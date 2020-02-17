@@ -4,6 +4,7 @@ import androidx.annotation.NonNull
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
+import com.google.gson.annotations.SerializedName
 import dev.marcosfarias.pokedex.utils.ListStringConverter
 
 @Entity
@@ -11,31 +12,31 @@ import dev.marcosfarias.pokedex.utils.ListStringConverter
 class Pokemon(
     @PrimaryKey
     @NonNull
-    val id: String,
-    val abilities: List<String>?,
-    val attack: Int?,
-    val base_exp: String?,
-    val category: String?,
-    val cycles: String?,
-    val defense: Int?,
-    val egg_groups: String?,
-    val evolutions: List<String>?,
-    val evolvedfrom: String?,
-    val female_percentage: String?,
-    val genderless: Int?,
-    val height: String?,
-    val hp: Int?,
-    val imageurl: String?,
-    val male_percentage: String?,
-    val name: String?,
-    val reason: String?,
-    val special_attack: Int?,
-    val special_defense: Int?,
-    val speed: Int?,
-    val total: Int?,
-    val typeofpokemon: List<String>?,
-    val weaknesses: List<String>?,
-    val weight: String?,
-    val xdescription: String?,
-    val ydescription: String?
+    @SerializedName("id") val id: String,
+    @SerializedName("abilities") val abilities: List<String>?,
+    @SerializedName("attack") val attack: Int?,
+    @SerializedName("base_exp") val baseExp: String?,
+    @SerializedName("category") val category: String?,
+    @SerializedName("cycles") val cycles: String?,
+    @SerializedName("defense") val defense: Int?,
+    @SerializedName("egg_groups") val eggGroups: String?,
+    @SerializedName("evolutions") val evolutions: List<String>?,
+    @SerializedName("evolvedfrom") val evolvedfrom: String?,
+    @SerializedName("female_percentage") val femalePercentage: String?,
+    @SerializedName("genderless") val genderless: Int?,
+    @SerializedName("height") val height: String?,
+    @SerializedName("hp") val hp: Int?,
+    @SerializedName("imageurl") val imageurl: String?,
+    @SerializedName("male_percentage") val malePercentage: String?,
+    @SerializedName("name") val name: String?,
+    @SerializedName("reason") val reason: String?,
+    @SerializedName("special_attack") val specialAttack: Int?,
+    @SerializedName("special_defense") val specialDefense: Int?,
+    @SerializedName("speed") val speed: Int?,
+    @SerializedName("total") val total: Int?,
+    @SerializedName("typeofpokemon") val typeofpokemon: List<String>?,
+    @SerializedName("weaknesses") val weaknesses: List<String>?,
+    @SerializedName("weight") val weight: String?,
+    @SerializedName("xdescription") val xdescription: String?,
+    @SerializedName("ydescription") val ydescription: String?
 )

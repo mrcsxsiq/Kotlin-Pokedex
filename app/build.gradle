@@ -28,9 +28,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    kotlinOptions {
-        jvmTarget = '1.8'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
+}
+
+preBuild.dependsOn ':detekt'
+
+detekt {
+    toolVersion = "1.1.1"
+    input = files("src/main/java")
+    config = files("detekt.yml")
 }
 
 dependencies {
@@ -74,8 +83,8 @@ dependencies {
 
     // Glide
     kapt "android.arch.lifecycle:compiler:1.1.1"
-    kapt 'com.github.bumptech.glide:compiler:4.9.0'
-    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    kapt 'com.github.bumptech.glide:compiler:4.10.0'
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
 
     // Koin
     implementation 'org.koin:koin-android:2.0.1'
@@ -83,7 +92,7 @@ dependencies {
     implementation 'org.koin:koin-androidx-viewmodel:2.0.1'
 
     // Test
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }

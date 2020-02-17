@@ -30,7 +30,7 @@ class PokedexFragment : Fragment(R.layout.fragment_pokedex) {
 
         pokedexViewModel.getListPokemon().observe(viewLifecycleOwner, Observer {
             val pokemons: List<Pokemon> = it
-            recyclerView.adapter = PokemonAdapter(pokemons, view.context)
+            recyclerView.adapter = PokemonAdapter(pokemons)
             if (pokemons.isNotEmpty())
                 progressBar.visibility = View.GONE
         })
@@ -59,11 +59,11 @@ class PokedexFragment : Fragment(R.layout.fragment_pokedex) {
 
     private fun showAllGen() {
         val dialog = GenerationFragment()
-        dialog.show(requireFragmentManager(), "")
+        dialog.show(parentFragmentManager, "")
     }
 
     private fun showSearch() {
         val dialog = SearchFragment()
-        dialog.show(requireFragmentManager(), "")
+        dialog.show(parentFragmentManager, "")
     }
 }

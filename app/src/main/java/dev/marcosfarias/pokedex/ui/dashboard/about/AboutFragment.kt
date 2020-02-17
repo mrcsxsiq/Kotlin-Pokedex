@@ -27,8 +27,8 @@ class AboutFragment private constructor() : Fragment(R.layout.fragment_about) {
                 textViewHeight.text = pokemon.height
                 textViewWeight.text = pokemon.weight
                 textViewEggCycle.text = pokemon.cycles
-                textViewEggGroups.text = pokemon.egg_groups
-                textViewBaseEXP.text = pokemon.base_exp
+                textViewEggGroups.text = pokemon.eggGroups
+                textViewBaseEXP.text = pokemon.baseExp
             }
         })
     }
