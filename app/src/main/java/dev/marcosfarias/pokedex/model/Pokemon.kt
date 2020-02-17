@@ -8,34 +8,34 @@ import dev.marcosfarias.pokedex.utils.ListStringConverter
 
 @Entity
 @TypeConverters(ListStringConverter::class)
-class Pokemon {
+class Pokemon(
     @PrimaryKey
     @NonNull
-    var id: String? = null
-    var abilities: List<String>? = null
-    var attack: Int? = null
-    var base_exp: String? = null
-    var category: String? = null
-    var cycles: String? = null
-    var defense: Int? = null
-    var egg_groups: String? = null
-    var evolutions: List<String>? = null
-    var evolvedfrom: String? = null
-    var female_percentage: String? = null
-    var genderless: Int? = null
-    var height: String? = null
-    var hp: Int? = null
-    var imageurl: String? = null
-    var male_percentage: String? = null
-    var name: String? = null
-    var reason: String? = null
-    var special_attack: Int? = null
-    var special_defense: Int? = null
-    var speed: Int? = null
-    var total: Int? = null
-    var typeofpokemon: List<String>? = null
-    var weaknesses: List<String>? = null
-    var weight: String? = null
-    var xdescription: String? = null
-    var ydescription: String? = null
-}
+    val id: String,
+    val abilities: List<String>?,
+    val attack: Int?,
+    val base_exp: String?,
+    val category: String?,
+    val cycles: String?,
+    val defense: Int?,
+    val egg_groups: String?,
+    val evolutions: List<String>?,
+    val evolvedfrom: String?,
+    val female_percentage: String?,
+    val genderless: Int?,
+    val height: String?,
+    val hp: Int?,
+    val imageurl: String?,
+    val male_percentage: String?,
+    val name: String?,
+    val reason: String?,
+    val special_attack: Int?,
+    val special_defense: Int?,
+    val speed: Int?,
+    val total: Int?,
+    val typeofpokemon: List<String>?,
+    val weaknesses: List<String>?,
+    val weight: String?,
+    val xdescription: String?,
+    val ydescription: String?
+)

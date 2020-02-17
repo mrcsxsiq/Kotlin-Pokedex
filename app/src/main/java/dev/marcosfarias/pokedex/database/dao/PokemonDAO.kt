@@ -1,28 +1,23 @@
 package dev.marcosfarias.pokedex.database.dao
 
-import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import dev.marcosfarias.pokedex.model.Pokemon
 
 @Dao
 interface PokemonDAO {
 
     @Query("SELECT * FROM pokemon WHERE id = :id")
-    fun getById(id: String?): LiveData<Pokemon>
+    suspend fun getById(id: String): Pokemon
 
     @Query("SELECT * FROM pokemon")
-    fun all(): LiveData<List<Pokemon>>
+    suspend fun all(): List<Pokemon>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun add(pokemon: List<Pokemon>)
+    suspend fun add(pokemon: List<Pokemon>)
 
     @Query("DELETE FROM pokemon")
-    fun deleteAll()
+    suspend fun deleteAll()
 
     @Delete
-    fun delete(model: Pokemon)
+    suspend fun delete(model: Pokemon)
 }

@@ -1,9 +1,7 @@
 package dev.marcosfarias.pokedex.ui.dashboard.stats
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import dev.marcosfarias.pokedex.R
@@ -11,26 +9,16 @@ import dev.marcosfarias.pokedex.ui.dashboard.DashboardViewModel
 import kotlinx.android.synthetic.main.fragment_stats.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class StatsFragment : Fragment() {
+class StatsFragment private constructor() : Fragment(R.layout.fragment_stats) {
 
-    companion object {
-        @JvmStatic
-        fun newInstance(id: String?) = StatsFragment().apply {
-            arguments = Bundle().apply {
-                putString("id", id)
-            }
+    constructor(id: String) : this() {
+        arguments = Bundle().apply {
+            putString("id", id)
         }
+
     }
 
     private val dashboardViewModel: DashboardViewModel by viewModel()
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_stats, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
