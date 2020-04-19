@@ -22,11 +22,11 @@ class ViewPagerAdapter(
     private val pages = listOf(
         Page(
             context.getString(R.string.dashboard_tab_1),
-            { AboutFragment.newInstance(pokemonId) }
+            { AboutFragment(pokemonId) }
         ),
         Page(
             context.getString(R.string.dashboard_tab_2),
-            { StatsFragment.newInstance(pokemonId) }
+            { StatsFragment(pokemonId) }
         ),
         Page(
             context.getString(R.string.dashboard_tab_3),
