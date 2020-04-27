@@ -12,22 +12,22 @@ class PokedexRepository(
     private val pokemonDAO: PokemonDAO,
     private val pokemonService: PokemonService
 ) {
-    private var isLoading = false
+    private var loadingLock = false
     private var pokedexList = mutableListOf<Pokemon>()
 
     val loadingData = MutableLiveData(false)
     val pokedexListData = MutableLiveData<MutableList<Pokemon>>()
 
     suspend fun loadPokedexList(offset: String, limit: String) {
-        if (!isLoading) {
-            isLoading = true
-            loadingData.postValue(isLoading)
+        if (!loadingLock) {
+            loadingLock = true
+            loadingData.postValue(loadingLock)
             val cache = pokemonDAO.getByRangeOffsetId(offset)
             if (cache.isNotEmpty()) {
                 val data = pokemonDAO.all()
                 pokedexListData.postValue(data)
-                isLoading = false
-                loadingData.postValue(isLoading)
+                loadingLock = false
+                loadingData.postValue(loadingLock)
             } else {
                 getPokedexList(offset, limit)
                     .subscribeOn(Schedulers.io())
@@ -36,12 +36,12 @@ class PokedexRepository(
                         pokemonDAO.add(pokedexItem)
                     }, { error ->
                         error.printStackTrace()
-                        isLoading = false
-                        loadingData.postValue(isLoading)
+                        loadingLock = false
+                        loadingData.postValue(loadingLock)
                     }, {
                         pokedexListData.postValue(pokedexList)
-                        isLoading = false
-                        loadingData.postValue(isLoading)
+                        loadingLock = false
+                        loadingData.postValue(loadingLock)
                     })
             }
         }

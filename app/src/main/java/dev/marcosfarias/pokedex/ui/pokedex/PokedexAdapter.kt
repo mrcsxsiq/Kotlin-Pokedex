@@ -8,10 +8,10 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import dev.marcosfarias.pokedex.R
 import dev.marcosfarias.pokedex.model.Pokemon
 import dev.marcosfarias.pokedex.utils.PokemonColorUtil
+import dev.marcosfarias.pokedex.utils.PokemonImageUtil
 import dev.marcosfarias.pokedex.utils.PokemonStringUtil
 import kotlinx.android.synthetic.main.item_pokemon.view.*
 
@@ -23,38 +23,33 @@ class PokedexAdapter : RecyclerView.Adapter<PokedexAdapter.PokedexViewHolder>() 
         setHasStableIds(true)
     }
 
-    class PokedexViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bindView(item: Pokemon) {
-            itemView.textViewName.text = item.name.capitalize()
-            itemView.textViewID.text = PokemonStringUtil.formatId(item.id)
+    class PokedexViewHolder(pokemonItemView: View) : RecyclerView.ViewHolder(pokemonItemView) {
+        fun bindView(pokemonItem: Pokemon) {
+            itemView.pokemonNameLabel.text = pokemonItem.name.capitalize()
+            itemView.pokemonIDLabel.text = PokemonStringUtil().formatId(pokemonItem.id)
 
-            val color = PokemonColorUtil(itemView.context).getColor(item.types.last().type.name)
+            val color = PokemonColorUtil(itemView.context).getColor(pokemonItem.types.last().type.name)
             itemView.relativeLayoutBackground.background.colorFilter =
                 PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
 
-            item.types.getOrNull(0)?.type?.let { firstType ->
-                itemView.textViewType3.text = firstType.name.capitalize()
+            pokemonItem.types.getOrNull(2)?.type?.let { thirdType ->
+                itemView.thirdTypeLabel.text = thirdType.name.capitalize()
             }
-            itemView.textViewType3.visibility = if(itemView.textViewType3.text.isNotEmpty()) View.VISIBLE else View.GONE
-
-            item.types.getOrNull(1)?.type?.let { secondType ->
-                itemView.textViewType2.text = secondType.name.capitalize()
+            pokemonItem.types.getOrNull(1)?.type?.let { secondType ->
+                itemView.secondTypeLabel.text = secondType.name.capitalize()
             }
-            itemView.textViewType2.visibility = if(itemView.textViewType2.text.isNotEmpty()) View.VISIBLE else View.GONE
-
-            item.types.getOrNull(2)?.type?.let { thirdType ->
-                itemView.textViewType1.text = thirdType.name.capitalize()
+            pokemonItem.types.getOrNull(0)?.type?.let { firstType ->
+                itemView.firstTypeLabel.text = firstType.name.capitalize()
             }
-            itemView.textViewType1.visibility = if(itemView.textViewType1.text.isNotEmpty()) View.VISIBLE else View.GONE
 
-//            TODO: Fazer carregamento de Imagem
-            Glide.with(itemView.context)
-                .load("https://pokeres.bastionbot.org/images/pokemon/" + item.id + ".png")
-                .placeholder(android.R.color.transparent)
-                .into(itemView.imageView)
+            itemView.firstTypeLabel.visibility = if(itemView.firstTypeLabel.text.isNotEmpty()) View.VISIBLE else View.GONE
+            itemView.secondTypeLabel.visibility = if(itemView.secondTypeLabel.text.isNotEmpty() && itemView.secondTypeLabel.text != itemView.firstTypeLabel.text) View.VISIBLE else View.GONE
+            itemView.thirdTypeLabel.visibility = if(itemView.thirdTypeLabel.text.isNotEmpty() && itemView.thirdTypeLabel.text != itemView.secondTypeLabel.text) View.VISIBLE else View.GONE
+
+            PokemonImageUtil().loadPokemonImage(itemView.context, pokemonItem.id, itemView.imageView)
 
             itemView.setOnClickListener {
-                val bundle = bundleOf("id" to item.id)
+                val bundle = bundleOf("id" to pokemonItem.id)
                 it.findNavController()
                     .navigate(R.id.action_navigation_pokedex_to_navigation_dashboard, bundle)
             }
@@ -67,8 +62,8 @@ class PokedexAdapter : RecyclerView.Adapter<PokedexAdapter.PokedexViewHolder>() 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokedexViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_pokemon, parent, false)
-        return PokedexViewHolder(view)
+        val pokemonItemView = LayoutInflater.from(parent.context).inflate(R.layout.item_pokemon, parent, false)
+        return PokedexViewHolder(pokemonItemView)
     }
 
     override fun onBindViewHolder(holderPokedex: PokedexViewHolder, position: Int) {

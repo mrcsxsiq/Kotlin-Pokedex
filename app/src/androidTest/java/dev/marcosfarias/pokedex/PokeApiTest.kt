@@ -75,7 +75,7 @@ class PokeApiTest {
     }
 }
 
-class ApiTest {<PokemonApiDef>
+class ApiTest {
     private val service: PokemonApiDef
 
     init {

@@ -21,8 +21,8 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         val id = checkNotNull(arguments?.getString("id"))
         dashboardViewModel.getPokemonById(id).observe(viewLifecycleOwner, Observer { pokemonValue ->
             pokemonValue?.let { pokemon ->
-                textViewID.text = PokemonStringUtil.formatId(pokemon.id)
-                textViewName.text = pokemon.name.capitalize()
+                pokemonIDLabel.text = PokemonStringUtil().formatId(pokemon.id)
+                pokemonNameLabel.text = pokemon.name.capitalize()
 
                 val color =
                     PokemonColorUtil(view.context).getColor(pokemon.types.last().type.name)
@@ -34,19 +34,19 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
                     PokemonColorUtil(view.context).getColor(pokemon.types.last().type.name)
 
                 pokemon.types.getOrNull(0)?.type?.let { firstType ->
-                    textViewType3.text = firstType.name.capitalize()
+                    firstTypeLabel.text = firstType.name.capitalize()
                 }
-                textViewType3.visibility = if (textViewType3.text.isNotEmpty()) View.VISIBLE else View.GONE
+                firstTypeLabel.visibility = if (firstTypeLabel.text.isNotEmpty()) View.VISIBLE else View.GONE
 
                 pokemon.types.getOrNull(1)?.type?.let { secondType ->
-                    textViewType2.text = secondType.name.capitalize()
+                    secondTypeLabel.text = secondType.name.capitalize()
                 }
-                textViewType2.visibility = if (textViewType2.text.isNotEmpty()) View.VISIBLE else View.GONE
+                secondTypeLabel.visibility = if (secondTypeLabel.text.isNotEmpty()) View.VISIBLE else View.GONE
 
                 pokemon.types.getOrNull(2)?.type?.let { thirdType ->
-                    textViewType1.text = thirdType.name.capitalize()
+                    thirdTypeLabel.text = thirdType.name.capitalize()
                 }
-                textViewType1.visibility = if (textViewType1.text.isNotEmpty()) View.VISIBLE else View.GONE
+                thirdTypeLabel.visibility = if (thirdTypeLabel.text.isNotEmpty()) View.VISIBLE else View.GONE
 
 //                TODO: Fazer carregamento de Imagem
 //                Glide.with(view.context)

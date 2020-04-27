@@ -27,26 +27,24 @@ class PokedexFragment : Fragment(R.layout.fragment_pokedex) {
         val initialOffSet = 0
         val listOffSet = 20
 
-        val progressBar = progressBar
-        progressBar.visibility = View.VISIBLE
-        val recyclerView = recyclerView
+        pokedexLoadingProgressBar.visibility = View.VISIBLE
         val layoutManager = GridLayoutManager(context, spanCount)
-        recyclerView.layoutManager = layoutManager
-        var pokedexAdapter = PokedexAdapter()
-        recyclerView.adapter = pokedexAdapter
+        pokedexListRecyclerView.layoutManager = layoutManager
+        val pokedexAdapter = PokedexAdapter()
+        pokedexListRecyclerView.adapter = pokedexAdapter
 
         pokedexViewModel.getPokedexListIsLoading().observe(viewLifecycleOwner, Observer { loading ->
-            if (loading) progressBar.visibility = View.VISIBLE else progressBar.visibility = View.GONE
+            if (loading) pokedexLoadingProgressBar.visibility = View.VISIBLE else pokedexLoadingProgressBar.visibility = View.GONE
         })
 
         pokedexViewModel.getPokedexList(initialOffSet.toString(), listOffSet.toString()).observe(viewLifecycleOwner, Observer { pokedexList ->
             pokedexAdapter.updatePokedexListData(pokedexList)
 
             if (pokedexList.isNotEmpty())
-                progressBar.visibility = View.GONE
+                pokedexLoadingProgressBar.visibility = View.GONE
         })
 
-        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        pokedexListRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, horizontalScroll: Int, verticalScroll: Int) {
                 val downDirection = 0
                 if (verticalScroll > downDirection) {
@@ -61,22 +59,21 @@ class PokedexFragment : Fragment(R.layout.fragment_pokedex) {
             }
         })
 
-        val speedDialView = speedDial
-        speedDialView.inflate(R.menu.menu_pokedex)
-        speedDialView.setOnActionSelectedListener(SpeedDialView.OnActionSelectedListener { actionItem ->
+        pokedexSpeedDialMenu.inflate(R.menu.menu_pokedex)
+        pokedexSpeedDialMenu.setOnActionSelectedListener(SpeedDialView.OnActionSelectedListener { actionItem ->
             when (actionItem.id) {
                 R.id.menuAllGen -> {
                     showAllGen()
-                    speedDialView.close()
+                    pokedexSpeedDialMenu.close()
                     return@OnActionSelectedListener true
                 }
                 R.id.menuSearch -> {
                     showSearch()
-                    speedDialView.close()
+                    pokedexSpeedDialMenu.close()
                     return@OnActionSelectedListener true
                 }
                 else -> {
-                    speedDialView.close()
+                    pokedexSpeedDialMenu.close()
                     return@OnActionSelectedListener true
                 }
             }

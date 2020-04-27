@@ -1,13 +1,11 @@
 package dev.marcosfarias.pokedex.utils
 
 class PokemonStringUtil {
-    companion object {
-        fun formatId(id: Int) : String {
-            return when (id.length()) {
-                1 -> "#00$id"
-                2 -> "#0$id"
-                else -> "#$id"
-            }
+    fun formatId(id: Int) : String {
+        return when (id.length()) {
+            1 -> "#00$id"
+            2 -> "#0$id"
+            else -> "#$id"
         }
     }
 }
