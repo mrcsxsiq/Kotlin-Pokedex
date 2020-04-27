@@ -5,38 +5,47 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
 import com.google.gson.annotations.SerializedName
-import dev.marcosfarias.pokedex.utils.ListStringConverter
+import dev.marcosfarias.pokedex.utils.Converters
+import me.sargunvohra.lib.pokekotlin.model.*
 
 @Entity
-@TypeConverters(ListStringConverter::class)
-class Pokemon(
+@TypeConverters(Converters::class)
+data class Pokemon(
     @PrimaryKey
     @NonNull
-    @SerializedName("id") val id: String,
-    @SerializedName("abilities") val abilities: List<String>?,
-    @SerializedName("attack") val attack: Int?,
-    @SerializedName("base_exp") val baseExp: String?,
-    @SerializedName("category") val category: String?,
-    @SerializedName("cycles") val cycles: String?,
-    @SerializedName("defense") val defense: Int?,
-    @SerializedName("egg_groups") val eggGroups: String?,
-    @SerializedName("evolutions") val evolutions: List<String>?,
-    @SerializedName("evolvedfrom") val evolvedfrom: String?,
-    @SerializedName("female_percentage") val femalePercentage: String?,
-    @SerializedName("genderless") val genderless: Int?,
-    @SerializedName("height") val height: String?,
-    @SerializedName("hp") val hp: Int?,
-    @SerializedName("imageurl") val imageurl: String?,
-    @SerializedName("male_percentage") val malePercentage: String?,
-    @SerializedName("name") val name: String?,
-    @SerializedName("reason") val reason: String?,
-    @SerializedName("special_attack") val specialAttack: Int?,
-    @SerializedName("special_defense") val specialDefense: Int?,
-    @SerializedName("speed") val speed: Int?,
-    @SerializedName("total") val total: Int?,
-    @SerializedName("typeofpokemon") val typeofpokemon: List<String>?,
-    @SerializedName("weaknesses") val weaknesses: List<String>?,
-    @SerializedName("weight") val weight: String?,
-    @SerializedName("xdescription") val xdescription: String?,
-    @SerializedName("ydescription") val ydescription: String?
-)
+    @SerializedName("id") override val id: Int,
+    @SerializedName("name") override val name: String,
+    @SerializedName("baseExperience") override val baseExperience: Int?,
+    @SerializedName("height") override val height: Int?,
+    @SerializedName("isDefault") override val isDefault: Boolean?,
+    @SerializedName("order") override val order: Int?,
+    @SerializedName("weight") override val weight: Int?,
+    @SerializedName("species") override val species: NamedApiResource?,
+    @SerializedName("abilities") override val abilities: List<PokemonAbility>?,
+    @SerializedName("forms") override val forms: List<NamedApiResource>?,
+    @SerializedName("gameIndices") override val gameIndices: List<VersionGameIndex>?,
+    @SerializedName("heldItems") override val heldItems: List<PokemonHeldItem>?,
+    @SerializedName("moves") override val moves: List<PokemonMove>?,
+    @SerializedName("stats") override val stats: List<PokemonStat>?,
+    @SerializedName("types") override val types: List<PokemonType>,
+    @SerializedName("sprites") override val sprites: PokemonSprites?
+) : PokemonApiInterface
+
+interface PokemonApiInterface {
+    val id: Int
+    val name: String?
+    val baseExperience: Int?
+    val height: Int?
+    val isDefault: Boolean?
+    val order: Int?
+    val weight: Int?
+    val species: NamedApiResource?
+    val abilities: List<PokemonAbility>?
+    val forms: List<NamedApiResource>?
+    val gameIndices: List<VersionGameIndex>?
+    val heldItems: List<PokemonHeldItem>?
+    val moves: List<PokemonMove>?
+    val stats: List<PokemonStat>?
+    val types: List<PokemonType>?
+    val sprites: PokemonSprites?
+}

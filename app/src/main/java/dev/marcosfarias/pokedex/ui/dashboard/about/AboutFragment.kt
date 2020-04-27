@@ -23,12 +23,14 @@ class AboutFragment private constructor() : Fragment(R.layout.fragment_about) {
         val id = checkNotNull(arguments?.getString("id"))
         dashboardViewModel.getPokemonById(id).observe(viewLifecycleOwner, Observer { pokemonValue ->
             pokemonValue?.let { pokemon ->
-                textViewDescription.text = pokemon.xdescription
-                textViewHeight.text = pokemon.height
-                textViewWeight.text = pokemon.weight
-                textViewEggCycle.text = pokemon.cycles
-                textViewEggGroups.text = pokemon.eggGroups
-                textViewBaseEXP.text = pokemon.baseExp
+                //                TODO: Fazer carregamento de About
+
+//                textViewDescription.text = pokemon.xdescription
+                textViewHeight.text = pokemon.height.toString()
+                textViewWeight.text = pokemon.weight.toString()
+//                textViewEggCycle.text = pokemon.cycles
+//                textViewEggGroups.text = pokemon.eggGroups
+                textViewBaseEXP.text = pokemon.baseExperience.toString()
             }
         })
     }

@@ -13,11 +13,17 @@ interface PokemonDAO {
     @Query("SELECT * FROM pokemon WHERE id = :id")
     suspend fun getById(id: String): Pokemon
 
+    @Query("SELECT * FROM pokemon WHERE id > :offset")
+    suspend fun getByRangeOffsetId(offset: String) : MutableList<Pokemon>
+
     @Query("SELECT * FROM pokemon")
-    suspend fun all(): List<Pokemon>
+    suspend fun all(): MutableList<Pokemon>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun add(pokemon: List<Pokemon>)
+    fun add(pokemon: Pokemon)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun addAll(pokemonList: MutableList<Pokemon>)
 
     @Query("DELETE FROM pokemon")
     suspend fun deleteAll()

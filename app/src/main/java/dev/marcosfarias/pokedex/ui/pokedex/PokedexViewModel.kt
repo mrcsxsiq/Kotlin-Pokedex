@@ -1,18 +1,20 @@
 package dev.marcosfarias.pokedex.ui.pokedex
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.liveData
+import androidx.lifecycle.*
 import dev.marcosfarias.pokedex.model.Pokemon
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class PokedexViewModel(
-    private val pokemonRepository: PokemonRepository
+    private val pokedexRepository: PokedexRepository
 ) : ViewModel() {
-    fun getListPokemon(): LiveData<List<Pokemon>> = liveData(
-        context = Dispatchers.IO,
-        block = {
-            emit(pokemonRepository.pokemonList())
+    fun getPokedexListIsLoading() : LiveData<Boolean> = pokedexRepository.loadingData
+
+    fun getPokedexList(offset: String,
+                       limit: String): LiveData<MutableList<Pokemon>> {
+        viewModelScope.launch {
+            pokedexRepository.loadPokedexList(offset, limit)
         }
-    )
+
+        return pokedexRepository.pokedexListData
+    }
 }

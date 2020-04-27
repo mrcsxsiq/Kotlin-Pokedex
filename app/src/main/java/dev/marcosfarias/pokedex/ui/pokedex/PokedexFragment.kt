@@ -5,9 +5,9 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.leinardi.android.speeddial.SpeedDialView
 import dev.marcosfarias.pokedex.R
-import dev.marcosfarias.pokedex.model.Pokemon
 import dev.marcosfarias.pokedex.ui.generation.GenerationFragment
 import dev.marcosfarias.pokedex.ui.search.SearchFragment
 import dev.marcosfarias.pokedex.utils.PokemonColorUtil
@@ -23,16 +23,42 @@ class PokedexFragment : Fragment(R.layout.fragment_pokedex) {
         activity?.window?.statusBarColor =
             PokemonColorUtil(view.context).convertColor(R.color.background)
 
-        val progressBar = progressBar
-        val recyclerView = recyclerView
-        val layoutManager = GridLayoutManager(context, 2)
-        recyclerView.layoutManager = layoutManager
+        val spanCount = 2
+        val initialOffSet = 0
+        val listOffSet = 20
 
-        pokedexViewModel.getListPokemon().observe(viewLifecycleOwner, Observer {
-            val pokemons: List<Pokemon> = it
-            recyclerView.adapter = PokemonAdapter(pokemons)
-            if (pokemons.isNotEmpty())
+        val progressBar = progressBar
+        progressBar.visibility = View.VISIBLE
+        val recyclerView = recyclerView
+        val layoutManager = GridLayoutManager(context, spanCount)
+        recyclerView.layoutManager = layoutManager
+        var pokedexAdapter = PokedexAdapter()
+        recyclerView.adapter = pokedexAdapter
+
+        pokedexViewModel.getPokedexListIsLoading().observe(viewLifecycleOwner, Observer { loading ->
+            if (loading) progressBar.visibility = View.VISIBLE else progressBar.visibility = View.GONE
+        })
+
+        pokedexViewModel.getPokedexList(initialOffSet.toString(), listOffSet.toString()).observe(viewLifecycleOwner, Observer { pokedexList ->
+            pokedexAdapter.updatePokedexListData(pokedexList)
+
+            if (pokedexList.isNotEmpty())
                 progressBar.visibility = View.GONE
+        })
+
+        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, horizontalScroll: Int, verticalScroll: Int) {
+                val downDirection = 0
+                if (verticalScroll > downDirection) {
+                    val visiblePokemonCount = layoutManager.childCount
+                    val totalPokemonCount = layoutManager.itemCount
+                    val pastPokemonVisiblesItems = layoutManager.findFirstVisibleItemPosition()
+
+                    if ((visiblePokemonCount + pastPokemonVisiblesItems) >= totalPokemonCount) {
+                        pokedexViewModel.getPokedexList(totalPokemonCount.toString(), listOffSet.toString())
+                    }
+                }
+            }
         })
 
         val speedDialView = speedDial
