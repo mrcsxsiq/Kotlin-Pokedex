@@ -1,6 +1,7 @@
 package dev.marcosfarias.pokedex.di
 
 import dev.marcosfarias.pokedex.repository.PokemonService
+import dev.marcosfarias.pokedex.ui.pokedex.PokemonRepository
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -17,4 +18,6 @@ val networkModule = module {
     single {
         get<Retrofit>().create<PokemonService>()
     }
+
+    factory { PokemonRepository(get(), get()) }
 }
