@@ -9,7 +9,7 @@ import retrofit2.http.Query
 
 interface PokemonService {
     @GET("pokemon")
-    fun getNextList(@Query("offset") offset: String, @Query("limit") limit: String) : Observable<PokemonResult>
+    fun getNextList(@Query("offset") offset: Int, @Query("limit") limit: Int) : Observable<PokemonResult>
 
     @GET("pokemon/{id}")
     fun getById(@Path("id") id: String): Observable<Pokemon>

@@ -1,20 +1,23 @@
 package dev.marcosfarias.pokedex.ui.dashboard
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.liveData
-import dev.marcosfarias.pokedex.database.dao.PokemonDAO
+import androidx.lifecycle.viewModelScope
 import dev.marcosfarias.pokedex.model.Pokemon
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class DashboardViewModel(
-    private val pokemonDAO: PokemonDAO
+    val dashboardRepository: DashboardRepository
 ) : ViewModel() {
 
-    fun getPokemonById(id: String): LiveData<Pokemon> = liveData(
-        context = Dispatchers.IO,
-        block = {
-            emit(pokemonDAO.getById(id))
+    private val _pokemon = MutableLiveData<Pokemon>()
+
+    val pokemon: LiveData<Pokemon> get() = _pokemon
+
+    fun getPokemonById(id: Int) {
+        viewModelScope.launch {
+            _pokemon.value = dashboardRepository.getPokemonById(id)
         }
-    )
+    }
 }

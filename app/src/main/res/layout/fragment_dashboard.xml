@@ -62,7 +62,7 @@
                         android:textSize="28sp"
                         android:textStyle="bold"
                         app:fontFamily="@font/circularstd_medium"
-                        tools:text="Titulo" />
+                        tools:text="Name" />
 
                     <TextView
                         android:id="@+id/pokemonIDLabel"
@@ -132,7 +132,7 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.tabs.TabLayout
-                    android:id="@+id/tabs"
+                    android:id="@+id/dashboardTabs"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     app:tabGravity="fill"
@@ -144,22 +144,22 @@
                     <com.google.android.material.tabs.TabItem
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/dashboard_tab_1" />
+                        android:text="@string/dashboard_first_page" />
 
                     <com.google.android.material.tabs.TabItem
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/dashboard_tab_2" />
+                        android:text="@string/dashboard_second_tab" />
 
                     <com.google.android.material.tabs.TabItem
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/dashboard_tab_3" />
+                        android:text="@string/dashboard_third_tab" />
 
                     <com.google.android.material.tabs.TabItem
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/dashboard_tab_4" />
+                        android:text="@string/dashboard_fourth_tab" />
 
                 </com.google.android.material.tabs.TabLayout>
 
@@ -176,7 +176,7 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewPager"
+            android:id="@+id/dashboardViewPager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/backgroundLight" />

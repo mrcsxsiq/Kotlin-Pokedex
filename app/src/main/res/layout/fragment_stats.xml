@@ -29,7 +29,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textViewHP"
+                android:id="@+id/hpLabel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -39,7 +39,7 @@
                 tools:text="55" />
 
             <ProgressBar
-                android:id="@+id/progressBarHP"
+                android:id="@+id/hpBar"
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_width="0dp"
                 android:layout_height="2dp"
@@ -65,7 +65,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textViewAttack"
+                android:id="@+id/attackLabel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -75,7 +75,7 @@
                 tools:text="55" />
 
             <ProgressBar
-                android:id="@+id/progressBarAttack"
+                android:id="@+id/attackBar"
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_width="0dp"
                 android:layout_height="2dp"
@@ -101,7 +101,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textViewDefense"
+                android:id="@+id/defenseLabel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -111,7 +111,7 @@
                 tools:text="55" />
 
             <ProgressBar
-                android:id="@+id/progressBarDefense"
+                android:id="@+id/defenseBar"
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_width="0dp"
                 android:layout_height="2dp"
@@ -137,7 +137,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textViewSpAtk"
+                android:id="@+id/specialAttackLabel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -147,7 +147,7 @@
                 tools:text="55" />
 
             <ProgressBar
-                android:id="@+id/progressBarSpAtk"
+                android:id="@+id/specialAttackBar"
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_width="0dp"
                 android:layout_height="2dp"
@@ -173,7 +173,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textViewSpDef"
+                android:id="@+id/specialDefenseLabel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -183,7 +183,7 @@
                 tools:text="55" />
 
             <ProgressBar
-                android:id="@+id/progressBarSpDef"
+                android:id="@+id/specialDefenseBar"
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_width="0dp"
                 android:layout_height="2dp"
@@ -209,7 +209,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textViewSpeed"
+                android:id="@+id/speedLabel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -219,7 +219,7 @@
                 tools:text="55" />
 
             <ProgressBar
-                android:id="@+id/progressBarSpeed"
+                android:id="@+id/speedBar"
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_width="0dp"
                 android:layout_height="2dp"
@@ -245,7 +245,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textViewTotal"
+                android:id="@+id/totalLabel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -255,7 +255,7 @@
                 tools:text="55" />
 
             <ProgressBar
-                android:id="@+id/progressBarTotal"
+                android:id="@+id/totalBar"
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_width="0dp"
                 android:layout_height="2dp"
@@ -285,7 +285,7 @@
 
 
             <TextView
-                android:id="@+id/textViewTypeDefenses"
+                android:id="@+id/typeDefensesLabel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"

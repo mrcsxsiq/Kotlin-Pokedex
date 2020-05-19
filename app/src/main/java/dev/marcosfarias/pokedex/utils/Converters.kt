@@ -7,18 +7,18 @@ import me.sargunvohra.lib.pokekotlin.model.*
 import java.lang.reflect.Type
 
 class Converters {
-    val gson = Gson()
+    private val gson = Gson()
 
     @TypeConverter
-    fun fromStringToNamedApiResource(json: String?) : NamedApiResource? {
-        val type: Type = object : TypeToken<NamedApiResource>() {}.type
+    fun fromStringToPokemonSpecies(json: String?) : PokemonSpecies? {
+        val type: Type = object : TypeToken<PokemonSpecies>() {}.type
         return gson.fromJson(json, type)
     }
 
     @TypeConverter
-    fun fromNamedApiResourceToString(namedApiResource: NamedApiResource?) : String? {
-        val type: Type = object : TypeToken<NamedApiResource>() {}.type
-        return gson.toJson(namedApiResource, type)
+    fun fromPokemonSpeciesToString(pokemonSpecies: PokemonSpecies?) : String? {
+        val type: Type = object : TypeToken<PokemonSpecies>() {}.type
+        return gson.toJson(pokemonSpecies, type)
     }
 
     @TypeConverter
@@ -115,5 +115,13 @@ class Converters {
     fun fromPokemonSpritesToString(listPokemonType: PokemonSprites?) : String? {
         val type: Type = object : TypeToken<PokemonSprites>() {}.type
         return gson.toJson(listPokemonType, type)
+    }
+
+    fun fromKilogramsToPounds(kilograms: Int): Float {
+        return (kilograms * 2.20462F)
+    }
+
+    fun fromCentimetersToFeet(centimeters: Int): Float {
+        return (centimeters * 0.0328084F)
     }
 }

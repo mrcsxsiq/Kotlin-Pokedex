@@ -33,16 +33,15 @@ class PokedexFragment : Fragment(R.layout.fragment_pokedex) {
         val pokedexAdapter = PokedexAdapter()
         pokedexListRecyclerView.adapter = pokedexAdapter
 
-        pokedexViewModel.getPokedexListIsLoading().observe(viewLifecycleOwner, Observer { loading ->
+        pokedexViewModel.isLoadingData.observe(viewLifecycleOwner, Observer { loading ->
             if (loading) pokedexLoadingProgressBar.visibility = View.VISIBLE else pokedexLoadingProgressBar.visibility = View.GONE
         })
 
-        pokedexViewModel.getPokedexList(initialOffSet.toString(), listOffSet.toString()).observe(viewLifecycleOwner, Observer { pokedexList ->
+        pokedexViewModel.pokedexListData.observe(viewLifecycleOwner, Observer { pokedexList ->
             pokedexAdapter.updatePokedexListData(pokedexList)
-
-            if (pokedexList.isNotEmpty())
-                pokedexLoadingProgressBar.visibility = View.GONE
         })
+
+        pokedexViewModel.getPokedexList(initialOffSet, listOffSet)
 
         pokedexListRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, horizontalScroll: Int, verticalScroll: Int) {
@@ -53,7 +52,7 @@ class PokedexFragment : Fragment(R.layout.fragment_pokedex) {
                     val pastPokemonVisiblesItems = layoutManager.findFirstVisibleItemPosition()
 
                     if ((visiblePokemonCount + pastPokemonVisiblesItems) >= totalPokemonCount) {
-                        pokedexViewModel.getPokedexList(totalPokemonCount.toString(), listOffSet.toString())
+                        pokedexViewModel.getPokedexList(totalPokemonCount, listOffSet)
                     }
                 }
             }

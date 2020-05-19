@@ -7,14 +7,21 @@ import kotlinx.coroutines.launch
 class PokedexViewModel(
     private val pokedexRepository: PokedexRepository
 ) : ViewModel() {
-    fun getPokedexListIsLoading() : LiveData<Boolean> = pokedexRepository.loadingData
 
-    fun getPokedexList(offset: String,
-                       limit: String): LiveData<MutableList<Pokemon>> {
+    val isLoadingData = MutableLiveData(false)
+    val pokedexListData = MutableLiveData<List<Pokemon>>()
+
+    fun getPokedexList(
+        offset: Int,
+        limit: Int
+    ) {
         viewModelScope.launch {
-            pokedexRepository.loadPokedexList(offset, limit)
+            pokedexRepository.loadPokedexList(
+                offset,
+                limit,
+                isLoadingData,
+                pokedexListData
+            )
         }
-
-        return pokedexRepository.pokedexListData
     }
 }

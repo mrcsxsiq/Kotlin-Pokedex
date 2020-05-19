@@ -8,7 +8,7 @@ import androidx.core.content.ContextCompat
 import dev.marcosfarias.pokedex.R
 
 class PokemonColorUtil(var context: Context) {
-    enum class PokemonTypeEnum(val type: String, val color: Int) {
+    enum class PokemonTypeEnum(val typeName: String, val color: Int) {
         NORMAL("normal", R.color.lightBlue),
         FIGHTING("fighting", R.color.lightBlue),
         FLYING("flying", R.color.lightBlue),

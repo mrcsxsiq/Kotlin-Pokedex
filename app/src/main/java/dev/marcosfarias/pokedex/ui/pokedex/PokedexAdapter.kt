@@ -13,13 +13,14 @@ import dev.marcosfarias.pokedex.model.Pokemon
 import dev.marcosfarias.pokedex.utils.PokemonColorUtil
 import dev.marcosfarias.pokedex.utils.PokemonImageUtil
 import dev.marcosfarias.pokedex.utils.PokemonStringUtil
+import dev.marcosfarias.pokedex.utils.TypeIndexEnum
 import kotlinx.android.synthetic.main.item_pokemon.view.*
 
 class PokedexAdapter : RecyclerView.Adapter<PokedexAdapter.PokedexViewHolder>() {
 
-    private var pokedexList: MutableList<Pokemon>
+    private var pokedexList: List<Pokemon> = mutableListOf()
+
     init {
-        pokedexList = mutableListOf()
         setHasStableIds(true)
     }
 
@@ -32,13 +33,13 @@ class PokedexAdapter : RecyclerView.Adapter<PokedexAdapter.PokedexViewHolder>() 
             itemView.relativeLayoutBackground.background.colorFilter =
                 PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
 
-            pokemonItem.types.getOrNull(2)?.type?.let { thirdType ->
+            pokemonItem.types.getOrNull(TypeIndexEnum.THIRD.index)?.type?.let { thirdType ->
                 itemView.thirdTypeLabel.text = thirdType.name.capitalize()
             }
-            pokemonItem.types.getOrNull(1)?.type?.let { secondType ->
+            pokemonItem.types.getOrNull(TypeIndexEnum.SECOND.index)?.type?.let { secondType ->
                 itemView.secondTypeLabel.text = secondType.name.capitalize()
             }
-            pokemonItem.types.getOrNull(0)?.type?.let { firstType ->
+            pokemonItem.types.getOrNull(TypeIndexEnum.FIRST.index)?.type?.let { firstType ->
                 itemView.firstTypeLabel.text = firstType.name.capitalize()
             }
 
@@ -56,8 +57,8 @@ class PokedexAdapter : RecyclerView.Adapter<PokedexAdapter.PokedexViewHolder>() 
         }
     }
 
-    fun updatePokedexListData(updateList: MutableList<Pokemon>) {
-        this.pokedexList = updateList
+    fun updatePokedexListData(updateList: List<Pokemon>) {
+        pokedexList = updateList
         notifyDataSetChanged()
     }
 

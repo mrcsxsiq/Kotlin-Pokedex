@@ -12,22 +12,25 @@ class PokedexRepository(
     private val pokemonDAO: PokemonDAO,
     private val pokemonService: PokemonService
 ) {
+
     private var loadingLock = false
     private var pokedexList = mutableListOf<Pokemon>()
 
-    val loadingData = MutableLiveData(false)
-    val pokedexListData = MutableLiveData<MutableList<Pokemon>>()
-
-    suspend fun loadPokedexList(offset: String, limit: String) {
+    suspend fun loadPokedexList(
+        offset: Int,
+        limit: Int,
+        isLoadingData: MutableLiveData<Boolean>,
+        pokedexListData: MutableLiveData<List<Pokemon>>
+    ) {
         if (!loadingLock) {
             loadingLock = true
-            loadingData.postValue(loadingLock)
+            isLoadingData.postValue(loadingLock)
             val cache = pokemonDAO.getByRangeOffsetId(offset)
             if (cache.isNotEmpty()) {
-                val data = pokemonDAO.all()
+                val data = pokemonDAO.getAll()
                 pokedexListData.postValue(data)
                 loadingLock = false
-                loadingData.postValue(loadingLock)
+                isLoadingData.postValue(loadingLock)
             } else {
                 getPokedexList(offset, limit)
                     .subscribeOn(Schedulers.io())
@@ -37,19 +40,19 @@ class PokedexRepository(
                     }, { error ->
                         error.printStackTrace()
                         loadingLock = false
-                        loadingData.postValue(loadingLock)
+                        isLoadingData.postValue(loadingLock)
                     }, {
                         pokedexListData.postValue(pokedexList)
                         loadingLock = false
-                        loadingData.postValue(loadingLock)
+                        isLoadingData.postValue(loadingLock)
                     })
             }
         }
     }
 
     private fun getPokedexList(
-        offset: String,
-        limit: String): Observable<Pokemon> {
+        offset: Int,
+        limit: Int): Observable<Pokemon> {
         return pokemonService.getNextList(offset, limit)
             .flatMap { pokemonResults ->
                 Observable.fromIterable(pokemonResults.results)

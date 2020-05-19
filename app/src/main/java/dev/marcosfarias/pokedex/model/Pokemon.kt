@@ -20,7 +20,7 @@ data class Pokemon(
     @SerializedName("isDefault") override val isDefault: Boolean?,
     @SerializedName("order") override val order: Int?,
     @SerializedName("weight") override val weight: Int?,
-    @SerializedName("species") override val species: NamedApiResource?,
+    @SerializedName("species") override val species: PokemonSpecies?,
     @SerializedName("abilities") override val abilities: List<PokemonAbility>?,
     @SerializedName("forms") override val forms: List<NamedApiResource>?,
     @SerializedName("gameIndices") override val gameIndices: List<VersionGameIndex>?,
@@ -39,7 +39,7 @@ interface PokemonApiInterface {
     val isDefault: Boolean?
     val order: Int?
     val weight: Int?
-    val species: NamedApiResource?
+    val species: PokemonSpecies?
     val abilities: List<PokemonAbility>?
     val forms: List<NamedApiResource>?
     val gameIndices: List<VersionGameIndex>?

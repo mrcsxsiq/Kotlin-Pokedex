@@ -15,11 +15,11 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textViewDescription"
+            android:id="@+id/descriptionLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@string/lorem_small"
+            tools:text="@string/lorem_small"
             android:textSize="16sp" />
 
         <androidx.cardview.widget.CardView
@@ -48,9 +48,8 @@
                         android:text="Height"
                         android:textSize="16sp" />
 
-
                     <TextView
-                        android:id="@+id/textViewHeight"
+                        android:id="@+id/heightLabel"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
@@ -71,14 +70,13 @@
                         android:text="Weight"
                         android:textSize="16sp" />
 
-
                     <TextView
-                        android:id="@+id/textViewWeight"
+                        android:id="@+id/weightLabel"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="15.2 lbs (6.9kg)"
                         android:textColor="@color/black"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        tools:text="15.2 lbs (6.9kg)" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -107,15 +105,14 @@
                 android:text="Gender"
                 android:textSize="16sp" />
 
-
             <TextView
-                android:id="@+id/textViewGender"
+                android:id="@+id/genderLabel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:text="\u2641 87.5%  \u2640 12.5%"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                tools:text="\u2641 87.5%  \u2640 12.5%" />
 
         </LinearLayout>
 
@@ -134,7 +131,7 @@
 
 
             <TextView
-                android:id="@+id/textViewEggGroups"
+                android:id="@+id/eggGroupsLabel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -159,7 +156,7 @@
 
 
             <TextView
-                android:id="@+id/textViewEggCycle"
+                android:id="@+id/eggCycleLabel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -211,7 +208,7 @@
 
 
             <TextView
-                android:id="@+id/textViewBaseEXP"
+                android:id="@+id/baseExperienceLabel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
