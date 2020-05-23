@@ -2,7 +2,8 @@
     <string name="app_name">Pokedex</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="in_progress">In progress...</string>
+    <string name="in_progress">In progress…</string>
+    <string name="non_evolving_pokemon">Non Evolving Pokemon</string>
     <string name="menu_item_1">Pokedex</string>
     <string name="menu_item_2">Moves</string>
     <string name="menu_item_3">Abilities</string>

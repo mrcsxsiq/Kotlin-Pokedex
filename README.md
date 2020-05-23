@@ -64,6 +64,7 @@ Also available in Play Store
 - [x] [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
 - [x] [Room](https://developer.android.com/topic/libraries/architecture/room)
 - [ ] [Coroutines](https://developer.android.com/topic/libraries/architecture/coroutines)
+- [x] [Gradle Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html)
 - [x] [Databinding](https://developer.android.com/topic/libraries/data-binding)
 - [x] [Retrofit](https://square.github.io/retrofit/)
 - [x] [Koin](https://insert-koin.io/)
@@ -85,7 +86,7 @@ Also available in Play Store
 - [x] Pokemon Info
 - [x] Pokemon Info - About
 - [x] Pokemon Info - Base Stats
-- [ ] Pokemon Info - Evolution
+- [x] Pokemon Info - Evolution
 - [x] News Detail
 
 ## Thanks
@@ -104,8 +105,8 @@ Also available in Play Store
 
 ## Contributors
 
-| [<img src="https://avatars3.githubusercontent.com/u/12054216?s=115&v=4" width="48"><br><sub>@zsmb13</sub>](https://github.com/zsmb13) | [<img src="https://avatars0.githubusercontent.com/u/8435541?s=115&v=4" width="48"><br><sub>@aesean</sub>](https://github.com/aesean) | [<img src="https://avatars1.githubusercontent.com/u/988405?s=115&v=4" width="48"><br><sub>@STFBEE</sub>](https://github.com/STFBEE) | [<img src="https://avatars1.githubusercontent.com/u/25616312?s=115&v=4" width="48"><br><sub>@CorneilleEdi</sub>](https://github.com/CorneilleEdi) | [<img src="https://user-images.githubusercontent.com/95717/60592969-5da81680-9d67-11e9-92a3-8664ee0e2eda.png" width="48"><br><sub>You</sub>](https://github.com/mrcsxsiq/Kotlin-Pokedex/pulls) | 
-| :---: |  :---: |  :---: |  :---: |  :---: | 
+| [<img src="https://avatars3.githubusercontent.com/u/12054216?s=115&v=4" width="48"><br><sub>@zsmb13</sub>](https://github.com/zsmb13) | [<img src="https://avatars0.githubusercontent.com/u/8435541?s=115&v=4" width="48"><br><sub>@aesean</sub>](https://github.com/aesean) | [<img src="https://avatars1.githubusercontent.com/u/988405?s=115&v=4" width="48"><br><sub>@STFBEE</sub>](https://github.com/STFBEE) | [<img src="https://avatars1.githubusercontent.com/u/25616312?s=115&v=4" width="48"><br><sub>@CorneilleEdi</sub>](https://github.com/CorneilleEdi) | [<img src="https://avatars2.githubusercontent.com/u/15768474?s=115&v=4" width="48"><br><sub>@naufalprakoso</sub>](https://github.com/naufalprakoso) | [<img src="https://user-images.githubusercontent.com/95717/60592969-5da81680-9d67-11e9-92a3-8664ee0e2eda.png" width="48"><br><sub>You</sub>](https://github.com/mrcsxsiq/Kotlin-Pokedex/pulls) |
+| :---: |  :---: |  :---: |  :---: |  :---: |  :---: |
 
 ## Author
 
