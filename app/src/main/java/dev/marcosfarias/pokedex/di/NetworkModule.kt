@@ -2,8 +2,6 @@ package dev.marcosfarias.pokedex.di
 
 import com.google.gson.GsonBuilder
 import dev.marcosfarias.pokedex.repository.PokemonService
-import dev.marcosfarias.pokedex.ui.pokedex.PokedexRepository
-import dev.marcosfarias.pokedex.utils.PokemonImageUtil
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -35,6 +33,4 @@ val networkModule = module {
     single {
         get<Retrofit>().create(PokemonService::class.java)
     }
-
-    factory { PokedexRepository(get(), get()) }
 }

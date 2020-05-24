@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import dev.marcosfarias.pokedex.R
 import dev.marcosfarias.pokedex.ui.dashboard.DashboardViewModel
+import dev.marcosfarias.pokedex.utils.BundleKeyUtil
 import dev.marcosfarias.pokedex.utils.Converters
 import kotlinx.android.synthetic.main.fragment_about.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -14,18 +15,18 @@ class AboutFragment private constructor() : Fragment(R.layout.fragment_about) {
 
     private val dashboardViewModel: DashboardViewModel by viewModel()
 
-    constructor(id: String) : this() {
+    constructor(id: Int) : this() {
         arguments = Bundle().apply {
-            putString("id", id)
+            putInt(BundleKeyUtil.ID, id)
         }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val id = checkNotNull(arguments?.getInt("id"))
+        val id = checkNotNull(arguments?.getInt(BundleKeyUtil.ID))
 
-        dashboardViewModel.pokemon.observe(viewLifecycleOwner, Observer { pokemonValue ->
+        dashboardViewModel.getPokemonById(id).observe(viewLifecycleOwner, Observer { pokemonValue ->
             pokemonValue?.let { pokemon ->
                 // TODO: Fazendo carregamento de About
 
@@ -39,12 +40,10 @@ class AboutFragment private constructor() : Fragment(R.layout.fragment_about) {
                     weightLabel.text = Converters().fromKilogramsToPounds(weight).toString()
                 }
 
-//              textViewEggCycle.text = pokemon.cycles
+                eggCycleLabel.text = pokemon.species.hatchCounter.toString()
 //              textViewEggGroups.text = pokemon.eggGroups
                 baseExperienceLabel.text = pokemon.baseExperience.toString()
             }
         })
-
-        dashboardViewModel.getPokemonById(id)
     }
 }

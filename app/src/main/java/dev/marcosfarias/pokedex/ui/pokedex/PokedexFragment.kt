@@ -33,15 +33,13 @@ class PokedexFragment : Fragment(R.layout.fragment_pokedex) {
         val pokedexAdapter = PokedexAdapter()
         pokedexListRecyclerView.adapter = pokedexAdapter
 
-        pokedexViewModel.isLoadingData.observe(viewLifecycleOwner, Observer { loading ->
+        pokedexViewModel._isLoadingData.observe(viewLifecycleOwner, Observer { loading ->
             if (loading) pokedexLoadingProgressBar.visibility = View.VISIBLE else pokedexLoadingProgressBar.visibility = View.GONE
         })
 
-        pokedexViewModel.pokedexListData.observe(viewLifecycleOwner, Observer { pokedexList ->
+        pokedexViewModel.getPokedexList(initialOffSet, listOffSet).observe(viewLifecycleOwner, Observer { pokedexList ->
             pokedexAdapter.updatePokedexListData(pokedexList)
         })
-
-        pokedexViewModel.getPokedexList(initialOffSet, listOffSet)
 
         pokedexListRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, horizontalScroll: Int, verticalScroll: Int) {

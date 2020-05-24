@@ -13,7 +13,7 @@ import dev.marcosfarias.pokedex.ui.dashboard.stats.StatsFragment
 class DashboardViewPagerAdapter(
     supportFragmentManager: FragmentManager,
     context: Context,
-    private val pokemonId: String
+    private val pokemonId: Int
 ) : FragmentStatePagerAdapter(supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     data class Page(val title: String, val content: () -> Fragment)

@@ -2,6 +2,7 @@ package dev.marcosfarias.pokedex.repository
 
 import dev.marcosfarias.pokedex.model.Pokemon
 import dev.marcosfarias.pokedex.model.PokemonResult
+import dev.marcosfarias.pokedex.model.PokemonSpecies
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -13,4 +14,7 @@ interface PokemonService {
 
     @GET("pokemon/{id}")
     fun getById(@Path("id") id: String): Observable<Pokemon>
+
+    @GET("pokemon-species/{id}")
+    fun getSpeciesById(@Path("id") id: String): Observable<PokemonSpecies>
 }

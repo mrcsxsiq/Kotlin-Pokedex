@@ -4,6 +4,7 @@ import android.net.Uri
 import androidx.lifecycle.MutableLiveData
 import dev.marcosfarias.pokedex.database.dao.PokemonDAO
 import dev.marcosfarias.pokedex.model.Pokemon
+import dev.marcosfarias.pokedex.model.PokemonSpecies
 import dev.marcosfarias.pokedex.repository.PokemonService
 import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
@@ -57,25 +58,29 @@ class PokedexRepository(
             .flatMap { pokemonResults ->
                 Observable.fromIterable(pokemonResults.results)
             }.flatMap { pokemonName ->
-                pokemonService.getById(Uri.parse(pokemonName.url).lastPathSegment.toString())
-            }.map { pokemon ->
-                Pokemon(
-                    pokemon.id,
-                    pokemon.name,
-                    pokemon.baseExperience,
-                    pokemon.height,
-                    pokemon.isDefault,
-                    pokemon.order,
-                    pokemon.weight,
-                    pokemon.species,
-                    pokemon.abilities,
-                    pokemon.forms,
-                    pokemon.gameIndices,
-                    pokemon.heldItems,
-                    pokemon.moves,
-                    pokemon.stats,
-                    pokemon.types,
-                    pokemon.sprites
+                Observable.zip(
+                    pokemonService.getById(Uri.parse(pokemonName.url).lastPathSegment.toString()),
+                    pokemonService.getSpeciesById(Uri.parse(pokemonName.url).lastPathSegment.toString()),
+                    io.reactivex.functions.BiFunction<Pokemon, PokemonSpecies, Pokemon> { pokemon, species ->
+                        return@BiFunction Pokemon(
+                            pokemon.id,
+                            pokemon.name,
+                            pokemon.baseExperience,
+                            pokemon.height,
+                            pokemon.isDefault,
+                            pokemon.order,
+                            pokemon.weight,
+                            species,
+                            pokemon.abilities,
+                            pokemon.forms,
+                            pokemon.gameIndices,
+                            pokemon.heldItems,
+                            pokemon.moves,
+                            pokemon.stats,
+                            pokemon.types,
+                            pokemon.sprites
+                        )
+                    }
                 )
             }
     }

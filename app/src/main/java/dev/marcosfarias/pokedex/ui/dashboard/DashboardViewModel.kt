@@ -8,16 +8,17 @@ import dev.marcosfarias.pokedex.model.Pokemon
 import kotlinx.coroutines.launch
 
 class DashboardViewModel(
-    val dashboardRepository: DashboardRepository
+    private val dashboardRepository: DashboardRepository
 ) : ViewModel() {
 
-    private val _pokemon = MutableLiveData<Pokemon>()
+    private val pokemon = MutableLiveData<Pokemon>()
 
-    val pokemon: LiveData<Pokemon> get() = _pokemon
+    val _pokemon: LiveData<Pokemon> = pokemon
 
-    fun getPokemonById(id: Int) {
+    fun getPokemonById(id: Int): LiveData<Pokemon> {
         viewModelScope.launch {
-            _pokemon.value = dashboardRepository.getPokemonById(id)
+            dashboardRepository.getPokemonById(id, pokemon)
         }
+        return _pokemon
     }
 }

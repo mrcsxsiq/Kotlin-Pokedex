@@ -8,8 +8,9 @@ class DashboardRepository(
     private val pokemonDAO: PokemonDAO
 ) {
     suspend fun getPokemonById(
-        id: Int
-    ): Pokemon {
-        return pokemonDAO.getById(id)
+        id: Int,
+        pokemon: MutableLiveData<Pokemon>
+    ) {
+        pokemon.postValue(pokemonDAO.getById(id))
     }
 }

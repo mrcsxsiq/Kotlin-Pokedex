@@ -7,10 +7,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import dev.marcosfarias.pokedex.R
-import dev.marcosfarias.pokedex.utils.PokemonColorUtil
-import dev.marcosfarias.pokedex.utils.PokemonImageUtil
-import dev.marcosfarias.pokedex.utils.PokemonStringUtil
-import dev.marcosfarias.pokedex.utils.TypeIndexEnum
+import dev.marcosfarias.pokedex.utils.*
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -20,9 +17,9 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val id = checkNotNull(arguments?.getInt("id"))
+        val id = checkNotNull(arguments?.getInt(BundleKeyUtil.ID))
 
-        dashboardViewModel.pokemon.observe(viewLifecycleOwner, Observer { pokemonValue ->
+        dashboardViewModel.getPokemonById(id).observe(viewLifecycleOwner, Observer { pokemonValue ->
             pokemonValue?.let { pokemon ->
                 pokemonIDLabel.text = PokemonStringUtil().formatId(pokemon.id)
                 pokemonNameLabel.text = pokemon.name.capitalize()
@@ -53,11 +50,9 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
                 PokemonImageUtil().loadPokemonImage(view.context, id, imageView)
 
                 dashboardViewPager.adapter =
-                    DashboardViewPagerAdapter(parentFragmentManager, requireContext(), pokemon.id.toString())
+                    DashboardViewPagerAdapter(parentFragmentManager, requireContext(), pokemon.id)
                 dashboardTabs.setupWithViewPager(dashboardViewPager)
             }
         })
-
-        dashboardViewModel.getPokemonById(id)
     }
 }
