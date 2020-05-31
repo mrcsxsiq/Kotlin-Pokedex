@@ -21,4 +21,8 @@ class DashboardViewModel(
         }
         return _pokemon
     }
+
+//    fun getPokemonEvolutionsByIds(ids: List<String>): LiveData<List<Pokemon>> {
+//        return pokemonDAO.getEvolutionsByIds(ids)
+//    }
 }

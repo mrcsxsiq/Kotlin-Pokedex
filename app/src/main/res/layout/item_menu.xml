@@ -10,9 +10,8 @@
     android:clickable="true"
     android:clipToPadding="false"
     android:focusable="true"
-    android:foreground="?android:attr/selectableItemBackground"
-    android:orientation="vertical"
-    android:padding="8dp">
+    android:padding="8dp"
+    tools:backgroundTint="@color/lightTeal">
 
     <TextView
         android:id="@+id/pokemonNameLabel"

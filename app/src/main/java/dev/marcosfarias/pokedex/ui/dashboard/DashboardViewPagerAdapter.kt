@@ -30,7 +30,7 @@ class DashboardViewPagerAdapter(
         ),
         Page(
             context.getString(R.string.dashboard_third_tab),
-            { EvolutionFragment() }
+            { EvolutionFragment.newInstance(pokemonId) }
         ),
         Page(
             context.getString(R.string.dashboard_fourth_tab),

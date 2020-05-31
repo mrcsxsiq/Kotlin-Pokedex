@@ -11,8 +11,6 @@
     android:clipToPadding="false"
     android:elevation="8dp"
     android:focusable="true"
-    android:foreground="?android:attr/selectableItemBackground"
-    android:orientation="vertical"
     android:padding="8dp">
 
     <TextView
