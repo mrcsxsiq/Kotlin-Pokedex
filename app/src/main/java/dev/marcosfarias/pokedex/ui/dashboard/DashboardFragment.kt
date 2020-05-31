@@ -2,6 +2,7 @@ package dev.marcosfarias.pokedex.ui.dashboard
 
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -20,18 +21,21 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         val id = checkNotNull(arguments?.getInt(BundleKeyUtil.ID))
 
         dashboardViewModel.getPokemonById(id).observe(viewLifecycleOwner, Observer { pokemonValue ->
+
             pokemonValue?.let { pokemon ->
                 pokemonIDLabel.text = PokemonStringUtil().formatId(pokemon.id)
+
                 pokemonNameLabel.text = pokemon.name.capitalize()
 
                 val color =
                     PokemonColorUtil(view.context).getColor(pokemon.types.last().type.name)
-                app_bar.background.colorFilter =
+
+                appBar.background = ColorDrawable(color)
+
+                toolbarLayout.contentScrim?.colorFilter =
                     PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
-                toolbar_layout.contentScrim?.colorFilter =
-                    PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
-                activity?.window?.statusBarColor =
-                    PokemonColorUtil(view.context).getColor(pokemon.types.last().type.name)
+
+                activity?.window?.statusBarColor = color
 
                 pokemon.types.getOrNull(TypeIndexEnum.THIRD.index)?.type?.let { thirdType ->
                     thirdTypeLabel.text = thirdType.name.capitalize()
@@ -43,14 +47,22 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
                     firstTypeLabel.text = firstType.name.capitalize()
                 }
 
-                firstTypeLabel.visibility = if (firstTypeLabel.text.isNotEmpty()) View.VISIBLE else View.GONE
-                secondTypeLabel.visibility = if(secondTypeLabel.text.isNotEmpty() && secondTypeLabel.text != firstTypeLabel.text) View.VISIBLE else View.GONE
-                thirdTypeLabel.visibility = if(thirdTypeLabel.text.isNotEmpty() && thirdTypeLabel.text != secondTypeLabel.text) View.VISIBLE else View.GONE
+                firstTypeLabel.visibility =
+                    if (firstTypeLabel.text.isNotEmpty()) View.VISIBLE else View.GONE
+
+                secondTypeLabel.visibility =
+                    if(secondTypeLabel.text.isNotEmpty() &&
+                        secondTypeLabel.text != firstTypeLabel.text) View.VISIBLE else View.GONE
+
+                thirdTypeLabel.visibility =
+                    if(thirdTypeLabel.text.isNotEmpty() &&
+                        thirdTypeLabel.text != secondTypeLabel.text) View.VISIBLE else View.GONE
 
                 PokemonImageUtil().loadPokemonImage(view.context, id, imageView)
 
                 dashboardViewPager.adapter =
                     DashboardViewPagerAdapter(parentFragmentManager, requireContext(), pokemon.id)
+
                 dashboardTabs.setupWithViewPager(dashboardViewPager)
             }
         })

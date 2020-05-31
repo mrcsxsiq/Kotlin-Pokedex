@@ -4,6 +4,7 @@ import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import dev.marcosfarias.pokedex.model.PokemonSpecies
+import dev.marcosfarias.pokedex.model.PokemonStat
 import me.sargunvohra.lib.pokekotlin.model.*
 import java.lang.reflect.Type
 
@@ -228,10 +229,10 @@ class Converters {
 
 
     fun fromKilogramsToPounds(kilograms: Int): Float {
-        return (kilograms * 2.20462F)
+        return (kilograms * 0.220462F)
     }
 
     fun fromCentimetersToFeet(centimeters: Int): Float {
-        return (centimeters * 0.0328084F)
+        return (centimeters * 0.328084F)
     }
 }

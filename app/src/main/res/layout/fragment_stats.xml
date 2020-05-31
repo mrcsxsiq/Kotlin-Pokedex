@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -29,7 +28,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/hpLabel"
+                android:id="@+id/hpField"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -65,7 +64,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/attackLabel"
+                android:id="@+id/attackField"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -101,7 +100,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/defenseLabel"
+                android:id="@+id/defenseField"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -137,7 +136,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/specialAttackLabel"
+                android:id="@+id/specialAttackField"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -173,7 +172,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/specialDefenseLabel"
+                android:id="@+id/specialDefenseField"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -209,7 +208,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/speedLabel"
+                android:id="@+id/speedField"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -245,7 +244,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/totalLabel"
+                android:id="@+id/totalField"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -285,7 +284,7 @@
 
 
             <TextView
-                android:id="@+id/typeDefensesLabel"
+                android:id="@+id/typeDefensesField"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"

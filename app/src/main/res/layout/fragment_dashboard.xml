@@ -7,7 +7,7 @@
     android:fitsSystemWindows="false">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/app_bar"
+        android:id="@+id/appBar"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:background="@color/lightTeal"
@@ -17,7 +17,7 @@
 
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:id="@+id/toolbar_layout"
+            android:id="@+id/toolbarLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"

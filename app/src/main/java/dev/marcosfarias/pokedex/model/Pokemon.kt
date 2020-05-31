@@ -26,7 +26,7 @@ data class Pokemon(
     @SerializedName("game_indices") override val gameIndices: List<VersionGameIndex>?,
     @SerializedName("held_items") override val heldItems: List<PokemonHeldItem>?,
     @SerializedName("moves") override val moves: List<PokemonMove>?,
-    @SerializedName("stats") override val stats: List<PokemonStat>?,
+    @SerializedName("stats") override val stats: List<PokemonStat>,
     @SerializedName("types") override val types: List<PokemonType>,
     @SerializedName("sprites") override val sprites: PokemonSprites?
 ) : PokemonApiInterface
@@ -45,7 +45,7 @@ interface PokemonApiInterface {
     val gameIndices: List<VersionGameIndex>?
     val heldItems: List<PokemonHeldItem>?
     val moves: List<PokemonMove>?
-    val stats: List<PokemonStat>?
+    val stats: List<PokemonStat>
     val types: List<PokemonType>?
     val sprites: PokemonSprites?
 }
