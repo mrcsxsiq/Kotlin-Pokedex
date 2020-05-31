@@ -28,21 +28,22 @@ class AboutFragment private constructor() : Fragment(R.layout.fragment_about) {
 
         dashboardViewModel.getPokemonById(id).observe(viewLifecycleOwner, Observer { pokemonValue ->
             pokemonValue?.let { pokemon ->
-                // TODO: Fazendo carregamento de About
-
-                descriptionLabel.text = pokemon.species?.flavorTextEntries?.find {
+                descriptionField.text = pokemon.species.flavorTextEntries.find {
                     it.language.name == "en"
-                }?.flavorText
+                }?.flavorText?.replace("\n", " ")
+
                 pokemon.height?.let { height ->
                     heightLabel.text = Converters().fromCentimetersToFeet(height).toString()
                 }
+
                 pokemon.weight?.let { weight ->
                     weightLabel.text = Converters().fromKilogramsToPounds(weight).toString()
                 }
 
-                eggCycleLabel.text = pokemon.species.hatchCounter.toString()
-//              textViewEggGroups.text = pokemon.eggGroups
-                baseExperienceLabel.text = pokemon.baseExperience.toString()
+                eggCycleField.text = pokemon.species.hatchCounter.toString()
+                eggGroupsField.text = pokemon.species.eggGroups.map { it.name.capitalize() }.toString().removePrefix("[").removeSuffix("]")
+
+                baseExperienceField.text = pokemon.baseExperience.toString()
             }
         })
     }
