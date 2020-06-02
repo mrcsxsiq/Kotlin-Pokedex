@@ -3,6 +3,7 @@ package dev.marcosfarias.pokedex.ui.pokedex
 import android.net.Uri
 import androidx.lifecycle.MutableLiveData
 import dev.marcosfarias.pokedex.database.dao.PokemonDAO
+import dev.marcosfarias.pokedex.model.EvolutionChain
 import dev.marcosfarias.pokedex.model.Pokemon
 import dev.marcosfarias.pokedex.model.PokemonSpecies
 import dev.marcosfarias.pokedex.repository.PokemonService
@@ -60,7 +61,39 @@ class PokedexRepository(
             }.flatMap { pokemonName ->
                 Observable.zip(
                     pokemonService.getById(Uri.parse(pokemonName.url).lastPathSegment.toString()),
-                    pokemonService.getSpeciesById(Uri.parse(pokemonName.url).lastPathSegment.toString()),
+                    Observable.zip(
+                        pokemonService.getSpeciesById(Uri.parse(pokemonName.url).lastPathSegment.toString()),
+                        pokemonService.getEvolutionChainById(Uri.parse(pokemonName.url).lastPathSegment.toString()),
+                        io.reactivex.functions.BiFunction<PokemonSpecies, EvolutionChain, PokemonSpecies> { pokemonSpecies, evolutionChain ->
+                            return@BiFunction PokemonSpecies (
+                                pokemonSpecies.id,
+                                pokemonSpecies.name,
+                                pokemonSpecies.order,
+                                pokemonSpecies.genderRate,
+                                pokemonSpecies.captureRate,
+                                pokemonSpecies.baseHappiness,
+                                pokemonSpecies.isBaby,
+                                pokemonSpecies.hatchCounter,
+                                pokemonSpecies.hasGenderDifferences,
+                                pokemonSpecies.formsSwitchable,
+                                pokemonSpecies.growthRate,
+                                pokemonSpecies.pokedexNumbers,
+                                pokemonSpecies.eggGroups,
+                                pokemonSpecies.color,
+                                pokemonSpecies.shape,
+                                pokemonSpecies.evolvesFromSpecies,
+                                evolutionChain,
+                                pokemonSpecies.habitat,
+                                pokemonSpecies.generation,
+                                pokemonSpecies.names,
+                                pokemonSpecies.palParkEncounters,
+                                pokemonSpecies.formDescriptions,
+                                pokemonSpecies.genera,
+                                pokemonSpecies.varieties,
+                                pokemonSpecies.flavorTextEntries
+                            )
+                        }
+                    ),
                     io.reactivex.functions.BiFunction<Pokemon, PokemonSpecies, Pokemon> { pokemon, species ->
                         return@BiFunction Pokemon(
                             pokemon.id,

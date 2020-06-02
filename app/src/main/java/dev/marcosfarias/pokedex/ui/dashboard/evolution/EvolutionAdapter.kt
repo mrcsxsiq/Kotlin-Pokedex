@@ -19,11 +19,11 @@ class EvolutionAdapter(
     private val context: Context
 ) : RecyclerView.Adapter<EvolutionAdapter.PokedexViewHolder>() {
 
-    private var pokedexList: List<Pokemon> = mutableListOf()
+    private var pokedexList: MutableList<Pokemon> = mutableListOf()
 
     class PokedexViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindView(pokemonItem: Pokemon) {
-            itemView.pokemonNameLabel.text = pokemonItem.name
+            itemView.pokemonNameLabel.text = pokemonItem.name.capitalize()
             itemView.pokemonIDLabel.text = PokemonStringUtil().formatId(pokemonItem.id)
 
             val color = PokemonColorUtil(itemView.context).getColor(pokemonItem.types.last().type.name)
@@ -48,8 +48,8 @@ class EvolutionAdapter(
         }
     }
 
-    fun updatePokedexListData(updateList: List<Pokemon>) {
-        pokedexList = updateList
+    fun setPokemonInList(pokemon: Pokemon) {
+        pokedexList.add(pokemon)
         notifyDataSetChanged()
     }
 

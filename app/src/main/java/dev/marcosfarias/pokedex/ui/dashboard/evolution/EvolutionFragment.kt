@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import dev.marcosfarias.pokedex.R
 import dev.marcosfarias.pokedex.ui.dashboard.DashboardViewModel
@@ -37,24 +38,25 @@ class EvolutionFragment : Fragment(R.layout.fragment_evolution) {
         super.onViewCreated(view, savedInstanceState)
 
         val id = checkNotNull(arguments?.getInt(BundleKeyUtil.ID))
-        val recyclerView = recyclerViewEvolvingPokemon
-        val layoutManager = LinearLayoutManager(context)
-        recyclerView.layoutManager = layoutManager
-        val adapter = EvolutionAdapter(view.context)
-        recyclerView.adapter = adapter
 
-//        dashboardViewModel.getPokemonById(id).observe(viewLifecycleOwner, Observer { pokemonValue ->
-//            pokemonValue?.let { pokemon ->
-//                val evolutions = pokemon.evolutions ?: emptyList()
-//                dashboardViewModel.getPokemonEvolutionsByIds(evolutions).observe(viewLifecycleOwner, Observer {
-//                    val pokemons: List<Pokemon> = it
-//                    adapter.setList(pokemons)
-//                    adapter.notifyDataSetChanged()
-//
-//                    if (pokemons.isEmpty())
-//                        textNonEvolving.visibility = View.VISIBLE
-//                })
-//            }
-//        })
+        val layoutManager = LinearLayoutManager(context)
+        val pokemonEvolutionRecyclerView = recyclerViewEvolvingPokemon
+        pokemonEvolutionRecyclerView.layoutManager = layoutManager
+        val pokemonEvolutionAdapter = EvolutionAdapter(view.context)
+        pokemonEvolutionRecyclerView.adapter = pokemonEvolutionAdapter
+
+        dashboardViewModel.getPokemonById(id).observe(viewLifecycleOwner, Observer { pokemonValue ->
+            pokemonValue?.let { pokemon ->
+
+                pokemonEvolutionAdapter.setPokemonInList(pokemon)
+                val evolutions = pokemon.species.evolutionChain.chain.evolvesTo
+
+                dashboardViewModel.getEvolutionsByChainLink(evolutions.first()).observe(viewLifecycleOwner, Observer { pokemonValue ->
+                    pokemonValue?.let { pokemon ->
+                        pokemonEvolutionAdapter.setPokemonInList(pokemon)
+                    }
+                })
+            }
+        })
     }
 }

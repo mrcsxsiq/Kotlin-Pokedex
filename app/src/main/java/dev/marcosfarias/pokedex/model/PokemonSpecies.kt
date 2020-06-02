@@ -29,7 +29,7 @@ data class PokemonSpecies (
     @SerializedName("color") override val color: NamedApiResource,
     @SerializedName("shape") override val shape: NamedApiResource,
     @SerializedName("evolves_from_species") override val evolvesFromSpecies: NamedApiResource?,
-    @SerializedName("evolution_chain") override val evolutionChain: ApiResource,
+    @SerializedName("evolution_chain") override val evolutionChain: EvolutionChain,
     @SerializedName("habitat") override val habitat: NamedApiResource?,
     @SerializedName("generation") override val generation: NamedApiResource,
     @SerializedName("names") override val names: List<Name>,
@@ -57,7 +57,7 @@ interface PokemonSpeciesApiInterface {
     val color: NamedApiResource
     val shape: NamedApiResource
     val evolvesFromSpecies: NamedApiResource?
-    val evolutionChain: ApiResource
+    val evolutionChain: EvolutionChain
     val habitat: NamedApiResource?
     val generation: NamedApiResource
     val names: List<Name>

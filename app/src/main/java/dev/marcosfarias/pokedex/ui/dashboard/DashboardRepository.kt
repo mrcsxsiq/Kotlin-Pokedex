@@ -13,4 +13,11 @@ class DashboardRepository(
     ) {
         pokemon.postValue(pokemonDAO.getById(id))
     }
+
+    suspend fun getPokemonByName(
+        name: String,
+        pokemon: MutableLiveData<Pokemon>
+    ) {
+        pokemon.postValue(pokemonDAO.getByName(name))
+    }
 }

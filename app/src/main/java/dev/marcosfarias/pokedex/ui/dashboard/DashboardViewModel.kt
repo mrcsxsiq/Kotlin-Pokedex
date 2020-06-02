@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dev.marcosfarias.pokedex.model.ChainLink
 import dev.marcosfarias.pokedex.model.Pokemon
 import kotlinx.coroutines.launch
 
@@ -12,17 +13,24 @@ class DashboardViewModel(
 ) : ViewModel() {
 
     private val pokemon = MutableLiveData<Pokemon>()
-
-    val _pokemon: LiveData<Pokemon> = pokemon
+    private val pokemonEvolution = MutableLiveData<Pokemon>()
 
     fun getPokemonById(id: Int): LiveData<Pokemon> {
         viewModelScope.launch {
             dashboardRepository.getPokemonById(id, pokemon)
         }
-        return _pokemon
+        return pokemon
     }
 
-//    fun getPokemonEvolutionsByIds(ids: List<String>): LiveData<List<Pokemon>> {
-//        return pokemonDAO.getEvolutionsByIds(ids)
-//    }
+    fun getEvolutionsByChainLink(link: ChainLink): LiveData<Pokemon> {
+        viewModelScope.launch {
+            dashboardRepository.getPokemonByName(link.species.name, pokemonEvolution)
+        }
+
+        if (!link.evolvesTo.isNullOrEmpty()) {
+            getEvolutionsByChainLink(link.evolvesTo.first())
+            return pokemonEvolution
+        }
+        return pokemonEvolution
+    }
 }

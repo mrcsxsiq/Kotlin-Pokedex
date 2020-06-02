@@ -9,11 +9,11 @@ interface PokemonDAO {
     @Query("SELECT * FROM pokemon WHERE id = :id")
     suspend fun getById(id: Int): Pokemon
 
+    @Query("SELECT * FROM pokemon WHERE name = :name")
+    suspend fun getByName(name: String): Pokemon
+
     @Query("SELECT * FROM pokemon WHERE id > :offset")
     suspend fun getByRangeOffsetId(offset: Int) : MutableList<Pokemon>
-
-    @Query("SELECT * FROM pokemon WHERE id IN(:evolutionIds)")
-    suspend fun getEvolutionsByIds(evolutionIds: List<String>): List<Pokemon>
 
     @Query("SELECT * FROM pokemon")
     suspend fun getAll(): MutableList<Pokemon>
@@ -22,8 +22,8 @@ interface PokemonDAO {
     fun add(pokemon: Pokemon)
 
     @Query("DELETE FROM pokemon")
-    suspend fun deleteAll()
+    fun deleteAll()
 
     @Delete
-    suspend fun delete(model: Pokemon)
+    fun delete(model: Pokemon)
 }

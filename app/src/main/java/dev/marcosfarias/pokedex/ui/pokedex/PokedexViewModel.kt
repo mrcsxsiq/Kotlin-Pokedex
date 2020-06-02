@@ -11,11 +11,8 @@ class PokedexViewModel(
     private val pokedexRepository: PokedexRepository
 ) : ViewModel() {
 
-    private val isLoadingData = MutableLiveData(false)
+    val isLoadingData = MutableLiveData(false)
     private val pokedexListData = MutableLiveData<List<Pokemon>>()
-
-    val _isLoadingData: LiveData<Boolean> = isLoadingData
-    val _pokedexListData: LiveData<List<Pokemon>> = pokedexListData
 
     fun getPokedexList(
         offset: Int,
@@ -29,6 +26,6 @@ class PokedexViewModel(
                 pokedexListData
             )
         }
-        return _pokedexListData
+        return pokedexListData
     }
 }

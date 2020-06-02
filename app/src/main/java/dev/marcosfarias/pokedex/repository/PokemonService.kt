@@ -1,5 +1,6 @@
 package dev.marcosfarias.pokedex.repository
 
+import dev.marcosfarias.pokedex.model.EvolutionChain
 import dev.marcosfarias.pokedex.model.Pokemon
 import dev.marcosfarias.pokedex.model.PokemonResult
 import dev.marcosfarias.pokedex.model.PokemonSpecies
@@ -17,4 +18,7 @@ interface PokemonService {
 
     @GET("pokemon-species/{id}")
     fun getSpeciesById(@Path("id") id: String): Observable<PokemonSpecies>
+
+    @GET("evolution-chain/{id}")
+    fun getEvolutionChainById(@Path("id") id: String): Observable<EvolutionChain>
 }

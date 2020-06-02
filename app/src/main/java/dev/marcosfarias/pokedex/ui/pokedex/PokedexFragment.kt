@@ -33,7 +33,7 @@ class PokedexFragment : Fragment(R.layout.fragment_pokedex) {
         val pokedexAdapter = PokedexAdapter()
         pokedexListRecyclerView.adapter = pokedexAdapter
 
-        pokedexViewModel._isLoadingData.observe(viewLifecycleOwner, Observer { loading ->
+        pokedexViewModel.isLoadingData.observe(viewLifecycleOwner, Observer { loading ->
             if (loading) pokedexLoadingProgressBar.visibility = View.VISIBLE else pokedexLoadingProgressBar.visibility = View.GONE
         })
 
