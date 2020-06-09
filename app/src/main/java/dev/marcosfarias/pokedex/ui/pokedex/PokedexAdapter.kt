@@ -29,7 +29,7 @@ class PokedexAdapter : RecyclerView.Adapter<PokedexAdapter.PokedexViewHolder>() 
             itemView.pokemonNameLabel.text = pokemonItem.name.capitalize()
             itemView.pokemonIDLabel.text = PokemonStringUtil().formatId(pokemonItem.id)
 
-            val color = PokemonColorUtil(itemView.context).getColor(pokemonItem.types.last().type.name)
+            val color = PokemonColorUtil(itemView.context).getColor(pokemonItem.types.first().type.name)
             itemView.relativeLayoutBackground.background.colorFilter =
                 PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
 

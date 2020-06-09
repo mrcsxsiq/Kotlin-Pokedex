@@ -18,4 +18,12 @@ val databaseModule = module {
     single {
         get<AppDatabase>().pokemonDAO()
     }
+
+    single {
+        get<AppDatabase>().speciesDAO()
+    }
+
+    single {
+        get<AppDatabase>().evolutionChainDAO()
+    }
 }

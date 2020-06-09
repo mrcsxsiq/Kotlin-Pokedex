@@ -31,11 +31,9 @@ class StatsFragment private constructor() : Fragment(R.layout.fragment_stats) {
         super.onViewCreated(view, savedInstanceState)
 
         val id = checkNotNull(arguments?.getInt(ID))
-        dashboardViewModel.getPokemonById(id).observe(viewLifecycleOwner, Observer { pokemonValue ->
+
+        dashboardViewModel.getPokemon(id).observe(viewLifecycleOwner, Observer { pokemonValue ->
             pokemonValue?.let { pokemon ->
-                typeDefensesField.text = pokemon.species.flavorTextEntries.find {
-                    it.language.name == ENGLISH
-                }?.flavorText?.replace("\n", " ")
 
                 hpField.text = pokemon.stats.find { it.stat.name == HP }?.baseStat.toString()
                 attackField.text = pokemon.stats.find { it.stat.name == ATTACK }?.baseStat.toString()
@@ -64,6 +62,14 @@ class StatsFragment private constructor() : Fragment(R.layout.fragment_stats) {
                     speedBar.progress = speed ?: 0
                 }
                 totalBar.progress = pokemon.stats.map { it.baseStat }.sumBy { it }
+            }
+        })
+
+        dashboardViewModel.getSpecies(id).observe(viewLifecycleOwner, Observer { speciesValue ->
+            speciesValue?.let { species ->
+                typeDefensesField.text = species.flavorTextEntries.find {
+                    it.language.name == ENGLISH
+                }?.flavorText?.replace("\n", " ")
             }
         })
     }

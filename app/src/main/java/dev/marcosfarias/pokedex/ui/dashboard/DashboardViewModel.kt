@@ -4,8 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import dev.marcosfarias.pokedex.model.ChainLink
 import dev.marcosfarias.pokedex.model.Pokemon
+import dev.marcosfarias.pokedex.model.Species
+import dev.marcosfarias.pokedex.repository.DashboardRepository
 import kotlinx.coroutines.launch
 
 class DashboardViewModel(
@@ -13,24 +14,40 @@ class DashboardViewModel(
 ) : ViewModel() {
 
     private val pokemon = MutableLiveData<Pokemon>()
-    private val pokemonEvolution = MutableLiveData<Pokemon>()
+    private val speciesData = MutableLiveData<Species>()
+    private val evolutionPokemonList = MutableLiveData<MutableList<Pokemon>>()
 
-    fun getPokemonById(id: Int): LiveData<Pokemon> {
+    fun getPokemon(id: Int): LiveData<Pokemon> {
         viewModelScope.launch {
-            dashboardRepository.getPokemonById(id, pokemon)
+            dashboardRepository.loadPokemon(
+                id = id,
+                pokemon = pokemon
+            )
         }
         return pokemon
     }
 
-    fun getEvolutionsByChainLink(link: ChainLink): LiveData<Pokemon> {
+    fun getSpecies(
+        id: Int
+    ): LiveData<Species> {
         viewModelScope.launch {
-            dashboardRepository.getPokemonByName(link.species.name, pokemonEvolution)
+            dashboardRepository.loadSpecies(
+                id = id,
+                speciesData = speciesData
+            )
         }
+        return speciesData
+    }
 
-        if (!link.evolvesTo.isNullOrEmpty()) {
-            getEvolutionsByChainLink(link.evolvesTo.first())
-            return pokemonEvolution
+    fun getEvolutionChain(
+        id: Int
+    ): LiveData<MutableList<Pokemon>> {
+        viewModelScope.launch {
+            dashboardRepository.loadEvolutionChain(
+                id = id,
+                evolutionChainData = evolutionPokemonList
+            )
         }
-        return pokemonEvolution
+        return evolutionPokemonList
     }
 }

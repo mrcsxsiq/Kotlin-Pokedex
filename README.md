@@ -66,14 +66,14 @@ Also available in Play Store
 - [x] [Coroutines](https://developer.android.com/topic/libraries/architecture/coroutines)
 - [x] [Gradle Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html)
 - [x] [Databinding](https://developer.android.com/topic/libraries/data-binding)
-- [x] [Retrofit](https://square.github.io/retrofit/)
+- [x] [Retrofit](https://square.github.io/retrofit/) (embed in PokeAPI)
 - [x] [Koin](https://insert-koin.io/)
 - [x] [Ktlint](https://ktlint.github.io/)
 - [ ] JUnit
 - [ ] MotionLayout
 - [ ] Transition Animations
 - [ ] DayNight
-- [x] PokeAPI
+- [x] [RxPokeAPI](https://github.com/PokeAPI/pokekotlin)
 - [ ] ~[Jetpack Compose](https://developer.android.com/jetpack/compose)~ - See [compose-pokedex](https://github.com/zsoltk/compose-pokedex)
 
 ## Features

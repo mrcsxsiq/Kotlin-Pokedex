@@ -19,14 +19,14 @@ class EvolutionAdapter(
     private val context: Context
 ) : RecyclerView.Adapter<EvolutionAdapter.PokedexViewHolder>() {
 
-    private var pokedexList: MutableList<Pokemon> = mutableListOf()
+    private var evolutionList: MutableList<Pokemon> = mutableListOf()
 
     class PokedexViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindView(pokemonItem: Pokemon) {
             itemView.pokemonNameLabel.text = pokemonItem.name.capitalize()
             itemView.pokemonIDLabel.text = PokemonStringUtil().formatId(pokemonItem.id)
 
-            val color = PokemonColorUtil(itemView.context).getColor(pokemonItem.types.last().type.name)
+            val color = PokemonColorUtil(itemView.context).getColor(pokemonItem.types.first().type.name)
             itemView.relativeLayoutBackground.background.colorFilter =
                 PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
 
@@ -48,8 +48,8 @@ class EvolutionAdapter(
         }
     }
 
-    fun setPokemonInList(pokemon: Pokemon) {
-        pokedexList.add(pokemon)
+    fun setPokemonInList(pokemonList: MutableList<Pokemon>) {
+        evolutionList = pokemonList
         notifyDataSetChanged()
     }
 
@@ -59,10 +59,10 @@ class EvolutionAdapter(
     }
 
     override fun onBindViewHolder(holderPokedex: PokedexViewHolder, position: Int) {
-        holderPokedex.bindView(pokedexList[position])
+        holderPokedex.bindView(evolutionList[position])
     }
 
     override fun getItemCount(): Int {
-        return pokedexList.size
+        return evolutionList.size
     }
 }

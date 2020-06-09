@@ -4,7 +4,7 @@ import android.content.Context
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 
-class PokemonImageUtil() {
+class PokemonImageUtil {
 
     private val pokeApiImageUrl = "https://pokeres.bastionbot.org/images/pokemon/"
     private val pngType = ".png"

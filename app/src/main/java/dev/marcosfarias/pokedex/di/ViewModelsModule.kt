@@ -8,8 +8,8 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val viewModelsModule = module {
-    viewModel { DashboardViewModel(get()) }
-    viewModel { GenerationViewModel(get()) }
     viewModel { HomeViewModel(get()) }
     viewModel { PokedexViewModel(get()) }
+    viewModel { DashboardViewModel(get()) }
+    viewModel { GenerationViewModel(get()) }
 }

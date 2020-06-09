@@ -24,8 +24,6 @@ class PokedexFragment : Fragment(R.layout.fragment_pokedex) {
             PokemonColorUtil(view.context).convertColor(R.color.background)
 
         val spanCount = 2
-        val initialOffSet = 0
-        val listOffSet = 20
 
         pokedexLoadingProgressBar.visibility = View.VISIBLE
         val layoutManager = GridLayoutManager(context, spanCount)
@@ -37,7 +35,7 @@ class PokedexFragment : Fragment(R.layout.fragment_pokedex) {
             if (loading) pokedexLoadingProgressBar.visibility = View.VISIBLE else pokedexLoadingProgressBar.visibility = View.GONE
         })
 
-        pokedexViewModel.getPokedexList(initialOffSet, listOffSet).observe(viewLifecycleOwner, Observer { pokedexList ->
+        pokedexViewModel.getPokedexList().observe(viewLifecycleOwner, Observer { pokedexList ->
             pokedexAdapter.updatePokedexListData(pokedexList)
         })
 
@@ -50,7 +48,7 @@ class PokedexFragment : Fragment(R.layout.fragment_pokedex) {
                     val pastPokemonVisiblesItems = layoutManager.findFirstVisibleItemPosition()
 
                     if ((visiblePokemonCount + pastPokemonVisiblesItems) >= totalPokemonCount) {
-                        pokedexViewModel.getPokedexList(totalPokemonCount, listOffSet)
+                        pokedexViewModel.getPokedexList(totalPokemonCount)
                     }
                 }
             }

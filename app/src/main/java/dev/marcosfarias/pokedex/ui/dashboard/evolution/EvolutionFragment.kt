@@ -45,17 +45,9 @@ class EvolutionFragment : Fragment(R.layout.fragment_evolution) {
         val pokemonEvolutionAdapter = EvolutionAdapter(view.context)
         pokemonEvolutionRecyclerView.adapter = pokemonEvolutionAdapter
 
-        dashboardViewModel.getPokemonById(id).observe(viewLifecycleOwner, Observer { pokemonValue ->
-            pokemonValue?.let { pokemon ->
-
-                pokemonEvolutionAdapter.setPokemonInList(pokemon)
-                val evolutions = pokemon.species.evolutionChain.chain.evolvesTo
-
-                dashboardViewModel.getEvolutionsByChainLink(evolutions.first()).observe(viewLifecycleOwner, Observer { pokemonValue ->
-                    pokemonValue?.let { pokemon ->
-                        pokemonEvolutionAdapter.setPokemonInList(pokemon)
-                    }
-                })
+        dashboardViewModel.getEvolutionChain(id).observe(viewLifecycleOwner, Observer { pokemonListValue ->
+            pokemonListValue?.let { pokemonList ->
+                pokemonEvolutionAdapter.setPokemonInList(pokemonList)
             }
         })
     }

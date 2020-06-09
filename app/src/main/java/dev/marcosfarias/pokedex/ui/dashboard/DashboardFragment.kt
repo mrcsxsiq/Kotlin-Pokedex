@@ -20,7 +20,7 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         super.onViewCreated(view, savedInstanceState)
         val id = checkNotNull(arguments?.getInt(BundleKeyUtil.ID))
 
-        dashboardViewModel.getPokemonById(id).observe(viewLifecycleOwner, Observer { pokemonValue ->
+        dashboardViewModel.getPokemon(id).observe(viewLifecycleOwner, Observer { pokemonValue ->
 
             pokemonValue?.let { pokemon ->
                 pokemonIDLabel.text = PokemonStringUtil().formatId(pokemon.id)
@@ -28,7 +28,7 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
                 pokemonNameLabel.text = pokemon.name.capitalize()
 
                 val color =
-                    PokemonColorUtil(view.context).getColor(pokemon.types.last().type.name)
+                    PokemonColorUtil(view.context).getColor(pokemon.types.first().type.name)
 
                 appBar.background = ColorDrawable(color)
 
