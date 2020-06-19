@@ -27,8 +27,8 @@ class PokedexRepository(
             isLoadingData.postValue(loadingLock)
             val cache = pokemonDAO.getRange(offset)
             if (cache.isNotEmpty()) {
-                val data = pokemonDAO.getAll()
-                pokedexListData.postValue(data)
+                pokedexList.addAll(cache)
+                pokedexListData.postValue(pokedexList)
                 loadingLock = false
                 isLoadingData.postValue(loadingLock)
             } else {
