@@ -14,7 +14,7 @@
     tools:backgroundTint="@color/lightTeal">
 
     <TextView
-        android:id="@+id/textViewName"
+        android:id="@+id/pokemonNameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"

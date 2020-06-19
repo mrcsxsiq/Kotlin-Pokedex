@@ -1,8 +1,6 @@
 package dev.marcosfarias.pokedex.database.dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -12,20 +10,17 @@ import dev.marcosfarias.pokedex.model.Pokemon
 interface PokemonDAO {
 
     @Query("SELECT * FROM pokemon WHERE id = :id")
-    fun getById(id: String?): LiveData<Pokemon>
+    suspend fun get(id: Int): Pokemon
 
-    @Query("SELECT * FROM pokemon WHERE id IN(:evolutionIds)")
-    fun getEvolutionsByIds(evolutionIds: List<String>): LiveData<List<Pokemon>>
+    @Query("SELECT * FROM pokemon WHERE id > :offset")
+    suspend fun getRange(offset: Int) : MutableList<Pokemon>
 
     @Query("SELECT * FROM pokemon")
-    fun all(): LiveData<List<Pokemon>>
+    suspend fun getAll(): MutableList<Pokemon>
+
+    @Query("SELECT * FROM pokemon WHERE id IN (:idList)")
+    suspend fun getList(idList: MutableList<Int>): MutableList<Pokemon>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun add(pokemon: List<Pokemon>)
-
-    @Query("DELETE FROM pokemon")
-    fun deleteAll()
-
-    @Delete
-    fun delete(model: Pokemon)
+    fun add(pokemon: Pokemon)
 }

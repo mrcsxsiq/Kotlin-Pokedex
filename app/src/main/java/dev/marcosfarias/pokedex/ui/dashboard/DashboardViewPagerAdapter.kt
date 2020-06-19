@@ -10,36 +10,36 @@ import dev.marcosfarias.pokedex.ui.dashboard.evolution.EvolutionFragment
 import dev.marcosfarias.pokedex.ui.dashboard.moves.MovesFragment
 import dev.marcosfarias.pokedex.ui.dashboard.stats.StatsFragment
 
-class ViewPagerAdapter(
+class DashboardViewPagerAdapter(
     supportFragmentManager: FragmentManager,
     context: Context,
-    private val pokemonId: String
+    private val pokemonId: Int
 ) : FragmentStatePagerAdapter(supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
-    data class Page(val title: String, val ctor: () -> Fragment)
+    data class Page(val title: String, val content: () -> Fragment)
 
     @Suppress("MoveLambdaOutsideParentheses")
     private val pages = listOf(
         Page(
-            context.getString(R.string.dashboard_tab_1),
-            { AboutFragment.newInstance(pokemonId) }
+            context.getString(R.string.dashboard_first_page),
+            { AboutFragment(pokemonId) }
         ),
         Page(
-            context.getString(R.string.dashboard_tab_2),
-            { StatsFragment.newInstance(pokemonId) }
+            context.getString(R.string.dashboard_second_tab),
+            { StatsFragment(pokemonId) }
         ),
         Page(
-            context.getString(R.string.dashboard_tab_3),
+            context.getString(R.string.dashboard_third_tab),
             { EvolutionFragment.newInstance(pokemonId) }
         ),
         Page(
-            context.getString(R.string.dashboard_tab_4),
+            context.getString(R.string.dashboard_fourth_tab),
             { MovesFragment() }
         )
     )
 
     override fun getItem(position: Int): Fragment {
-        return pages[position].ctor()
+        return pages[position].content()
     }
 
     override fun getCount(): Int {

@@ -20,7 +20,7 @@ class MenuAdapter(
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindView(item: Menu) {
-            itemView.textViewName.text = item.name
+            itemView.pokemonNameLabel.text = item.name
 
             val color = PokemonColorUtil(itemView.context).convertColor(item.color)
             itemView.relativeLayoutBackground.background.colorFilter =

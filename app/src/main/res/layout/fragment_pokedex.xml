@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -58,13 +59,14 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/pokedexListRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:overScrollMode="never"
         android:paddingStart="8dp"
         android:background="@color/white"
         android:paddingEnd="8dp"
+        android:nestedScrollingEnabled="false"
         app:layoutManager="GridLayoutManager"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:itemCount="20"
@@ -72,7 +74,7 @@
         tools:spanCount="2" />
 
     <com.leinardi.android.speeddial.SpeedDialView
-        android:id="@+id/speedDial"
+        android:id="@+id/pokedexSpeedDialMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
@@ -82,7 +84,7 @@
 
     <ProgressBar
         android:layout_gravity="center"
-        android:id="@+id/progressBar"
+        android:id="@+id/pokedexLoadingProgressBar"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

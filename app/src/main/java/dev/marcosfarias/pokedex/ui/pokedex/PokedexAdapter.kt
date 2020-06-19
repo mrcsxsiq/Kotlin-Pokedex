@@ -1,11 +1,12 @@
-package dev.marcosfarias.pokedex.ui.dashboard.evolution
+package dev.marcosfarias.pokedex.ui.pokedex
 
-import android.content.Context
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import dev.marcosfarias.pokedex.R
 import dev.marcosfarias.pokedex.model.Pokemon
@@ -15,13 +16,15 @@ import dev.marcosfarias.pokedex.utils.PokemonStringUtil
 import dev.marcosfarias.pokedex.utils.TypeIndexEnum
 import kotlinx.android.synthetic.main.item_pokemon.view.*
 
-class EvolutionAdapter(
-    private val context: Context
-) : RecyclerView.Adapter<EvolutionAdapter.PokedexViewHolder>() {
+class PokedexAdapter : RecyclerView.Adapter<PokedexAdapter.PokedexViewHolder>() {
 
-    private var evolutionList: MutableList<Pokemon> = mutableListOf()
+    private var pokedexList: List<Pokemon> = mutableListOf()
 
-    class PokedexViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    init {
+        setHasStableIds(true)
+    }
+
+    class PokedexViewHolder(pokemonItemView: View) : RecyclerView.ViewHolder(pokemonItemView) {
         fun bindView(pokemonItem: Pokemon) {
             itemView.pokemonNameLabel.text = pokemonItem.name.capitalize()
             itemView.pokemonIDLabel.text = PokemonStringUtil().formatId(pokemonItem.id)
@@ -45,24 +48,32 @@ class EvolutionAdapter(
             itemView.thirdTypeLabel.visibility = if(itemView.thirdTypeLabel.text.isNotEmpty() && itemView.thirdTypeLabel.text != itemView.secondTypeLabel.text) View.VISIBLE else View.GONE
 
             PokemonImageUtil().loadPokemonImage(itemView.context, pokemonItem.id, itemView.imageView)
+
+            itemView.setOnClickListener {
+                val bundle = bundleOf("id" to pokemonItem.id)
+                it.findNavController()
+                    .navigate(R.id.action_navigation_pokedex_to_navigation_dashboard, bundle)
+            }
         }
     }
 
-    fun setPokemonInList(pokemonList: MutableList<Pokemon>) {
-        evolutionList = pokemonList
+    fun updatePokedexListData(updateList: List<Pokemon>) {
+        pokedexList = updateList
         notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokedexViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.item_pokemon, parent, false)
-        return PokedexViewHolder(view)
+        val pokemonItemView = LayoutInflater.from(parent.context).inflate(R.layout.item_pokemon, parent, false)
+        return PokedexViewHolder(pokemonItemView)
     }
 
     override fun onBindViewHolder(holderPokedex: PokedexViewHolder, position: Int) {
-        holderPokedex.bindView(evolutionList[position])
+        holderPokedex.bindView(pokedexList[position])
     }
 
-    override fun getItemCount(): Int {
-        return evolutionList.size
-    }
+    override fun getItemCount(): Int = pokedexList.size
+
+    override fun getItemId(position: Int): Long = position.toLong()
+
+    override fun getItemViewType(position: Int): Int = position
 }

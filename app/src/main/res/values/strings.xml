@@ -27,8 +27,8 @@
     <string name="news_date">15 May 2019</string>
     <string name="lorem_small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in nisi at turpis.</string>
     <string name="lorem_large">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
-    <string name="dashboard_tab_1">About</string>
-    <string name="dashboard_tab_2">Base Stats</string>
-    <string name="dashboard_tab_3">Evolution</string>
-    <string name="dashboard_tab_4">Moves</string>
+    <string name="dashboard_first_page">About</string>
+    <string name="dashboard_second_tab">Base Stats</string>
+    <string name="dashboard_third_tab">Evolution</string>
+    <string name="dashboard_fourth_tab">Moves</string>
 </resources>

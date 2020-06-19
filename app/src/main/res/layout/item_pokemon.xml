@@ -14,7 +14,7 @@
     tools:backgroundTint="@color/lightTeal">
 
     <TextView
-        android:id="@+id/textViewName"
+        android:id="@+id/pokemonNameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -24,52 +24,51 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:fontFamily="@font/circularstd_medium"
-        tools:text="Titulo" />
+        tools:text="Name" />
 
     <TextView
-        android:id="@+id/textViewID"
+        android:id="@+id/pokemonIDLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:alpha="0.25"
         android:gravity="top"
-        android:text="#001"
         android:textSize="18sp"
         android:textStyle="bold"
         tools:text="#001" />
 
 
     <TextView
-        android:id="@+id/textViewType1"
+        android:id="@+id/thirdTypeLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textViewType2"
+        android:layout_above="@+id/secondTypeLabel"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="8dp"
         android:background="@drawable/background_item_pokemon_span"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
-        android:text="Grass"
+        tools:text="Grass"
         android:textColor="@color/white"
         android:textSize="14sp" />
 
     <TextView
-        android:id="@+id/textViewType2"
+        android:id="@+id/secondTypeLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textViewType3"
+        android:layout_above="@+id/firstTypeLabel"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="8dp"
         android:background="@drawable/background_item_pokemon_span"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
-        android:text="Grass"
+        tools:text="Grass"
         android:textColor="@color/white"
         android:textSize="14sp" />
 
     <TextView
-        android:id="@+id/textViewType3"
+        android:id="@+id/firstTypeLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -77,7 +76,7 @@
         android:background="@drawable/background_item_pokemon_span"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
-        android:text="Grass"
+        tools:text="Grass"
         android:textColor="@color/white"
         android:textSize="14sp" />
 
@@ -100,7 +99,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:adjustViewBounds="true"
-        android:src="@drawable/poke001" />
+        tools:src="@drawable/poke001" />
 
 
 </RelativeLayout>
