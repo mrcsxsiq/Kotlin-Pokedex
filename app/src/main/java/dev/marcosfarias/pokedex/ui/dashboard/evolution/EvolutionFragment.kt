@@ -41,20 +41,21 @@ class EvolutionFragment : Fragment() {
         val recyclerView = recyclerViewEvolvingPokemon
         val layoutManager = LinearLayoutManager(context)
         recyclerView.layoutManager = layoutManager
-        val adapter = EvolutionAdapter(view.context)
+        val adapter = EvolutionAdapter(view.context, id)
         recyclerView.adapter = adapter
 
         dashboardViewModel.getPokemonById(id).observe(viewLifecycleOwner, Observer { pokemonValue ->
             pokemonValue?.let { pokemon ->
                 val evolutions = pokemon.evolutions ?: emptyList()
-                dashboardViewModel.getPokemonEvolutionsByIds(evolutions).observe(viewLifecycleOwner, Observer {
-                    val pokemons: List<Pokemon> = it
-                    adapter.setList(pokemons)
-                    adapter.notifyDataSetChanged()
+                dashboardViewModel.getPokemonEvolutionsByIds(evolutions)
+                    .observe(viewLifecycleOwner, Observer {
+                        val pokemons: List<Pokemon> = it
+                        adapter.setList(pokemons)
+                        adapter.notifyDataSetChanged()
 
-                    if (pokemons.isEmpty())
-                        textNonEvolving.visibility = View.VISIBLE
-                })
+                        if (pokemons.isEmpty())
+                            textNonEvolving.visibility = View.VISIBLE
+                    })
             }
         })
     }

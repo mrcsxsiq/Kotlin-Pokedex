@@ -18,7 +18,9 @@ import dev.marcosfarias.pokedex.utils.PokemonColorUtil
 import kotlinx.android.synthetic.main.item_pokemon.view.*
 
 class EvolutionAdapter(
-    private val context: Context
+    private val context: Context,
+    private val currentPokemonId: String
+
 ) : RecyclerView.Adapter<EvolutionAdapter.ViewHolder>() {
 
     private val list = arrayListOf<Pokemon>()
@@ -70,10 +72,11 @@ class EvolutionAdapter(
         holder.bindView(item)
 
         holder.itemView.setOnClickListener {
-            var bundle = bundleOf("id" to item.id)
-            it.findNavController()
-                .navigate(R.id.action_navigation_dashboard_self, bundle)
-
+            if (currentPokemonId != item.id) {
+                val bundle = bundleOf("id" to item.id)
+                it.findNavController()
+                    .navigate(R.id.action_navigation_dashboard_self, bundle)
+            }
         }
     }
 
