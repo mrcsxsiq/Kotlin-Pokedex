@@ -54,7 +54,11 @@
         android:id="@+id/navigation_dashboard"
         android:name="dev.marcosfarias.pokedex.ui.dashboard.DashboardFragment"
         android:label="@string/app_name"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_navigation_dashboard_self"
+            app:destination="@id/navigation_dashboard" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_about"

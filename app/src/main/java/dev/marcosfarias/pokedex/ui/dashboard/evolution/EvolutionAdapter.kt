@@ -6,7 +6,9 @@ import android.graphics.PorterDuffColorFilter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import dev.marcosfarias.pokedex.R
@@ -64,6 +66,13 @@ class EvolutionAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = list[position]
         holder.bindView(item)
+
+        holder.itemView.setOnClickListener {
+            var bundle = bundleOf("id" to item.id)
+            it.findNavController()
+                .navigate(R.id.action_navigation_dashboard_self, bundle)
+
+        }
     }
 
     override fun getItemCount(): Int {
