@@ -11,6 +11,7 @@ import androidx.core.view.isVisible
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import dev.marcosfarias.pokedex.R
 import dev.marcosfarias.pokedex.model.Pokemon
 import dev.marcosfarias.pokedex.utils.PokemonColorUtil
@@ -54,6 +55,7 @@ class EvolutionAdapter(
             Glide.with(itemView.context)
                 .load(item.imageurl)
                 .placeholder(android.R.color.transparent)
+                .transition(DrawableTransitionOptions.withCrossFade())
                 .into(itemView.imageView)
         }
     }
