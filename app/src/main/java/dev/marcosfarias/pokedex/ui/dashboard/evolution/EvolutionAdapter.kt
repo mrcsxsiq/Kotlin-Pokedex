@@ -6,16 +6,21 @@ import android.graphics.PorterDuffColorFilter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import dev.marcosfarias.pokedex.R
 import dev.marcosfarias.pokedex.model.Pokemon
 import dev.marcosfarias.pokedex.utils.PokemonColorUtil
 import kotlinx.android.synthetic.main.item_pokemon.view.*
 
 class EvolutionAdapter(
-    private val context: Context
+    private val context: Context,
+    private val currentPokemonId: String
+
 ) : RecyclerView.Adapter<EvolutionAdapter.ViewHolder>() {
 
     private val list = arrayListOf<Pokemon>()
@@ -52,6 +57,7 @@ class EvolutionAdapter(
             Glide.with(itemView.context)
                 .load(item.imageurl)
                 .placeholder(android.R.color.transparent)
+                .transition(DrawableTransitionOptions.withCrossFade())
                 .into(itemView.imageView)
         }
     }
@@ -64,6 +70,14 @@ class EvolutionAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = list[position]
         holder.bindView(item)
+
+        holder.itemView.setOnClickListener {
+            if (currentPokemonId != item.id) {
+                val bundle = bundleOf("id" to item.id)
+                it.findNavController()
+                    .navigate(R.id.action_navigation_dashboard_self, bundle)
+            }
+        }
     }
 
     override fun getItemCount(): Int {
