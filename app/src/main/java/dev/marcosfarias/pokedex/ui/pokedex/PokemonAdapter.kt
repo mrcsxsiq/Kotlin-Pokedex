@@ -10,7 +10,7 @@ import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
+import dev.marcosfarias.pokedex.GlideApp
 import dev.marcosfarias.pokedex.R
 import dev.marcosfarias.pokedex.model.Pokemon
 import dev.marcosfarias.pokedex.utils.PokemonColorUtil
@@ -45,7 +45,7 @@ class PokemonAdapter(
                 itemView.textViewType1.isVisible = thirdType != null
             }
 
-            Glide.with(itemView.context)
+            GlideApp.with(itemView.context)
                 .load(item.imageurl)
                 .placeholder(android.R.color.transparent)
                 .into(itemView.imageView)
