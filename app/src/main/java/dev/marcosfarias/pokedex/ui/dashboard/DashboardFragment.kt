@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import com.bumptech.glide.Glide
+import dev.marcosfarias.pokedex.GlideApp
 import dev.marcosfarias.pokedex.R
 import dev.marcosfarias.pokedex.utils.PokemonColorUtil
 import kotlinx.android.synthetic.main.fragment_dashboard.*
@@ -59,7 +59,7 @@ class DashboardFragment : Fragment() {
                     textViewType1.isVisible = thirdType != null
                 }
 
-                Glide.with(view.context)
+                GlideApp.with(view.context)
                     .load(pokemon.imageurl)
                     .placeholder(android.R.color.transparent)
                     .into(imageView)
