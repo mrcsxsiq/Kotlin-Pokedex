@@ -32,7 +32,7 @@ class DashboardFragmentTest {
 
 // Create a graphical FragmentScenario for the TitleScreen
         launchFragmentInContainer(themeResId = R.style.AppTheme) {
-            PokedexFragment().also { fragment ->
+            DashboardFragment().also { fragment ->
 
 // In addition to returning a new instance of our Fragment,
 // get a callback whenever the fragment’s view is created
