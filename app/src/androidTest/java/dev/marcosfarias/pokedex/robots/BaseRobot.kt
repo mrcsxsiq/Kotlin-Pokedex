@@ -1,14 +1,17 @@
 package dev.marcosfarias.pokedex.robots
 
 import androidx.recyclerview.widget.RecyclerView
+import androidx.test.espresso.DataInteraction
 import androidx.test.espresso.Espresso
+import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.ViewInteraction
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers
-import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.*
+import dev.marcosfarias.pokedex.R
 
 open class BaseRobot {
 
@@ -29,4 +32,9 @@ open class BaseRobot {
     ).perform(
         RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click())
     )
+
+    fun isViewDisplayed(viewId: Int) : ViewInteraction = onView(withId(viewId)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+
+    fun isRecyclerViewItemDisplayed(viewId: Int, text: String) : ViewInteraction =
+        onView(withId(viewId)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
 }

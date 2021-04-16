@@ -4,7 +4,12 @@ import android.content.res.Resources
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.navigation.Navigation
 import androidx.navigation.testing.TestNavHostController
+import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ApplicationProvider
+import androidx.test.espresso.Espresso
+import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.contrib.RecyclerViewActions
+import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import dev.marcosfarias.pokedex.robots.BaseRobot
@@ -26,11 +31,6 @@ class HomeTest : BaseRobot() {
     fun setup() {
         // Create a TestNavHostController
         navHost = TestNavHostController(ApplicationProvider.getApplicationContext())
-    }
-
-
-    @Test
-    fun testingNavigation() {
         launchFragmentInContainer(themeResId = R.style.AppTheme) {
             HomeFragment().also { fragment ->
                 // In addition to returning a new instance of our Fragment, // get a callback whenever the fragment’s view is created // or destroyed so that we can set the NavController
@@ -43,16 +43,24 @@ class HomeTest : BaseRobot() {
                 }
             }
         }
+    }
+
+
+    @Test
+    fun testingNavigation() {
+
 
         assertEquals(navHost.graph.id, R.id.mobile_navigation)
     }
 
     @Test
     fun verifyIfRecyclerViewMenuIsDisplayed() {
+        isViewDisplayed(R.id.recyclerViewMenu)
     }
 
     @Test
     fun verifyIfRecyclerViewTextIsDisplayed() {
+        isRecyclerViewItemDisplayed(R.id.recyclerViewMenu, "oi")
     }
 
     @Test
@@ -61,6 +69,7 @@ class HomeTest : BaseRobot() {
 
     @Test
     fun verifyIfRecyclerViewItemIsDisplayed() {
+
     }
 
     @Test
