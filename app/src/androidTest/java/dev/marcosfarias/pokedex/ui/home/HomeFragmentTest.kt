@@ -1,6 +1,5 @@
 package dev.marcosfarias.pokedex.ui.home
 
-import android.util.Log
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.navigation.Navigation
 import androidx.navigation.testing.TestNavHostController
@@ -92,7 +91,7 @@ class HomeFragmentTest {
     }
 
     @Test
-    fun checkIfPokedexOpenOfAnotherPosition(){
+    fun checkIfPokedexOpenOfAnotherPosition() {
 
         Espresso.onView(
             ViewMatchers.withId(R.id.recyclerViewMenu)
@@ -102,8 +101,22 @@ class HomeFragmentTest {
                 ViewActions.click()
             )
         )
-
-
+        
         Assert.assertEquals(R.id.navigation_pokedex, navController.currentDestination?.id)
     }
+
+    @Test
+    fun checkTitleText() {
+        Espresso.onView(
+            ViewMatchers.withId(R.id.textViewHomeTitle)
+        ).check(ViewAssertions.matches(ViewMatchers.withText(R.string.main_title)))
+    }
+
+    @Test
+    fun checkTextFromSearchBar() {
+        Espresso.onView(
+            ViewMatchers.withId(R.id.textViewSearchBar)
+        ).check(ViewAssertions.matches(ViewMatchers.withText(R.string.main_search)))
+    }
+
 }

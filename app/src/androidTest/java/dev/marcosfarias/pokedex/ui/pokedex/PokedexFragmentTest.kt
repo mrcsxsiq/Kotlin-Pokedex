@@ -7,7 +7,9 @@ import androidx.navigation.testing.TestNavHostController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.Espresso
+import androidx.test.espresso.ViewAssertion
 import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -41,6 +43,7 @@ class PokedexFragmentTest {
                     if (viewLifecycleOwner != null) {
                         // The fragment’s view has just been created
                         navController.setGraph(R.navigation.mobile_navigation)
+                        navController.setCurrentDestination(R.id.navigation_pokedex)
                         Navigation.setViewNavController(fragment.requireView(), navController)
                     }
                 }
@@ -51,9 +54,7 @@ class PokedexFragmentTest {
     @Test
     fun checkIfOpenPokemonDetails() {
 
-        Log.d("Heigon",R.id.navigation_pokedex.toString())
-        Log.d("Heigon",navController.currentDestination?.id.toString())
-
+        Thread.sleep(3000)
         Espresso.onView(ViewMatchers.withId(R.id.recyclerView)).perform(
             RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
                 0,
@@ -61,9 +62,13 @@ class PokedexFragmentTest {
             )
         )
 
-        Log.d("Heigon",R.id.navigation_dashboard.toString())
-        Log.d("Heigon",navController.currentDestination?.id.toString())
-
         assertEquals(R.id.navigation_dashboard,navController.currentDestination?.id)
+    }
+
+    @Test
+    fun checkIfRecyclerViewIsDisplayed(){
+        Espresso.onView(
+            ViewMatchers.withId(R.id.recyclerView)
+        ).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
 }
