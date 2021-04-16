@@ -1,4 +1,4 @@
-package dev.marcosfarias.pokedex.ui.home
+package dev.marcosfarias.pokedex.ui.pokedex
 
 import android.util.Log
 import androidx.fragment.app.testing.launchFragmentInContainer
@@ -8,18 +8,19 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
-import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import dev.marcosfarias.pokedex.R
-import org.junit.Assert
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 
+
 @RunWith(AndroidJUnit4::class)
-class HomeFragmentTest {
+class PokedexFragmentTest {
+
     lateinit var navController: TestNavHostController
 
     @Before
@@ -31,7 +32,7 @@ class HomeFragmentTest {
 
         // Create a graphical FragmentScenario for the TitleScreen
         launchFragmentInContainer(themeResId = R.style.AppTheme) {
-            HomeFragment().also { fragment ->
+            PokedexFragment().also { fragment ->
 
                 // In addition to returning a new instance of our Fragment,
                 // get a callback whenever the fragment’s view is created
@@ -48,62 +49,21 @@ class HomeFragmentTest {
     }
 
     @Test
-    fun checkIfRecyclerViewMenuIsDisplayed() {
-        Espresso.onView(
-            ViewMatchers.withId(R.id.recyclerViewMenu)
-        ).check(
-            ViewAssertions.matches(ViewMatchers.isDisplayed())
-        )
-    }
+    fun checkIfOpenPokemonDetails() {
 
-    @Test
-    fun checkIfPokedexOpen() {
-        Espresso.onView(
-            ViewMatchers.withId(R.id.recyclerViewMenu)
-        ).perform(
+        Log.d("Heigon",R.id.navigation_pokedex.toString())
+        Log.d("Heigon",navController.currentDestination?.id.toString())
+
+        Espresso.onView(ViewMatchers.withId(R.id.recyclerView)).perform(
             RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
                 0,
                 ViewActions.click()
             )
         )
 
-        Assert.assertEquals(R.id.navigation_pokedex, navController.currentDestination?.id)
-    }
+        Log.d("Heigon",R.id.navigation_dashboard.toString())
+        Log.d("Heigon",navController.currentDestination?.id.toString())
 
-    @Test
-    fun checkIfnEwsRecyclerViewIsDisplayed() {
-        Espresso.onView(
-            ViewMatchers.withId(R.id.recyclerViewNews)
-        ).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
-    }
-
-    @Test
-    fun checkIfNewsOpen() {
-        Espresso.onView(
-            ViewMatchers.withId(R.id.recyclerViewNews)
-        ).perform(
-            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
-                0,
-                ViewActions.click()
-            )
-        )
-
-        Assert.assertEquals(R.id.navigation_news_detail, navController.currentDestination?.id)
-    }
-
-    @Test
-    fun checkIfPokedexOpenOfAnotherPosition(){
-
-        Espresso.onView(
-            ViewMatchers.withId(R.id.recyclerViewMenu)
-        ).perform(
-            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
-                2,
-                ViewActions.click()
-            )
-        )
-
-
-        Assert.assertEquals(R.id.navigation_pokedex, navController.currentDestination?.id)
+        assertEquals(R.id.navigation_dashboard,navController.currentDestination?.id)
     }
 }
