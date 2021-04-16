@@ -80,5 +80,6 @@ dependencies {
     androidTestImplementation("com.android.support.test.espresso:espresso-contrib:2.0")
     androidTestImplementation("androidx.navigation:navigation-testing:2.3.5")
     debugImplementation("androidx.fragment:fragment-testing:1.3.2")
+    androidTestImplementation ("io.mockk:mockk-android:1.9.3")
 
 }
