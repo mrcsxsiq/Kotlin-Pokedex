@@ -35,6 +35,9 @@ class DashboardFragmentTest {
         name = "Bulbasaur"
     }
 
+    @get:Rule
+    val instantExecutorRule = InstantTaskExecutorRule()
+
     @Before
     fun setup() {
         database = getDatabase(ApplicationProvider.getApplicationContext())
@@ -49,12 +52,12 @@ class DashboardFragmentTest {
         )
 
         // Create a graphical FragmentScenario for the TitleScreen
-        launchFragmentInContainer(themeResId = R.style.AppTheme) {
-            DashboardFragment().apply { arguments = bundle }.also { fragment ->
+        launchFragmentInContainer(themeResId = R.style.AppTheme,fragmentArgs = bundle) {
+            DashboardFragment().also { fragment ->
 
-// In addition to returning a new instance of our Fragment,
-// get a callback whenever the fragment’s view is created
-// or destroyed so that we can set the NavController
+                // In addition to returning a new instance of our Fragment,
+                // get a callback whenever the fragment’s view is created
+                // or destroyed so that we can set the NavController
                 fragment.viewLifecycleOwnerLiveData.observeForever { viewLifecycleOwner ->
                     if (viewLifecycleOwner != null) {
                         // The fragment’s view has just been created
@@ -66,8 +69,7 @@ class DashboardFragmentTest {
         }
     }
 
-    @get:Rule
-    val instantExecutorRule = InstantTaskExecutorRule()
+
 
     @Test
     fun checkPokemonInfo() {
@@ -79,6 +81,6 @@ class DashboardFragmentTest {
     private fun getDatabase(context: Context): AppDatabase =
         Room.inMemoryDatabaseBuilder(context, AppDatabase::class.java)
             .allowMainThreadQueries()
-//            .setTransactionExecutor(Executors.newSingleThreadExecutor())
+            .setTransactionExecutor(Executors.newSingleThreadExecutor())
             .build()
 }

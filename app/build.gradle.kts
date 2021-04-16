@@ -77,4 +77,6 @@ dependencies {
     androidTestImplementation("androidx.navigation:navigation-testing:2.3.5")
     androidTestImplementation("io.mockk:mockk-android:1.11.0")
     androidTestImplementation ("androidx.arch.core:core-testing:2.1.0")
+
+    implementation("androidx.room:room-runtime:2.2.6")
 }
