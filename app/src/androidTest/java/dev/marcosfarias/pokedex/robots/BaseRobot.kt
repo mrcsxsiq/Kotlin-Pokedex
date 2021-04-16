@@ -1,9 +1,6 @@
 package dev.marcosfarias.pokedex.robots
 
 import androidx.recyclerview.widget.RecyclerView
-import androidx.test.espresso.DataInteraction
-import androidx.test.espresso.Espresso
-import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.ViewInteraction
 import androidx.test.espresso.action.ViewActions.click
@@ -16,8 +13,8 @@ import dev.marcosfarias.pokedex.R
 open class BaseRobot {
 
     fun testViewText(id: Int, text: String): ViewInteraction =
-        Espresso.onView(ViewMatchers.withId(id))
-            .check(ViewAssertions.matches(ViewMatchers.withText(text)))
+        onView(withId(id))
+            .check(ViewAssertions.matches(withText(text)))
 
     // Click for View with type Button
     fun onClick(id: Int): ViewInteraction = onView(
@@ -33,8 +30,16 @@ open class BaseRobot {
         RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click())
     )
 
-    fun isViewDisplayed(viewId: Int) : ViewInteraction = onView(withId(viewId)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+    fun isViewDisplayed(viewId: Int): ViewInteraction =
+        onView(withId(viewId)).check(ViewAssertions.matches(isDisplayed()))
 
-    fun isRecyclerViewItemDisplayed(viewId: Int, text: String) : ViewInteraction =
-        onView(withId(viewId)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+    fun isRecyclerViewItemDisplayed(viewId: Int, text: String): ViewInteraction =
+        onView(withId(viewId)).perform(
+            RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>(
+                hasDescendant(
+                    withText(text)
+                ),
+                click()
+            )
+        )
 }
