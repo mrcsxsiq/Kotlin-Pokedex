@@ -60,6 +60,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/textViewHomeTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -94,6 +95,7 @@
                             android:src="@drawable/search" />
 
                         <TextView
+                            android:id="@+id/textViewSearchBar"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="16dp"
@@ -164,7 +166,7 @@
                 android:id="@+id/recyclerViewNews"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/backgroundLight"
+                    android:background="@color/backgroundLight"
                 android:overScrollMode="never"
                 app:layoutManager="GridLayoutManager"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
