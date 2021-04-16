@@ -28,8 +28,6 @@ class DashboardFragmentTest {
     lateinit var navController: TestNavHostController
     lateinit var bundle: Bundle
 
-    lateinit var database: AppDatabase
-
     val pokemon = Pokemon().apply {
         id = "#001"
         name = "Bulbasaur"
@@ -40,11 +38,8 @@ class DashboardFragmentTest {
 
     @Before
     fun setup() {
-        database = getDatabase(ApplicationProvider.getApplicationContext())
-        runBlocking {
-            database.pokemonDAO().add(arrayListOf(pokemon))
-        }
-        bundle = bundleOf("id" to pokemon.id)
+
+        bundle = bundleOf("id" to "#001")
 
         // Create a TestNavHostController
         navController = TestNavHostController(
@@ -52,7 +47,7 @@ class DashboardFragmentTest {
         )
 
         // Create a graphical FragmentScenario for the TitleScreen
-        launchFragmentInContainer(themeResId = R.style.AppTheme,fragmentArgs = bundle) {
+        launchFragmentInContainer(themeResId = R.style.AppTheme, fragmentArgs = bundle) {
             DashboardFragment().also { fragment ->
 
                 // In addition to returning a new instance of our Fragment,
@@ -75,12 +70,7 @@ class DashboardFragmentTest {
     fun checkPokemonInfo() {
         Espresso.onView(
             ViewMatchers.withId(R.id.textViewName)
-        ).check(ViewAssertions.matches(ViewMatchers.withText(pokemon.name)))
+        ).check(ViewAssertions.matches(ViewMatchers.withText("Bulbasaur")))
     }
 
-    private fun getDatabase(context: Context): AppDatabase =
-        Room.inMemoryDatabaseBuilder(context, AppDatabase::class.java)
-            .allowMainThreadQueries()
-            .setTransactionExecutor(Executors.newSingleThreadExecutor())
-            .build()
 }
