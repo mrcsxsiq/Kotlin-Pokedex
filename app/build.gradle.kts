@@ -11,7 +11,7 @@ android {
     compileSdkVersion(29)
     buildToolsVersion("29.0.3")
     defaultConfig {
-        applicationId =  "dev.marcosfarias.pokedex"
+        applicationId = "dev.marcosfarias.pokedex"
         minSdkVersion(23)
         targetSdkVersion(29)
         versionCode = 1
@@ -21,7 +21,10 @@ android {
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     kotlinOptions {
@@ -36,10 +39,12 @@ dependencies {
     // Architecture
     implementation("androidx.core:core-ktx:1.2.0")
     implementation("androidx.appcompat:appcompat:1.1.0")
+
     implementation("androidx.navigation:navigation-ui:2.3.5")
     implementation("androidx.navigation:navigation-ui-ktx:2.3.5")
     implementation("androidx.navigation:navigation-fragment:2.3.5")
     implementation("androidx.navigation:navigation-fragment-ktx:2.3.5")
+
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
     implementation("androidx.constraintlayout:constraintlayout:1.1.3")
     implementation("androidx.coordinatorlayout:coordinatorlayout:1.1.0")
@@ -73,7 +78,7 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
     androidTestImplementation("com.android.support.test.espresso:espresso-contrib:2.0")
-    debugImplementation("androidx.fragment:fragment-testing:1.3.2")
     androidTestImplementation("androidx.navigation:navigation-testing:2.3.5")
+    debugImplementation("androidx.fragment:fragment-testing:1.3.2")
 
 }
