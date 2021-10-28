@@ -1,6 +1,5 @@
 package dev.marcosfarias.pokedex.ui.home
 
-import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,19 +7,19 @@ import dev.marcosfarias.pokedex.R
 import dev.marcosfarias.pokedex.model.Menu
 import dev.marcosfarias.pokedex.model.News
 
-class HomeViewModel(private val context: Context) : ViewModel() {
+class HomeViewModel : ViewModel() {
 
     private val listMenu = MutableLiveData<List<Menu>>()
     private val listNews = MutableLiveData<List<News>>()
 
     fun getListMenu(): LiveData<List<Menu>> {
         listMenu.value = listOf(
-            Menu(1, context.resources.getString(R.string.menu_item_1), R.color.lightTeal),
-            Menu(1, context.resources.getString(R.string.menu_item_2), R.color.lightRed),
-            Menu(1, context.resources.getString(R.string.menu_item_3), R.color.lightBlue),
-            Menu(1, context.resources.getString(R.string.menu_item_4), R.color.lightYellow),
-            Menu(1, context.resources.getString(R.string.menu_item_5), R.color.lightPurple),
-            Menu(1, context.resources.getString(R.string.menu_item_6), R.color.lightBrown)
+            Menu(id = 1, name = R.string.menu_item_1, color = R.color.lightTeal),
+            Menu(id = 1, name = R.string.menu_item_2, color = R.color.lightRed),
+            Menu(id = 1, name = R.string.menu_item_3, color = R.color.lightBlue),
+            Menu(id = 1, name = R.string.menu_item_4, color = R.color.lightYellow),
+            Menu(id = 1, name = R.string.menu_item_5, color = R.color.lightPurple),
+            Menu(id = 1, name = R.string.menu_item_6, color = R.color.lightBrown)
         )
         return listMenu
     }

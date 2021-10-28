@@ -10,6 +10,6 @@ import org.koin.dsl.module
 val viewModelsModule = module {
     viewModel { DashboardViewModel(get()) }
     viewModel { GenerationViewModel(get()) }
-    viewModel { HomeViewModel(get()) }
+    viewModel { HomeViewModel() }
     viewModel { PokedexViewModel(get(), get()) }
 }
