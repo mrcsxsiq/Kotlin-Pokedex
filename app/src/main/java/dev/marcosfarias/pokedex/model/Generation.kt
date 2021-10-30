@@ -7,4 +7,6 @@ class Generation(
     val id: Int,
     @StringRes val title: Int,
     @DrawableRes val image: Int
-)
+) {
+    override fun toString() = "$id$title$image"
+}
