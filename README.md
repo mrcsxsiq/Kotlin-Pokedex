@@ -39,21 +39,21 @@ Also available in Play Store
 ## Screenshots
 
 <p align="center">
-  <img src="screenshots/home.png" width="270" alt="Home">
-  <img src="screenshots/pokedex.png" width="270" alt="Pokedex">
-  <img src="screenshots/pokedex-fab.png" width="270" alt="Pokedex FAB">
+  <img src="screenshots/home.png" width="250" alt="Home">
+  <img src="screenshots/pokedex.png" width="250" alt="Pokedex">
+  <img src="screenshots/pokedex-fab.png" width="250" alt="Pokedex FAB">
 </p>
 
 <p align="center">
-  <img src="screenshots/pokedex-fab-search.png" width="270" alt="Pokedex Search">
-  <img src="screenshots/pokedex-fab-generation.png" width="270" alt="Pokedex Generation">
-  <img src="screenshots/pokemon-info-about.png" width="270" alt="Pokemon Info - About">
+  <img src="screenshots/pokedex-fab-search.png" width="250" alt="Pokedex Search">
+  <img src="screenshots/pokedex-fab-generation.png" width="250" alt="Pokedex Generation">
+  <img src="screenshots/pokemon-info-about.png" width="250" alt="Pokemon Info - About">
 </p>
 
 <p align="center">
-  <img src="screenshots/pokemon-info-base-stats.png" width="270" alt="Pokemon Info - Base Stats">
-  <img src="screenshots/pokemon-info-evolution.png" width="270" alt="Pokemon Info - Evolution">
-  <img src="screenshots/news-detail.png" width="270" alt="News Detail">
+  <img src="screenshots/pokemon-info-base-stats.png" width="250" alt="Pokemon Info - Base Stats">
+  <img src="screenshots/pokemon-info-evolution.png" width="250" alt="Pokemon Info - Evolution">
+  <img src="screenshots/news-detail.png" width="250" alt="News Detail">
 </p>
 
 ## Development Roadmap
@@ -110,7 +110,7 @@ Also available in Play Store
 
 ## Author
 
-| [<img src="https://avatars3.githubusercontent.com/u/993608?s=115&v=4" width="48"><br><sub>@mrcsxsiq</sub>](https://github.com/mrcxsiq) |
+| [<img src="https://avatars3.githubusercontent.com/u/993608?s=115&v=4" width="48"><br><sub>@mrcsxsiq</sub>](https://github.com/mrcsxsiq) |
 | :---: |
 
 ## License
