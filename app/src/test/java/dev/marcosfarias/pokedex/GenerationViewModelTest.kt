@@ -4,10 +4,8 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import dev.marcosfarias.pokedex.model.Generation
 import dev.marcosfarias.pokedex.ui.generation.GenerationViewModel
 import io.mockk.spyk
-import org.junit.Assert
-import org.junit.Before
-import org.junit.Rule
-import org.junit.Test
+import io.mockk.unmockkAll
+import org.junit.*
 
 class GenerationViewModelTest {
 
@@ -42,5 +40,13 @@ class GenerationViewModelTest {
         val expectedTransformed = expected.map { it.toString() }
         val resultTransformed = result.value!!.map { it.toString() }
         Assert.assertEquals(expectedTransformed, resultTransformed)
+    }
+
+    companion object {
+        @JvmStatic
+        @AfterClass
+        fun tearDown() {
+            unmockkAll()
+        }
     }
 }
