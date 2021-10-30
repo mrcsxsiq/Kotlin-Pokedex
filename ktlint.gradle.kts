@@ -1,7 +1,7 @@
 val ktlint: Configuration by configurations.creating
 
 dependencies {
-    ktlint("com.pinterest:ktlint:0.36.0")
+    ktlint("com.pinterest:ktlint:0.42.1")
     // additional 3rd party ruleset(s) can be specified here
     // just add them to the classpath (e.g. ktlint 'groupId:artifactId:version') and
     // ktlint will pick them up
