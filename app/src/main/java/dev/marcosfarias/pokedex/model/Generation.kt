@@ -1,7 +1,10 @@
 package dev.marcosfarias.pokedex.model
 
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
+
 class Generation(
     val id: Int,
-    val title: String,
-    val image: Int
+    @StringRes val title: Int,
+    @DrawableRes val image: Int
 )

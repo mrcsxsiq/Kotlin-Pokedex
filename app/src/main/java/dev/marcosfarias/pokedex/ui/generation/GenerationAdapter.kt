@@ -16,13 +16,14 @@ class GenerationAdapter(
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindView(item: Generation) {
-            itemView.textViewTitle.text = item.title
+            itemView.textViewTitle.text = itemView.context.getString(item.title)
             itemView.imageView.setImageResource(item.image)
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.item_generation, parent, false)
+        val inflater = LayoutInflater.from(context)
+        val view = inflater.inflate(R.layout.item_generation, parent, false)
         return ViewHolder(view)
     }
 
