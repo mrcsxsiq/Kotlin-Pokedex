@@ -102,11 +102,11 @@ class PokedexFragment : Fragment() {
 
     private fun showAllGen() {
         val dialog = GenerationFragment()
-        dialog.show(requireFragmentManager(), "")
+        dialog.show(childFragmentManager, "")
     }
 
     private fun showSearch() {
         val dialog = SearchFragment()
-        dialog.show(requireFragmentManager(), "")
+        dialog.show(childFragmentManager, "")
     }
 }
