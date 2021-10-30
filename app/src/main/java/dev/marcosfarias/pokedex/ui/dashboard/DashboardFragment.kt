@@ -9,8 +9,10 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.transition.TransitionInflater
 import com.bumptech.glide.Glide
 import dev.marcosfarias.pokedex.R
+import dev.marcosfarias.pokedex.utils.ImageLoadingListener
 import dev.marcosfarias.pokedex.utils.PokemonColorUtil
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -19,17 +21,28 @@ class DashboardFragment : Fragment() {
 
     private val dashboardViewModel: DashboardViewModel by viewModel()
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        sharedElementEnterTransition = TransitionInflater.from(context)
+            .inflateTransition(R.transition.image_shared_element_transition)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        postponeEnterTransition()
         return inflater.inflate(R.layout.fragment_dashboard, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val id = checkNotNull(arguments?.getString("id"))
+        val name = checkNotNull(arguments?.getString("name"))
+
+        imageView.transitionName = name
+
         dashboardViewModel.getPokemonById(id).observe(viewLifecycleOwner, Observer { pokemonValue ->
             pokemonValue?.let { pokemon ->
                 textViewID.text = pokemon.id
@@ -37,8 +50,7 @@ class DashboardFragment : Fragment() {
 
                 val color =
                     PokemonColorUtil(view.context).getPokemonColor(pokemon.typeofpokemon)
-                app_bar.background.colorFilter =
-                    PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
+                app_bar.setBackgroundColor(color)
                 toolbar_layout.contentScrim?.colorFilter =
                     PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
                 activity?.window?.statusBarColor =
@@ -61,7 +73,9 @@ class DashboardFragment : Fragment() {
 
                 Glide.with(view.context)
                     .load(pokemon.imageurl)
-                    .placeholder(android.R.color.transparent)
+                    .listener(ImageLoadingListener {
+                        startPostponedEnterTransition()
+                    })
                     .into(imageView)
 
                 val pager = viewPager

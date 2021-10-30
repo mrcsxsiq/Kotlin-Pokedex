@@ -1,6 +1,7 @@
 package dev.marcosfarias.pokedex.ui.pokedex
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dev.marcosfarias.pokedex.database.dao.PokemonDAO
 import dev.marcosfarias.pokedex.model.Pokemon
@@ -12,12 +13,15 @@ import retrofit2.Response
 
 class PokedexViewModel(private val pokemonDAO: PokemonDAO, private val pokemonService: PokemonService) : ViewModel() {
 
+    private val pokemonList = pokemonDAO.all()
+
     init {
         initNetworkRequest()
     }
 
     private fun initNetworkRequest() {
         val call = pokemonService.get()
+
         call.enqueue(object : Callback<List<Pokemon>?> {
             override fun onResponse(
                 call: Call<List<Pokemon>?>?,
@@ -37,6 +41,6 @@ class PokedexViewModel(private val pokemonDAO: PokemonDAO, private val pokemonSe
     }
 
     fun getListPokemon(): LiveData<List<Pokemon>> {
-        return pokemonDAO.all()
+        return pokemonList
     }
 }
