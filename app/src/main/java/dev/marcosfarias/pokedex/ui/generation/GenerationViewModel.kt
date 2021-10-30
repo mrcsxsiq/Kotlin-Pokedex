@@ -12,46 +12,14 @@ class GenerationViewModel : ViewModel() {
 
     fun getListGeneration(): LiveData<List<Generation>> {
         listGeneration.value = listOf(
-            Generation(
-                1,
-                R.string.generation_item_1,
-                R.drawable.gen1
-            ),
-            Generation(
-                1,
-                R.string.generation_item_2,
-                R.drawable.gen2
-            ),
-            Generation(
-                1,
-                R.string.generation_item_3,
-                R.drawable.gen3
-            ),
-            Generation(
-                1,
-                R.string.generation_item_4,
-                R.drawable.gen4
-            ),
-            Generation(
-                1,
-                R.string.generation_item_5,
-                R.drawable.gen5
-            ),
-            Generation(
-                1,
-                R.string.generation_item_6,
-                R.drawable.gen6
-            ),
-            Generation(
-                1,
-                R.string.generation_item_7,
-                R.drawable.gen7
-            ),
-            Generation(
-                1,
-                R.string.generation_item_8,
-                R.drawable.gen8
-            )
+            Generation(id = 1, title = R.string.generation_item_1, image = R.drawable.gen1),
+            Generation(id = 1, title = R.string.generation_item_2, image = R.drawable.gen2),
+            Generation(id = 1, title = R.string.generation_item_3, image = R.drawable.gen3),
+            Generation(id = 1, title = R.string.generation_item_4, image = R.drawable.gen4),
+            Generation(id = 1, title = R.string.generation_item_5, image = R.drawable.gen5),
+            Generation(id = 1, title = R.string.generation_item_6, image = R.drawable.gen6),
+            Generation(id = 1, title = R.string.generation_item_7, image = R.drawable.gen7),
+            Generation(id = 1, title = R.string.generation_item_8, image = R.drawable.gen8)
         )
         return listGeneration
     }
