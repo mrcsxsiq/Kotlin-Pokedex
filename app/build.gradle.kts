@@ -9,7 +9,6 @@ apply(from = "../ktlint.gradle.kts")
 
 android {
     compileSdkVersion(30)
-
     defaultConfig {
         applicationId = "dev.marcosfarias.pokedex"
         minSdkVersion(23)
@@ -64,7 +63,6 @@ dependencies {
     kapt("androidx.room:room-compiler:2.3.0")
 
     // Glide
-    //kapt("android.arch.lifecycle:compiler:1.1.1")
     kapt("com.github.bumptech.glide:compiler:4.12.0")
     implementation("com.github.bumptech.glide:glide:4.12.0")
 
@@ -84,5 +82,4 @@ dependencies {
     androidTestImplementation("io.mockk:mockk-agent-jvm:1.12.0")
     testImplementation("io.mockk:mockk:1.12.0")
     testImplementation("io.mockk:mockk-agent-jvm:1.12.0")
-
 }
