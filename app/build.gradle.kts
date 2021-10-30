@@ -8,7 +8,8 @@ plugins {
 apply(from = "../ktlint.gradle.kts")
 
 android {
-    compileSdkVersion(29)
+    compileSdkVersion(30)
+
     defaultConfig {
         applicationId = "dev.marcosfarias.pokedex"
         minSdkVersion(23)
@@ -52,11 +53,11 @@ dependencies {
     implementation("com.google.android.material:material:1.4.0")
 
     // Third Party
-    implementation("com.leinardi.android:speed-dial:3.1.1")
+    implementation("com.leinardi.android:speed-dial:3.2.0")
 
     // Retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.6.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.6.0")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
     // Persistence
     implementation("androidx.room:room-runtime:2.3.0")
@@ -64,12 +65,12 @@ dependencies {
 
     // Glide
     //kapt("android.arch.lifecycle:compiler:1.1.1")
-    kapt("com.github.bumptech.glide:compiler:4.10.0")
-    implementation("com.github.bumptech.glide:glide:4.10.0")
+    kapt("com.github.bumptech.glide:compiler:4.12.0")
+    implementation("com.github.bumptech.glide:glide:4.12.0")
 
     // Koin
-    implementation("io.insert-koin:koin-android:3.1.2")
-    implementation("io.insert-koin:koin-core:3.1.2")
+    implementation("io.insert-koin:koin-android:3.1.3")
+    implementation("io.insert-koin:koin-core:3.1.3")
 
     // Test
     testImplementation("junit:junit:4.13.2")
