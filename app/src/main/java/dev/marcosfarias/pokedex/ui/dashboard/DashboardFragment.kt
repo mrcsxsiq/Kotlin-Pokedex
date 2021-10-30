@@ -80,8 +80,7 @@ class DashboardFragment : Fragment() {
 
                 val pager = viewPager
                 val tabs = tabs
-                pager.adapter =
-                    ViewPagerAdapter(requireFragmentManager(), requireContext(), pokemon.id!!)
+                pager.adapter = ViewPagerAdapter(childFragmentManager, requireContext(), pokemon.id)
                 tabs.setupWithViewPager(pager)
             }
         })
