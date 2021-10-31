@@ -9,15 +9,16 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import dev.marcosfarias.pokedex.R
+import dev.marcosfarias.pokedex.databinding.FragmentHomeBinding
 import dev.marcosfarias.pokedex.model.Menu
 import dev.marcosfarias.pokedex.model.News
 import dev.marcosfarias.pokedex.utils.PokemonColorUtil
-import kotlinx.android.synthetic.main.fragment_home.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
 
     private val homeViewModel: HomeViewModel by viewModel()
+    private var viewBinding: FragmentHomeBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,13 +32,12 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         activity?.window?.statusBarColor = PokemonColorUtil(view.context).convertColor(R.color.red)
 
-        val recyclerViewMenu = recyclerViewMenu
-        val recyclerViewNews = recyclerViewNews
+        viewBinding = FragmentHomeBinding.bind(view)
 
-        recyclerViewMenu.layoutManager = GridLayoutManager(context, 2)
+        viewBinding?.recyclerViewMenu?.layoutManager = GridLayoutManager(context, 2)
 
-        recyclerViewNews.layoutManager = GridLayoutManager(context, 1)
-        recyclerViewNews.addItemDecoration(
+        viewBinding?.recyclerViewNews?.layoutManager = GridLayoutManager(context, 1)
+        viewBinding?.recyclerViewNews?.addItemDecoration(
             DividerItemDecoration(
                 context,
                 DividerItemDecoration.VERTICAL
@@ -46,12 +46,18 @@ class HomeFragment : Fragment() {
 
         homeViewModel.getListMenu().observe(viewLifecycleOwner, Observer {
             val items: List<Menu> = it
-            recyclerViewMenu.adapter = MenuAdapter(items, view.context)
+            viewBinding?.recyclerViewMenu?.adapter = MenuAdapter(items, view.context)
         })
 
         homeViewModel.getListNews().observe(viewLifecycleOwner, Observer {
             val items: List<News> = it
-            recyclerViewNews.adapter = NewsAdapter(items, view.context)
+            viewBinding?.recyclerViewNews?.adapter = NewsAdapter(items, view.context)
         })
     }
+
+    override fun onDestroyView() {
+        viewBinding = null
+        super.onDestroyView()
+    }
+
 }
