@@ -10,10 +10,10 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import dev.marcosfarias.pokedex.R
+import dev.marcosfarias.pokedex.databinding.ItemPokemonBinding
 import dev.marcosfarias.pokedex.model.Pokemon
 import dev.marcosfarias.pokedex.utils.ImageLoadingListener
 import dev.marcosfarias.pokedex.utils.PokemonColorUtil
-import kotlinx.android.synthetic.main.item_pokemon.view.*
 
 class PokemonAdapter(
     private val list: List<Pokemon>,
@@ -22,42 +22,46 @@ class PokemonAdapter(
 ) : RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+        val viewBinding = ItemPokemonBinding.bind(itemView)
+
         fun bindView(
             item: Pokemon,
             itemClickedListener: OnItemClickedListener?,
             imageLoadedListener: OnImageLoadedListener?
         ) {
-            itemView.textViewName.text = item.name
-            itemView.textViewID.text = item.id
+
+            viewBinding.textViewName.text = item.name
+            viewBinding.textViewID.text = item.id
 
             val color = PokemonColorUtil(itemView.context).getPokemonColor(item.typeofpokemon)
-            itemView.relativeLayoutBackground.background.colorFilter =
+            viewBinding.relativeLayoutBackground.background.colorFilter =
                 PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
 
             item.typeofpokemon?.getOrNull(0).let { firstType ->
-                itemView.textViewType3.text = firstType
-                itemView.textViewType3.isVisible = firstType != null
+                viewBinding.textViewType3.text = firstType
+                viewBinding.textViewType3.isVisible = firstType != null
             }
 
             item.typeofpokemon?.getOrNull(1).let { secondType ->
-                itemView.textViewType2.text = secondType
-                itemView.textViewType2.isVisible = secondType != null
+                viewBinding.textViewType2.text = secondType
+                viewBinding.textViewType2.isVisible = secondType != null
             }
 
             item.typeofpokemon?.getOrNull(2).let { thirdType ->
-                itemView.textViewType1.text = thirdType
-                itemView.textViewType1.isVisible = thirdType != null
+                viewBinding.textViewType1.text = thirdType
+                viewBinding.textViewType1.isVisible = thirdType != null
             }
 
             Glide.with(itemView.context)
                 .load(item.imageurl)
                 .placeholder(android.R.color.transparent)
                 .addListener(ImageLoadingListener {
-                    imageLoadedListener?.invoke(item, itemView.imageView)
+                    imageLoadedListener?.invoke(item, viewBinding.imageView)
                 })
-                .into(itemView.imageView)
+                .into(viewBinding.imageView)
 
-            itemView.imageView.transitionName = item.name
+            viewBinding.imageView.transitionName = item.name
             itemView.setOnClickListener {
                 itemClickedListener?.invoke(item, this)
             }
