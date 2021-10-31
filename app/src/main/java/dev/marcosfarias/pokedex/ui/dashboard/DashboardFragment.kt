@@ -12,14 +12,15 @@ import androidx.lifecycle.Observer
 import androidx.transition.TransitionInflater
 import com.bumptech.glide.Glide
 import dev.marcosfarias.pokedex.R
+import dev.marcosfarias.pokedex.databinding.FragmentDashboardBinding
 import dev.marcosfarias.pokedex.utils.ImageLoadingListener
 import dev.marcosfarias.pokedex.utils.PokemonColorUtil
-import kotlinx.android.synthetic.main.fragment_dashboard.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DashboardFragment : Fragment() {
 
     private val dashboardViewModel: DashboardViewModel by viewModel()
+    private var dashboardViewBinding: FragmentDashboardBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,49 +41,57 @@ class DashboardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val id = checkNotNull(arguments?.getString("id"))
         val name = checkNotNull(arguments?.getString("name"))
+        dashboardViewBinding = FragmentDashboardBinding.bind(view)
 
-        imageView.transitionName = name
+        dashboardViewBinding?.imageView?.transitionName = name
 
         dashboardViewModel.getPokemonById(id).observe(viewLifecycleOwner, Observer { pokemonValue ->
             pokemonValue?.let { pokemon ->
-                textViewID.text = pokemon.id
-                textViewName.text = pokemon.name
+                dashboardViewBinding?.textViewID?.text = pokemon.id
+                dashboardViewBinding?.textViewName?.text = pokemon.name
 
-                val color =
-                    PokemonColorUtil(view.context).getPokemonColor(pokemon.typeofpokemon)
-                app_bar.setBackgroundColor(color)
-                toolbar_layout.contentScrim?.colorFilter =
+                val color = PokemonColorUtil(view.context).getPokemonColor(pokemon.typeofpokemon)
+                dashboardViewBinding?.appBar?.setBackgroundColor(color)
+                dashboardViewBinding?.toolbarLayout?.contentScrim?.colorFilter =
                     PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
                 activity?.window?.statusBarColor =
                     PokemonColorUtil(view.context).getPokemonColor(pokemon.typeofpokemon)
 
                 pokemon.typeofpokemon?.getOrNull(0).let { firstType ->
-                    textViewType3.text = firstType
-                    textViewType3.isVisible = firstType != null
+                    dashboardViewBinding?.textViewType3?.text = firstType
+                    dashboardViewBinding?.textViewType3?.isVisible = firstType != null
                 }
 
                 pokemon.typeofpokemon?.getOrNull(1).let { secondType ->
-                    textViewType2.text = secondType
-                    textViewType2.isVisible = secondType != null
+                    dashboardViewBinding?.textViewType2?.text = secondType
+                    dashboardViewBinding?.textViewType2?.isVisible = secondType != null
                 }
 
                 pokemon.typeofpokemon?.getOrNull(2).let { thirdType ->
-                    textViewType1.text = thirdType
-                    textViewType1.isVisible = thirdType != null
+                    dashboardViewBinding?.textViewType1?.text = thirdType
+                    dashboardViewBinding?.textViewType1?.isVisible = thirdType != null
                 }
 
-                Glide.with(view.context)
-                    .load(pokemon.imageurl)
-                    .listener(ImageLoadingListener {
-                        startPostponedEnterTransition()
-                    })
-                    .into(imageView)
+                dashboardViewBinding?.imageView?.let {
+                    Glide.with(view.context)
+                        .load(pokemon.imageurl)
+                        .listener(ImageLoadingListener {
+                            startPostponedEnterTransition()
+                        })
+                        .into(it)
+                }
 
-                val pager = viewPager
-                val tabs = tabs
-                pager.adapter = ViewPagerAdapter(childFragmentManager, requireContext(), pokemon.id)
-                tabs.setupWithViewPager(pager)
+                val pager = dashboardViewBinding?.viewPager
+                val tabs = dashboardViewBinding?.tabs
+                pager?.adapter =
+                    ViewPagerAdapter(childFragmentManager, requireContext(), pokemon.id)
+                tabs?.setupWithViewPager(pager)
             }
         })
+    }
+
+    override fun onDestroyView() {
+        dashboardViewBinding = null
+        super.onDestroyView()
     }
 }
