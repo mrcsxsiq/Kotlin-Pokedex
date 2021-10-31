@@ -41,6 +41,7 @@ class DashboardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val id = checkNotNull(arguments?.getString("id"))
         val name = checkNotNull(arguments?.getString("name"))
+
         dashboardViewBinding = FragmentDashboardBinding.bind(view)
 
         dashboardViewBinding?.imageView?.transitionName = name
