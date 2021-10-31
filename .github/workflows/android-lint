@@ -1,0 +1,29 @@
+name: Lint
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: CI Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@master
+
+      - name: Setup JDK 8
+        uses: actions/setup-java@master
+        with:
+          java-version: 8
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Run Gradle build
+        run: ./gradlew build
+
+      - name: Run Android Lint
+        uses: dvdandroid/action-android-lint@v1.2
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          lint_xml_file: app/build/reports/lint-results.xml
