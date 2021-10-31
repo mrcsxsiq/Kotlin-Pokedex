@@ -1,18 +1,18 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
-    id("kotlin-android-extensions")
+    id("kotlin-parcelize")
     id("kotlin-kapt")
     id("androidx.navigation.safeargs.kotlin")
 }
 apply(from = "../ktlint.gradle.kts")
 
 android {
-    compileSdkVersion(30)
+    compileSdk = 30
     defaultConfig {
         applicationId = "dev.marcosfarias.pokedex"
-        minSdkVersion(23)
-        targetSdkVersion(29)
+        minSdk = 23
+        targetSdk = 30
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -32,6 +32,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+    buildFeatures {
+        viewBinding = true
     }
 }
 
@@ -59,8 +62,8 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
     // Persistence
-    implementation("androidx.room:room-runtime:2.3.0")
-    kapt("androidx.room:room-compiler:2.3.0")
+    implementation("androidx.room:room-runtime:2.4.0-alpha03")
+    kapt("androidx.room:room-compiler:2.4.0-alpha03")
 
     // Glide
     kapt("com.github.bumptech.glide:compiler:4.12.0")

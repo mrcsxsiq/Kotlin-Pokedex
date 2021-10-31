@@ -9,9 +9,9 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import dev.marcosfarias.pokedex.R
+import dev.marcosfarias.pokedex.databinding.ItemMenuBinding
 import dev.marcosfarias.pokedex.model.Menu
 import dev.marcosfarias.pokedex.utils.PokemonColorUtil
-import kotlinx.android.synthetic.main.item_pokemon.view.*
 
 class MenuAdapter(
     private val list: List<Menu>,
@@ -19,11 +19,12 @@ class MenuAdapter(
 ) : RecyclerView.Adapter<MenuAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val viewBinding = ItemMenuBinding.bind(itemView)
         fun bindView(item: Menu) {
-            itemView.textViewName.text = itemView.context.getString(item.name)
+            viewBinding.textViewName.text = itemView.context.getString(item.name)
 
             val color = PokemonColorUtil(itemView.context).convertColor(item.color)
-            itemView.relativeLayoutBackground.background.colorFilter =
+            viewBinding.relativeLayoutBackground.background.colorFilter =
                 PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
 
             itemView.setOnClickListener {

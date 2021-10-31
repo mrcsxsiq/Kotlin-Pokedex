@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import dev.marcosfarias.pokedex.R
+import dev.marcosfarias.pokedex.databinding.ItemGenerationBinding
 import dev.marcosfarias.pokedex.model.Generation
-import kotlinx.android.synthetic.main.item_generation.view.*
 
 class GenerationAdapter(
     private val list: List<Generation>,
@@ -15,9 +15,10 @@ class GenerationAdapter(
 ) : RecyclerView.Adapter<GenerationAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val viewBinding = ItemGenerationBinding.bind(itemView)
         fun bindView(item: Generation) {
-            itemView.textViewTitle.text = itemView.context.getString(item.title)
-            itemView.imageView.setImageResource(item.image)
+            viewBinding.textViewTitle.text = itemView.context.getString(item.title)
+            viewBinding.imageView.setImageResource(item.image)
         }
     }
 
