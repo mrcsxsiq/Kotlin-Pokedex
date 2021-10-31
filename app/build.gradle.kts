@@ -8,11 +8,11 @@ plugins {
 apply(from = "../ktlint.gradle.kts")
 
 android {
-    compileSdk = 31
+    compileSdk = 30
     defaultConfig {
         applicationId = "dev.marcosfarias.pokedex"
         minSdk = 23
-        targetSdk = 31
+        targetSdk = 30
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -62,8 +62,8 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
     // Persistence
-    implementation("androidx.room:room-runtime:2.3.0")
-    kapt("androidx.room:room-compiler:2.3.0")
+    implementation("androidx.room:room-runtime:2.4.0-alpha03")
+    kapt("androidx.room:room-compiler:2.4.0-alpha03")
 
     // Glide
     kapt("com.github.bumptech.glide:compiler:4.12.0")

@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.1381340579710145" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.14719202898550723" />
+        <entry key="app/src/main/res/layout/item_pokemon.xml" value="0.1265625" />
       </map>
     </option>
   </component>
