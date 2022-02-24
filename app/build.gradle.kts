@@ -62,7 +62,7 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
     // Persistence
-    implementation("androidx.room:room-runtime:2.4.0-alpha03")
+    implementation("androidx.room:room-runtime:2.5.0-alpha01")
     kapt("androidx.room:room-compiler:2.4.0-alpha03")
 
     // Glide
