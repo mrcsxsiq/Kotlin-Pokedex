@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import dev.marcosfarias.pokedex.GlideApp
 import androidx.transition.TransitionInflater
 import com.bumptech.glide.Glide
 import dev.marcosfarias.pokedex.R
@@ -74,14 +75,13 @@ class DashboardFragment : Fragment() {
                 }
 
                 dashboardViewBinding?.imageView?.let {
-                    Glide.with(view.context)
+                    GlideApp.with(view.context)
                         .load(pokemon.imageurl)
                         .listener(ImageLoadingListener {
                             startPostponedEnterTransition()
                         })
                         .into(it)
                 }
-
                 val pager = dashboardViewBinding?.viewPager
                 val tabs = dashboardViewBinding?.tabs
                 pager?.adapter =

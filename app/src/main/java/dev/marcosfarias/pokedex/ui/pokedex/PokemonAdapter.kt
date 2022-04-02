@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
+import dev.marcosfarias.pokedex.GlideApp
 import dev.marcosfarias.pokedex.R
 import dev.marcosfarias.pokedex.databinding.ItemPokemonBinding
 import dev.marcosfarias.pokedex.model.Pokemon
@@ -53,7 +53,7 @@ class PokemonAdapter(
                 viewBinding.textViewType1.isVisible = thirdType != null
             }
 
-            Glide.with(itemView.context)
+            GlideApp.with(itemView.context)
                 .load(item.imageurl)
                 .placeholder(android.R.color.transparent)
                 .addListener(ImageLoadingListener {
