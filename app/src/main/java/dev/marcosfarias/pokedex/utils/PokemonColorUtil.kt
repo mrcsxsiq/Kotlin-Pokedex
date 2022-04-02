@@ -5,13 +5,14 @@ import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
 import dev.marcosfarias.pokedex.R
+import java.util.Locale
 
 class PokemonColorUtil(var context: Context) {
 
     @ColorInt
     fun getPokemonColor(typeOfPokemon: List<String>?): Int {
         val type = typeOfPokemon?.getOrNull(0)
-        val color = when (type?.toLowerCase()) {
+        val color = when (type?.toLowerCase(Locale.ROOT)) {
             "grass", "bug" -> R.color.lightTeal
             "fire" -> R.color.lightRed
             "water", "fighting", "normal" -> R.color.lightBlue
