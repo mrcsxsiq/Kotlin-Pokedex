@@ -81,7 +81,7 @@ dependencies {
     androidTestImplementation("androidx.navigation:navigation-testing:2.4.2")
     debugImplementation("androidx.fragment:fragment-testing:1.4.1")
     testImplementation("androidx.arch.core:core-testing:2.1.0")
-    androidTestImplementation("io.mockk:mockk-android:1.12.3")
+    androidTestImplementation("io.mockk:mockk-android:1.12.4")
     androidTestImplementation("io.mockk:mockk-agent-jvm:1.12.4")
     testImplementation("io.mockk:mockk:1.12.0")
     testImplementation("io.mockk:mockk-agent-jvm:1.12.0")
