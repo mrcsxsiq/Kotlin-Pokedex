@@ -42,7 +42,7 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
     // Architecture
-    implementation("androidx.appcompat:appcompat:1.3.1")
+    implementation("androidx.appcompat:appcompat:1.4.1")
 
     implementation("androidx.navigation:navigation-ui-ktx:2.4.2")
     implementation("androidx.navigation:navigation-fragment-ktx:2.3.5")
@@ -66,12 +66,12 @@ dependencies {
     kapt("androidx.room:room-compiler:2.4.0-alpha03")
 
     // Glide
-    kapt("com.github.bumptech.glide:compiler:4.12.0")
+    kapt("com.github.bumptech.glide:compiler:4.13.2")
     implementation("com.github.bumptech.glide:glide:4.12.0")
 
     // Koin
     implementation("io.insert-koin:koin-android:3.1.3")
-    implementation("io.insert-koin:koin-core:3.1.3")
+    implementation("io.insert-koin:koin-core:3.2.0")
 
     // Test
     testImplementation("junit:junit:4.13.2")
