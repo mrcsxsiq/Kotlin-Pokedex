@@ -71,7 +71,7 @@ dependencies {
 
     // Koin
     implementation("io.insert-koin:koin-android:3.1.3")
-    implementation("io.insert-koin:koin-core:3.1.3")
+    implementation("io.insert-koin:koin-core:3.2.0")
 
     // Test
     testImplementation("junit:junit:4.13.2")
@@ -82,7 +82,7 @@ dependencies {
     debugImplementation("androidx.fragment:fragment-testing:1.3.6")
     testImplementation("androidx.arch.core:core-testing:2.1.0")
     androidTestImplementation("io.mockk:mockk-android:1.12.3")
-    androidTestImplementation("io.mockk:mockk-agent-jvm:1.12.0")
+    androidTestImplementation("io.mockk:mockk-agent-jvm:1.12.4")
     testImplementation("io.mockk:mockk:1.12.0")
     testImplementation("io.mockk:mockk-agent-jvm:1.12.0")
 }
