@@ -67,7 +67,7 @@ dependencies {
 
     // Glide
     kapt("com.github.bumptech.glide:compiler:4.13.2")
-    implementation("com.github.bumptech.glide:glide:4.12.0")
+    implementation("com.github.bumptech.glide:glide:4.13.2")
 
     // Koin
     implementation("io.insert-koin:koin-android:3.1.3")
@@ -81,7 +81,7 @@ dependencies {
     androidTestImplementation("androidx.navigation:navigation-testing:2.4.2")
     debugImplementation("androidx.fragment:fragment-testing:1.4.1")
     testImplementation("androidx.arch.core:core-testing:2.1.0")
-    androidTestImplementation("io.mockk:mockk-android:1.12.3")
+    androidTestImplementation("io.mockk:mockk-android:1.12.4")
     androidTestImplementation("io.mockk:mockk-agent-jvm:1.12.4")
     testImplementation("io.mockk:mockk:1.12.0")
     testImplementation("io.mockk:mockk-agent-jvm:1.12.0")
