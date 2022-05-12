@@ -63,7 +63,7 @@ dependencies {
 
     // Persistence
     implementation("androidx.room:room-runtime:2.4.0-alpha03")
-    kapt("androidx.room:room-compiler:2.4.0-alpha03")
+    kapt("androidx.room:room-compiler:2.5.0-alpha01")
 
     // Glide
     kapt("com.github.bumptech.glide:compiler:4.13.2")
