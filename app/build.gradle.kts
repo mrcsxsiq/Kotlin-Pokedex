@@ -45,7 +45,7 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.4.1")
 
     implementation("androidx.navigation:navigation-ui-ktx:2.4.2")
-    implementation("androidx.navigation:navigation-fragment-ktx:2.3.5")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.4.2")
 
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.1")
