@@ -8,11 +8,11 @@ plugins {
 apply(from = "../ktlint.gradle.kts")
 
 android {
-    compileSdk = 30
+    compileSdk = 31
     defaultConfig {
         applicationId = "dev.marcosfarias.pokedex"
         minSdk = 23
-        targetSdk = 30
+        targetSdk = 31
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -36,6 +36,7 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    namespace = "dev.marcosfarias.pokedex"
 }
 
 dependencies {
