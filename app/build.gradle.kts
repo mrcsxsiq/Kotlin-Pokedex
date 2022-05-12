@@ -44,7 +44,7 @@ dependencies {
     // Architecture
     implementation("androidx.appcompat:appcompat:1.3.1")
 
-    implementation("androidx.navigation:navigation-ui-ktx:2.3.5")
+    implementation("androidx.navigation:navigation-ui-ktx:2.4.2")
     implementation("androidx.navigation:navigation-fragment-ktx:2.3.5")
 
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
@@ -82,7 +82,7 @@ dependencies {
     debugImplementation("androidx.fragment:fragment-testing:1.3.6")
     testImplementation("androidx.arch.core:core-testing:2.1.0")
     androidTestImplementation("io.mockk:mockk-android:1.12.3")
-    androidTestImplementation("io.mockk:mockk-agent-jvm:1.12.0")
+    androidTestImplementation("io.mockk:mockk-agent-jvm:1.12.4")
     testImplementation("io.mockk:mockk:1.12.0")
     testImplementation("io.mockk:mockk-agent-jvm:1.12.0")
 }
