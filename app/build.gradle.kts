@@ -48,7 +48,7 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.4.2")
 
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.1")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.3")
     implementation("androidx.coordinatorlayout:coordinatorlayout:1.1.0")
 
     // Material
