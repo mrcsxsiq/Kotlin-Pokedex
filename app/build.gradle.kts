@@ -42,7 +42,7 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
     // Architecture
-    implementation("androidx.appcompat:appcompat:1.3.1")
+    implementation("androidx.appcompat:appcompat:1.4.1")
 
     implementation("androidx.navigation:navigation-ui-ktx:2.4.2")
     implementation("androidx.navigation:navigation-fragment-ktx:2.3.5")
@@ -71,14 +71,14 @@ dependencies {
 
     // Koin
     implementation("io.insert-koin:koin-android:3.1.3")
-    implementation("io.insert-koin:koin-core:3.1.3")
+    implementation("io.insert-koin:koin-core:3.2.0")
 
     // Test
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
     androidTestImplementation("com.android.support.test.espresso:espresso-contrib:3.0.2")
-    androidTestImplementation("androidx.navigation:navigation-testing:2.3.5")
+    androidTestImplementation("androidx.navigation:navigation-testing:2.4.2")
     debugImplementation("androidx.fragment:fragment-testing:1.3.6")
     testImplementation("androidx.arch.core:core-testing:2.1.0")
     androidTestImplementation("io.mockk:mockk-android:1.12.3")
