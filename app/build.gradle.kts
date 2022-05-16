@@ -56,7 +56,7 @@ dependencies {
     implementation("com.google.android.material:material:1.6.0")
 
     // Third Party
-    implementation("com.leinardi.android:speed-dial:3.2.0")
+    implementation("com.leinardi.android:speed-dial:3.3.0")
 
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
