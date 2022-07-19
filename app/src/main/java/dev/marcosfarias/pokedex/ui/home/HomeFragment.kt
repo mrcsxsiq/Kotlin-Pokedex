@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import dev.marcosfarias.pokedex.R
 import dev.marcosfarias.pokedex.databinding.FragmentHomeBinding
 import dev.marcosfarias.pokedex.model.Menu
@@ -36,7 +37,8 @@ class HomeFragment : Fragment() {
 
         viewBinding?.recyclerViewMenu?.layoutManager = GridLayoutManager(context, 2)
 
-        viewBinding?.recyclerViewNews?.layoutManager = GridLayoutManager(context, 1)
+        viewBinding?.recyclerViewNews?.layoutManager = LinearLayoutManager(context)
+
         viewBinding?.recyclerViewNews?.addItemDecoration(
             DividerItemDecoration(
                 context,
