@@ -25,5 +25,6 @@
     <color name="red">#FA6555</color>
     <color name="teal">#4FC1A6</color>
     <color name="yellow">#F6C747</color>
-    
+
+    <color name="textColor">@color/black</color>
 </resources>

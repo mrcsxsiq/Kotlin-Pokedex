@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundLight"
+    android:background="@color/background"
     android:fillViewport="true"
     android:paddingStart="16dp"
     android:paddingEnd="16dp">
@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:textColor="@color/black"
+                android:textColor="@color/textColor"
                 android:textSize="16sp"
                 tools:text="55" />
 
@@ -70,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:textColor="@color/black"
+                android:textColor="@color/textColor"
                 android:textSize="16sp"
                 tools:text="55" />
 
@@ -106,7 +106,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:textColor="@color/black"
+                android:textColor="@color/textColor"
                 android:textSize="16sp"
                 tools:text="55" />
 
@@ -142,7 +142,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:textColor="@color/black"
+                android:textColor="@color/textColor"
                 android:textSize="16sp"
                 tools:text="55" />
 
@@ -178,7 +178,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:textColor="@color/black"
+                android:textColor="@color/textColor"
                 android:textSize="16sp"
                 tools:text="55" />
 
@@ -214,7 +214,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:textColor="@color/black"
+                android:textColor="@color/textColor"
                 android:textSize="16sp"
                 tools:text="55" />
 
@@ -250,7 +250,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:textColor="@color/black"
+                android:textColor="@color/textColor"
                 android:textSize="16sp"
                 tools:text="55" />
 
@@ -272,7 +272,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Type defenses"
-            android:textColor="@color/black"
+            android:textColor="@color/textColor"
             android:textSize="18sp"
             android:textStyle="bold" />
 
