@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/generation"
-            android:textColor="@color/black"
+            android:textColor="@color/textColor"
             android:textSize="22sp"
             android:textStyle="bold" />
 
@@ -37,7 +37,7 @@
         android:overScrollMode="never"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
-        android:background="@color/backgroundLight"
+        android:background="@color/background"
         app:layoutManager="GridLayoutManager"
         tools:itemCount="8"
         tools:listitem="@layout/item_generation"

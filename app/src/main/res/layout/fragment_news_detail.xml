@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundLight"
+    android:background="@color/background"
     android:fitsSystemWindows="false">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -40,7 +40,7 @@
                     android:layout_marginEnd="16dp"
                     android:adjustViewBounds="true"
                     android:background="@drawable/news1"
-                    android:tint="@color/white" />
+                    android:tint="@color/background" />
 
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
@@ -57,7 +57,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="16dp"
                         android:text="@string/news_title"
-                        android:textColor="@color/black"
+                        android:textColor="@color/textColor"
                         android:textSize="28sp"
                         android:textStyle="bold" />
 

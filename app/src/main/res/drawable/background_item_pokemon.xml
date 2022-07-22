@@ -12,7 +12,7 @@
     <item android:id="@android:id/mask">
         <shape>
             <!-- Color doesn't matter -->
-            <solid android:color="@android:color/white" />
+            <solid android:color="@color/background" />
             <corners android:radius="15dp" />
         </shape>
     </item>

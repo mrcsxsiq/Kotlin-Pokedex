@@ -137,9 +137,9 @@
                     android:layout_height="?attr/actionBarSize"
                     app:tabGravity="fill"
                     app:tabMode="fixed"
-                    app:tabSelectedTextColor="@color/red"
-                    app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
-                    app:tabTextColor="@color/black">
+                    app:tabTextColor="@color/textColor"
+                    app:tabSelectedTextColor="?attr/colorAccent"
+                    app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget">
 
                     <com.google.android.material.tabs.TabItem
                         android:layout_width="wrap_content"
@@ -179,7 +179,7 @@
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/backgroundLight" />
+            android:background="@color/background" />
     </androidx.core.widget.NestedScrollView>
 
 
