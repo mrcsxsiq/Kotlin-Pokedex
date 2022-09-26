@@ -72,7 +72,7 @@ dependencies {
 
     // Koin
     implementation("io.insert-koin:koin-android:3.2.0")
-    implementation("io.insert-koin:koin-core:3.2.0")
+    implementation("io.insert-koin:koin-core:3.2.2")
 
     // Test
     testImplementation("junit:junit:4.13.2")
