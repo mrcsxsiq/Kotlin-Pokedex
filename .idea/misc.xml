@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/Kotlin-Pokedex/app/src/main/res/layout/fragment_dashboard.xml" value="0.16894630192502533" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.1381340579710145" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.14719202898550723" />
         <entry key="app/src/main/res/layout/item_pokemon.xml" value="0.1265625" />
@@ -10,7 +11,7 @@
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
