@@ -36,8 +36,9 @@
         android:layout_marginBottom="-24dp"
         android:adjustViewBounds="true"
         android:alpha="0.95"
+        android:contentDescription="@string/pokeball_background_image"
         android:src="@drawable/pokeball"
-        android:tint="@color/white" />
+        app:tint="@color/white" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -47,7 +48,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:adjustViewBounds="true"
+        android:contentDescription="@string/pokemon_image"
         android:src="@drawable/gen1" />
-
 
 </RelativeLayout>

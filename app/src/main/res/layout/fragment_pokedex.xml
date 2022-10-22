@@ -18,7 +18,8 @@
         android:adjustViewBounds="true"
         android:alpha="0.10"
         android:background="@drawable/pokeball"
-        android:tint="@color/white" />
+        app:tint="@color/white"
+        android:contentDescription="@string/pokeball_background_image" />
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"

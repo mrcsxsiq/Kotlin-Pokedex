@@ -34,7 +34,6 @@
         android:layout_alignParentEnd="true"
         android:alpha="0.25"
         android:gravity="top"
-        android:text="#001"
         android:textSize="18sp"
         android:textStyle="bold"
         tools:text="#001" />
@@ -50,9 +49,9 @@
         android:background="@drawable/background_item_pokemon_span"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
-        android:text="Grass"
         android:textColor="@color/white"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        tools:text="Grass" />
 
     <TextView
         android:id="@+id/textViewType2"
@@ -64,9 +63,9 @@
         android:background="@drawable/background_item_pokemon_span"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
-        android:text="Grass"
         android:textColor="@color/white"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        tools:text="Grass" />
 
     <TextView
         android:id="@+id/textViewType3"
@@ -77,9 +76,9 @@
         android:background="@drawable/background_item_pokemon_span"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
-        android:text="Grass"
         android:textColor="@color/white"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        tools:text="Grass" />
 
     <ImageView
         android:layout_width="96dp"
@@ -90,8 +89,9 @@
         android:layout_marginBottom="-24dp"
         android:adjustViewBounds="true"
         android:alpha="0.25"
+        android:contentDescription="@string/pokeball_background_image"
         android:src="@drawable/pokeball"
-        android:tint="@color/white" />
+        app:tint="@color/white" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -100,7 +100,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:adjustViewBounds="true"
+        android:contentDescription="@string/pokemon_image"
         android:src="@drawable/poke001" />
-
 
 </RelativeLayout>

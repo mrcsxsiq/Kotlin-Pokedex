@@ -30,7 +30,8 @@
                 android:id="@+id/imageView"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:contentDescription="@string/pokemon_image" />
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"

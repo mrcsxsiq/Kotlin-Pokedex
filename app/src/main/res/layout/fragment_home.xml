@@ -25,7 +25,8 @@
             android:adjustViewBounds="true"
             android:alpha="0.10"
             android:background="@drawable/pokeball"
-            android:tint="@color/white" />
+            android:contentDescription="@string/pokeball_background_image"
+            app:tint="@color/white" />
 
         <View
             android:layout_width="match_parent"
@@ -83,15 +84,16 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginEnd="16dp"
-                        android:gravity="center"
                         android:layout_marginBottom="16dp"
                         android:background="@drawable/background_search_bar"
+                        android:gravity="center"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginStart="16dp"
+                            android:contentDescription="@string/search_icon"
                             android:src="@drawable/search" />
 
                         <TextView
@@ -99,8 +101,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="16dp"
-                            android:textSize="16sp"
-                            android:text="@string/main_search" />
+                            android:text="@string/main_search"
+                            android:textSize="16sp" />
 
                     </LinearLayout>
                 </androidx.appcompat.widget.Toolbar>
@@ -119,10 +121,10 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
-            android:paddingTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="8dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewMenu"

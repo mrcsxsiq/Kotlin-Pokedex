@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundLight"
@@ -40,7 +39,8 @@
                     android:layout_marginEnd="16dp"
                     android:adjustViewBounds="true"
                     android:background="@drawable/news1"
-                    android:tint="@color/white" />
+                    android:contentDescription="@string/news_image"
+                    app:tint="@color/white" />
 
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
@@ -86,17 +86,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="end"
-                android:textStyle="bold"
                 android:text="@string/news_date"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="@string/lorem_small"
-                android:textStyle="italic"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textStyle="italic" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -110,6 +110,7 @@
                     android:layout_marginEnd="8dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
+                    android:contentDescription="@string/news_image"
                     android:scaleType="fitXY"
                     android:src="@drawable/news2" />
 
@@ -125,6 +126,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
                         android:adjustViewBounds="true"
+                        android:contentDescription="@string/news_image"
                         android:src="@drawable/news3" />
 
 
@@ -133,6 +135,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:adjustViewBounds="true"
+                        android:contentDescription="@string/news_image"
                         android:src="@drawable/news4" />
 
                 </LinearLayout>
@@ -158,6 +161,7 @@
                     android:layout_marginEnd="8dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
+                    android:contentDescription="@string/news_image"
                     android:scaleType="fitXY"
                     android:src="@drawable/news4" />
 
@@ -167,6 +171,7 @@
                     android:layout_marginEnd="8dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
+                    android:contentDescription="@string/news_image"
                     android:scaleType="fitXY"
                     android:src="@drawable/news3" />
             </LinearLayout>
@@ -177,7 +182,6 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/lorem_large"
                 android:textSize="18sp" />
-
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
