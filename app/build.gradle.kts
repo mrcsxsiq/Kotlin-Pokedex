@@ -9,7 +9,7 @@ apply(from = "../ktlint.gradle.kts")
 
 android {
     compileSdk = 31
-    buildToolsVersion("32.0.2")
+    buildToolsVersion = "32.0.2"
     defaultConfig {
         applicationId = "dev.marcosfarias.pokedex"
         minSdk = 23
