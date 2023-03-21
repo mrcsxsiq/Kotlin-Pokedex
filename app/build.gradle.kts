@@ -8,12 +8,12 @@ plugins {
 apply(from = "../ktlint.gradle.kts")
 
 android {
-    compileSdk = 31
+    compileSdk = 32
     buildToolsVersion = "32.0.2"
     defaultConfig {
         applicationId = "dev.marcosfarias.pokedex"
         minSdk = 23
-        targetSdk = 31
+        targetSdk = 32
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
