@@ -34,6 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
+                android:baselineAligned="false"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -45,7 +46,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Height"
+                        android:text="@string/height"
                         android:textSize="16sp" />
 
 
@@ -68,7 +69,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Weight"
+                        android:text="@string/weight"
                         android:textSize="16sp" />
 
 
@@ -76,9 +77,9 @@
                         android:id="@+id/textViewWeight"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="15.2 lbs (6.9kg)"
                         android:textColor="@color/black"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        tools:text="15.2 lbs (6.9kg)" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -89,7 +90,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Breeding"
+            android:text="@string/breeding"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -104,7 +105,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Gender"
+                android:text="@string/gender"
                 android:textSize="16sp" />
 
 
@@ -113,9 +114,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:text="\u2641 87.5%  \u2640 12.5%"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                tools:text="\u2641 87.5%  \u2640 12.5%" />
 
         </LinearLayout>
 
@@ -129,7 +130,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Egg Groups"
+                android:text="@string/egg_groups"
                 android:textSize="16sp" />
 
 
@@ -154,7 +155,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Egg Cycle"
+                android:text="@string/egg_cycle"
                 android:textSize="16sp" />
 
 
@@ -173,7 +174,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Location"
+            android:text="@string/location"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -190,7 +191,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Training"
+            android:text="@string/training"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -206,7 +207,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Base EXP"
+                android:text="@string/base_exp"
                 android:textSize="16sp" />
 
 

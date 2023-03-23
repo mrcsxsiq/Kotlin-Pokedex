@@ -31,4 +31,25 @@
     <string name="dashboard_tab_2">Base Stats</string>
     <string name="dashboard_tab_3">Evolution</string>
     <string name="dashboard_tab_4">Moves</string>
+    <string name="pokeball_background_image">Pokeball Background Image</string>
+    <string name="search_icon">Search Icon</string>
+    <string name="height">Height</string>
+    <string name="weight">Weight</string>
+    <string name="breeding">Breeding</string>
+    <string name="gender">Gender</string>
+    <string name="egg_groups">Egg Groups</string>
+    <string name="egg_cycle">Egg Cycle</string>
+    <string name="location">Location</string>
+    <string name="training">Training</string>
+    <string name="base_exp">Base EXP</string>
+    <string name="pokemon_image">Pokemon Image</string>
+    <string name="news_image">News Image</string>
+    <string name="hp">HP</string>
+    <string name="sp_atk">Sp. Atk</string>
+    <string name="defense">Defense</string>
+    <string name="attack">Attack</string>
+    <string name="sp_def">Sp. Def</string>
+    <string name="speed">Speed</string>
+    <string name="total">Total</string>
+    <string name="type_defenses">Type defenses</string>
 </resources>
