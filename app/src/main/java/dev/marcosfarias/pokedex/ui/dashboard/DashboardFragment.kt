@@ -9,11 +9,12 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import dev.marcosfarias.pokedex.GlideApp
 import androidx.transition.TransitionInflater
-import com.bumptech.glide.Glide
+import com.google.android.material.tabs.TabLayoutMediator
+import dev.marcosfarias.pokedex.GlideApp
 import dev.marcosfarias.pokedex.R
 import dev.marcosfarias.pokedex.databinding.FragmentDashboardBinding
+import dev.marcosfarias.pokedex.model.Pokemon
 import dev.marcosfarias.pokedex.utils.ImageLoadingListener
 import dev.marcosfarias.pokedex.utils.PokemonColorUtil
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -47,48 +48,57 @@ class DashboardFragment : Fragment() {
 
         dashboardViewBinding?.imageView?.transitionName = name
 
-        dashboardViewModel.getPokemonById(id).observe(viewLifecycleOwner, Observer { pokemonValue ->
-            pokemonValue?.let { pokemon ->
-                dashboardViewBinding?.textViewID?.text = pokemon.id
-                dashboardViewBinding?.textViewName?.text = pokemon.name
+        dashboardViewModel.getPokemonById(id).observe(
+            viewLifecycleOwner,
+            Observer { pokemonValue ->
+                pokemonValue?.let { pokemon ->
+                    dashboardViewBinding?.textViewID?.text = pokemon.id
+                    dashboardViewBinding?.textViewName?.text = pokemon.name
 
-                val color = PokemonColorUtil(view.context).getPokemonColor(pokemon.typeofpokemon)
-                dashboardViewBinding?.appBar?.setBackgroundColor(color)
-                dashboardViewBinding?.toolbarLayout?.contentScrim?.colorFilter =
-                    PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
-                activity?.window?.statusBarColor =
-                    PokemonColorUtil(view.context).getPokemonColor(pokemon.typeofpokemon)
+                    val color = PokemonColorUtil(view.context).getPokemonColor(pokemon.typeofpokemon)
+                    dashboardViewBinding?.appBar?.setBackgroundColor(color)
+                    dashboardViewBinding?.toolbarLayout?.contentScrim?.colorFilter =
+                        PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
+                    activity?.window?.statusBarColor =
+                        PokemonColorUtil(view.context).getPokemonColor(pokemon.typeofpokemon)
 
-                pokemon.typeofpokemon?.getOrNull(0).let { firstType ->
-                    dashboardViewBinding?.textViewType3?.text = firstType
-                    dashboardViewBinding?.textViewType3?.isVisible = firstType != null
+                    pokemon.typeofpokemon?.getOrNull(0).let { firstType ->
+                        dashboardViewBinding?.textViewType3?.text = firstType
+                        dashboardViewBinding?.textViewType3?.isVisible = firstType != null
+                    }
+
+                    pokemon.typeofpokemon?.getOrNull(1).let { secondType ->
+                        dashboardViewBinding?.textViewType2?.text = secondType
+                        dashboardViewBinding?.textViewType2?.isVisible = secondType != null
+                    }
+
+                    pokemon.typeofpokemon?.getOrNull(2).let { thirdType ->
+                        dashboardViewBinding?.textViewType1?.text = thirdType
+                        dashboardViewBinding?.textViewType1?.isVisible = thirdType != null
+                    }
+
+                    dashboardViewBinding?.imageView?.let {
+                        GlideApp.with(view.context)
+                            .load(pokemon.imageurl)
+                            .listener(
+                                ImageLoadingListener {
+                                    startPostponedEnterTransition()
+                                }
+                            )
+                            .into(it)
+                    }
+                    setUpViewPagerAndTabLayout(pokemon)
                 }
-
-                pokemon.typeofpokemon?.getOrNull(1).let { secondType ->
-                    dashboardViewBinding?.textViewType2?.text = secondType
-                    dashboardViewBinding?.textViewType2?.isVisible = secondType != null
-                }
-
-                pokemon.typeofpokemon?.getOrNull(2).let { thirdType ->
-                    dashboardViewBinding?.textViewType1?.text = thirdType
-                    dashboardViewBinding?.textViewType1?.isVisible = thirdType != null
-                }
-
-                dashboardViewBinding?.imageView?.let {
-                    GlideApp.with(view.context)
-                        .load(pokemon.imageurl)
-                        .listener(ImageLoadingListener {
-                            startPostponedEnterTransition()
-                        })
-                        .into(it)
-                }
-                val pager = dashboardViewBinding?.viewPager
-                val tabs = dashboardViewBinding?.tabs
-                pager?.adapter =
-                    ViewPagerAdapter(childFragmentManager, requireContext(), pokemon.id)
-                tabs?.setupWithViewPager(pager)
             }
-        })
+        )
+    }
+
+    private fun setUpViewPagerAndTabLayout(pokemon: Pokemon) = dashboardViewBinding?.let {
+        val adapter = ViewPagerAdapter(childFragmentManager, requireContext(), viewLifecycleOwner.lifecycle, pokemon.id)
+        it.viewPager.adapter = adapter
+        TabLayoutMediator(it.tabs, it.viewPager) { tab, position ->
+            tab.text = adapter.getPageTitle(position)
+        }.attach()
     }
 
     override fun onDestroyView() {

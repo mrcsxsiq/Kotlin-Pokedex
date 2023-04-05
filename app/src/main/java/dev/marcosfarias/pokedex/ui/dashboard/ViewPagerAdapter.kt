@@ -3,7 +3,8 @@ package dev.marcosfarias.pokedex.ui.dashboard
 import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentStatePagerAdapter
+import androidx.lifecycle.Lifecycle
+import androidx.viewpager2.adapter.FragmentStateAdapter
 import dev.marcosfarias.pokedex.R
 import dev.marcosfarias.pokedex.ui.dashboard.about.AboutFragment
 import dev.marcosfarias.pokedex.ui.dashboard.evolution.EvolutionFragment
@@ -13,8 +14,17 @@ import dev.marcosfarias.pokedex.ui.dashboard.stats.StatsFragment
 class ViewPagerAdapter(
     supportFragmentManager: FragmentManager,
     context: Context,
+    lifecycle: Lifecycle,
     private val pokemonId: String
-) : FragmentStatePagerAdapter(supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+) : FragmentStateAdapter(supportFragmentManager, lifecycle) {
+
+    override fun getItemCount(): Int {
+        return pages.size
+    }
+
+    override fun createFragment(position: Int): Fragment {
+        return pages[position].ctor()
+    }
 
     data class Page(val title: String, val ctor: () -> Fragment)
 
@@ -38,15 +48,7 @@ class ViewPagerAdapter(
         )
     )
 
-    override fun getItem(position: Int): Fragment {
-        return pages[position].ctor()
-    }
-
-    override fun getCount(): Int {
-        return pages.size
-    }
-
-    override fun getPageTitle(position: Int): CharSequence? {
+    fun getPageTitle(position: Int): CharSequence {
         return pages[position].title
     }
 }
