@@ -41,9 +41,10 @@ class EvolutionFragment : Fragment() {
             pokemonValue?.let { pokemon ->
                 val evolutions = pokemon.evolutions ?: emptyList()
                 dashboardViewModel.getPokemonEvolutionsByIds(evolutions)
-                    .observe(viewLifecycleOwner, Observer {
-                        val pokemons: List<Pokemon> = it
-                        adapter.setList(pokemons)
+                    .observe(viewLifecycleOwner, Observer { pokemons ->
+                        val sortedEvolutionIds = pokemon.evolutions
+                        adapter.setList(pokemons.sortedBy { sortedEvolutionIds?.indexOf(it.id) })
+
                         adapter.notifyDataSetChanged()
 
                         if (pokemons.isEmpty()) {
