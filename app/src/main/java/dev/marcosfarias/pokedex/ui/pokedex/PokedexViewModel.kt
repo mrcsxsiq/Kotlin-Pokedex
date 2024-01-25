@@ -1,9 +1,12 @@
 package dev.marcosfarias.pokedex.ui.pokedex
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import dev.marcosfarias.pokedex.database.dao.PokemonDAO
 import dev.marcosfarias.pokedex.model.Pokemon
 import dev.marcosfarias.pokedex.repository.PokemonService
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -19,24 +22,14 @@ class PokedexViewModel(
     }
 
     private fun initNetworkRequest() {
-        val call = pokemonService.get()
-
-        call.enqueue(object : Callback<List<Pokemon>?> {
-            override fun onResponse(
-                call: Call<List<Pokemon>?>?,
-                response: Response<List<Pokemon>?>?
-            ) {
-                response?.body()?.let { pokemons: List<Pokemon> ->
-                    thread {
-                        pokemonDAO.add(pokemons)
-                    }
-                }
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                val response = pokemonService.get()
+                pokemonDAO.add(response)
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
-
-            override fun onFailure(call: Call<List<Pokemon>?>?, t: Throwable?) {
-                // TODO handle failure
-            }
-        })
+        }
     }
 
     fun getListPokemon() = pokemonDAO.all()
