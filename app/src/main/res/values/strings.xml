@@ -31,4 +31,12 @@
     <string name="dashboard_tab_2">Base Stats</string>
     <string name="dashboard_tab_3">Evolution</string>
     <string name="dashboard_tab_4">Moves</string>
+    <string name="network_disconnected">Sin conexión de red.</string>
+    <string name="network_no_internet">No se puede acceder a Internet.</string>
+    <string name="network_backend_unavailable">Hay conexión a Internet, pero el servicio no está disponible.</string>
+    <string name="network_backend_available">Servicio disponible.</string>
+    <string name="network_operation_success">Datos actualizados correctamente.</string>
+    <string name="network_captive_portal">La red requiere iniciar sesión para acceder a Internet.</string>
+    <string name="network_recovered">Conexión recuperada.</string>
+    <string name="network_operation_failed">La operación de red no se pudo completar.</string>
 </resources>

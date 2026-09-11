@@ -36,6 +36,6 @@
         android:adjustViewBounds="true"
         android:alpha="0.25"
         android:src="@drawable/pokeball"
-        android:tint="@color/white" />
+        app:tint="@color/white" />
 
 </RelativeLayout>

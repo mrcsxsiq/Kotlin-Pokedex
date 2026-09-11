@@ -13,6 +13,9 @@ import dev.marcosfarias.pokedex.R
 import dev.marcosfarias.pokedex.databinding.ItemPokemonBinding
 import dev.marcosfarias.pokedex.model.Pokemon
 import dev.marcosfarias.pokedex.utils.PokemonColorUtil
+import dev.marcosfarias.pokedex.utils.AppConnectivityManager
+import dev.marcosfarias.pokedex.utils.ConnectivityAndInternetAccess
+import dev.marcosfarias.pokedex.utils.ImageLoadingListener
 
 class EvolutionAdapter(
     private val context: Context
@@ -52,10 +55,27 @@ class EvolutionAdapter(
                 viewBinding.textViewType1.isVisible = thirdType != null
             }
 
-            GlideApp.with(itemView.context)
-                .load(item.imageurl)
-                .placeholder(android.R.color.transparent)
-                .into(viewBinding.imageView)
+            if (ConnectivityAndInternetAccess.isConnected(itemView.context) &&
+                ConnectivityAndInternetAccess.hasPhysicalNetwork(itemView.context)
+            ) {
+                GlideApp.with(itemView.context)
+                    .load(item.imageurl)
+                    .placeholder(android.R.color.transparent)
+                    .listener(
+                        ImageLoadingListener(
+                            listener = {},
+                            onNetworkFailure = { failure ->
+                                AppConnectivityManager.shared.diagnoseNetworkFailure(
+                                    itemView.context,
+                                    failure
+                                )
+                            }
+                        )
+                    )
+                    .into(viewBinding.imageView)
+            } else {
+                GlideApp.with(itemView.context).clear(viewBinding.imageView)
+            }
         }
     }
 

@@ -6,7 +6,10 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 
-class ImageLoadingListener(private val listener: OnLoadFinishedListener) :
+class ImageLoadingListener(
+    private val listener: OnLoadFinishedListener,
+    private val onNetworkFailure: ((Throwable) -> Unit)? = null
+) :
     RequestListener<Drawable> {
     override fun onLoadFailed(
         e: GlideException?,
@@ -14,6 +17,9 @@ class ImageLoadingListener(private val listener: OnLoadFinishedListener) :
         target: Target<Drawable>?,
         isFirstResource: Boolean
     ): Boolean {
+        e?.rootCauses
+            ?.firstOrNull { AppConnectivityManager.shared.isNetworkFailure(it) }
+            ?.let { onNetworkFailure?.invoke(it) }
         listener.invoke()
         return false
     }

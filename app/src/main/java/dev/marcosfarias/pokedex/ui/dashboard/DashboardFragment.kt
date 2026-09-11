@@ -15,6 +15,8 @@ import com.bumptech.glide.Glide
 import dev.marcosfarias.pokedex.R
 import dev.marcosfarias.pokedex.databinding.FragmentDashboardBinding
 import dev.marcosfarias.pokedex.utils.ImageLoadingListener
+import dev.marcosfarias.pokedex.utils.AppConnectivityManager
+import dev.marcosfarias.pokedex.utils.ConnectivityAndInternetAccess
 import dev.marcosfarias.pokedex.utils.PokemonColorUtil
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -75,12 +77,27 @@ class DashboardFragment : Fragment() {
                 }
 
                 dashboardViewBinding?.imageView?.let {
-                    GlideApp.with(view.context)
-                        .load(pokemon.imageurl)
-                        .listener(ImageLoadingListener {
-                            startPostponedEnterTransition()
-                        })
-                        .into(it)
+                    if (ConnectivityAndInternetAccess.isConnected(view.context) &&
+                        ConnectivityAndInternetAccess.hasPhysicalNetwork(view.context)
+                    ) {
+                        GlideApp.with(view.context)
+                            .load(pokemon.imageurl)
+                            .listener(
+                                ImageLoadingListener(
+                                    listener = { startPostponedEnterTransition() },
+                                    onNetworkFailure = { failure ->
+                                        AppConnectivityManager.shared.diagnoseNetworkFailure(
+                                            view.context,
+                                            failure
+                                        )
+                                    }
+                                )
+                            )
+                            .into(it)
+                    } else {
+                        GlideApp.with(view.context).clear(it)
+                        startPostponedEnterTransition()
+                    }
                 }
                 val pager = dashboardViewBinding?.viewPager
                 val tabs = dashboardViewBinding?.tabs

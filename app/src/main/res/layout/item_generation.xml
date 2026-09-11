@@ -37,7 +37,7 @@
         android:adjustViewBounds="true"
         android:alpha="0.95"
         android:src="@drawable/pokeball"
-        android:tint="@color/white" />
+        app:tint="@color/white" />
 
     <ImageView
         android:id="@+id/imageView"

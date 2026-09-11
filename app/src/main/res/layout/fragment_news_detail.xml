@@ -40,7 +40,7 @@
                     android:layout_marginEnd="16dp"
                     android:adjustViewBounds="true"
                     android:background="@drawable/news1"
-                    android:tint="@color/white" />
+                    app:tint="@color/white" />
 
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"

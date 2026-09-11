@@ -6,8 +6,10 @@ import dev.marcosfarias.pokedex.database.dao.PokemonDAO
 import dev.marcosfarias.pokedex.model.Pokemon
 import dev.marcosfarias.pokedex.repository.PokemonService
 import dev.marcosfarias.pokedex.ui.pokedex.PokedexViewModel
+import dev.marcosfarias.pokedex.utils.AppConnectivityManager
 import io.mockk.*
 import org.junit.*
+import java.net.UnknownHostException
 
 class PokedexViewModelTest {
 
@@ -16,16 +18,32 @@ class PokedexViewModelTest {
 
     private val dao: PokemonDAO = mockk(relaxed = true)
     private val service: PokemonService = mockk(relaxed = true)
+    private val connectivityManager: AppConnectivityManager = mockk(relaxed = true)
     private lateinit var viewModel: PokedexViewModel
 
     @Before
     fun before() {
-        viewModel = PokedexViewModel(dao, service)
+        viewModel = PokedexViewModel(dao, service, connectivityManager)
     }
 
     @Test
-    fun `GIVEN service WHEN call service THEN check if is called once at viewmodel initialization`() {
-        verify(exactly = 1) { service.get() }
+    fun `GIVEN viewmodel WHEN created THEN does not start network request`() {
+        verify(exactly = 0) { service.get() }
+    }
+
+    @Test
+    fun `GIVEN unknown host WHEN classified THEN is a network failure`() {
+        Assert.assertTrue(AppConnectivityManager().isNetworkFailure(UnknownHostException()))
+    }
+
+    @Test
+    fun `GIVEN application error WHEN classified THEN is not a network failure`() {
+        Assert.assertFalse(AppConnectivityManager().isNetworkFailure(IllegalStateException()))
+    }
+
+    @Test
+    fun `GIVEN dangling VPN WHEN checking policy THEN remote request is blocked`() {
+        Assert.assertFalse(AppConnectivityManager().canStartRemoteRequest(true, false))
     }
 
     @Test

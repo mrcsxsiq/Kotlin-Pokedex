@@ -11,5 +11,5 @@ val viewModelsModule = module {
     viewModel { DashboardViewModel(get()) }
     viewModel { GenerationViewModel() }
     viewModel { HomeViewModel() }
-    viewModel { PokedexViewModel(get(), get()) }
+    viewModel { PokedexViewModel(get(), get(), get()) }
 }

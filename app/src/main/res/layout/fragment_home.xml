@@ -25,7 +25,7 @@
             android:adjustViewBounds="true"
             android:alpha="0.10"
             android:background="@drawable/pokeball"
-            android:tint="@color/white" />
+            app:tint="@color/white" />
 
         <View
             android:layout_width="match_parent"

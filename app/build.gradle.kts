@@ -10,12 +10,15 @@ apply(from = "../ktlint.gradle.kts")
 android {
     compileSdk = 33
     buildToolsVersion = "33.0.0"
+    lint {
+        disable += "NotificationPermission"
+    }
     defaultConfig {
         applicationId = "dev.marcosfarias.pokedex"
         minSdk = 23
         targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 8
+        versionName = "3.0.7"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
