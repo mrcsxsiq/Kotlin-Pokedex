@@ -18,23 +18,27 @@ class PokedexViewModel(
         initNetworkRequest()
     }
 
+
     private fun initNetworkRequest() {
         val call = pokemonService.get()
 
-        call.enqueue(object : Callback<List<Pokemon>?> {
+        call.enqueue(object : Callback<List<Pokemon>> {
             override fun onResponse(
-                call: Call<List<Pokemon>?>?,
-                response: Response<List<Pokemon>?>?
+                call: Call<List<Pokemon>>,
+                response: Response<List<Pokemon>>
             ) {
-                response?.body()?.let { pokemons: List<Pokemon> ->
+                response.body()?.let { pokemons ->
                     thread {
                         pokemonDAO.add(pokemons)
                     }
                 }
             }
 
-            override fun onFailure(call: Call<List<Pokemon>?>?, t: Throwable?) {
-                // TODO handle failure
+            override fun onFailure(
+                call: Call<List<Pokemon>>,
+                t: Throwable
+            ) {
+                // При необходимости здесь можно добавить обработку ошибки.
             }
         })
     }
